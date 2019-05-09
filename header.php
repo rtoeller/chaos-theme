@@ -20,23 +20,34 @@
 
 	<style type="text/css">
 		body {
-			font-family: "<?php echo get_option('setting_font');?>";
+			font-family: "<?php echo get_theme_mod( 'select_font-generell');?>";
 			font-size: <?php echo get_option('setting_textsize');?>;
+			font-weight: <?php echo get_option('setting_font-weight-generell')?>;
+			line-height: <?php echo get_option('setting_line-height-generell')?>;
+			color: <?php echo get_theme_mod('setting_textcolor-generell');?>;
+		}
+		a {
+			color: <?php echo get_theme_mod('setting_linkcolor-generell');?>;
+		}
+		#content {
+			background-color: <?php echo get_theme_mod('setting_generell-header');?>;
+			background-image: url(<?php echo get_theme_mod('setting_generell-background');?>);
+			background-position: <?php echo get_theme_mod('select_generell-background-position');?>;
+			background-repeat: <?php echo get_theme_mod('select_generell-background-repeat');?>;
 		}
 		#masthead {
 			background-color: <?php echo get_theme_mod('setting_color-header');?>;
 			background-image: url(<?php echo get_theme_mod('setting_header-background');?>);
+			background-position: <?php echo get_theme_mod('select_header-background-position');?>;
+			background-repeat: <?php echo get_theme_mod('select_header-background-repeat');?>;
 			padding-top: <?php echo get_theme_mod('setting_header-padding');?>;
 			padding-bottom: <?php echo get_theme_mod('setting_header-padding');?>;
 			border-bottom: <?php echo get_theme_mod('setting_header-borderbottom');?>;
+		
 		}
-		#main > .chaos-container {
+		.chaos-wrapper  {
 			margin-top: <?php echo get_option('setting_page-margin');?>;
 			margin-bottom: <?php echo get_option('setting_page-margin');?>;
-		}
-		.chaos-footer {
-			border-top: <?php echo get_theme_mod('setting_footer-bordertop');?>;
-			background-color: <?php echo get_theme_mod('setting_color-footer');?>;
 		}
 		.site-branding {
 			width: <?php echo get_option('setting_textfield');?>
@@ -62,14 +73,14 @@
 			display: inline-block;
 			float: right;
 		}
-		ul#menu-main li {
+		.chaos-main-menu ul.main-menu li {
 			padding: <?php echo get_theme_mod('setting_menu-padding');?>;
 		}
-		ul#menu-main li a {
+		.chaos-main-menu ul.main-menu li a {
 			color: <?php echo get_theme_mod('setting_menu-color');?>
 		}
-		ul#menu-main li a:hover,
-		ul#menu-main li.current_page_item a {
+		.chaos-main-menu ul.main-menu li a:hover,
+		.chaos-main-menu ul.main-menu li.current_page_item a {
 			color: <?php echo get_theme_mod('setting_menuhover-color');?>;
 		}
 		.menu-background ul li.current_page_item,
@@ -81,19 +92,77 @@
 		.menu-background ul li a:hover  {
 			color: <?php echo get_theme_mod('setting_menu-color');?> !important;
 		}
-	</style>
+		.chaos-footer {
+			border-top: <?php echo get_theme_mod('setting_footer-bordertop');?>;
+			background-color: <?php echo get_theme_mod('setting_color-footer');?>;
+			padding-top: <?php echo get_theme_mod('setting_footer-padding')?>;
+			padding-bottom: <?php echo get_theme_mod('setting_footer-padding')?>;
+			font-family: "<?php echo get_theme_mod( 'select_font-footer');?>";
+			font-size: <?php echo get_option('setting_textsize-footer');?>;
+			font-weight: <?php echo get_option('setting_font-weight-footer')?>;
+			line-height: <?php echo get_option('setting_line-height-footer')?>;
+		}
+		.chaos-footer-widget {
+			color: <?php echo get_theme_mod('setting_color-text-footer');?>; 
+		}
+		.chaos-footer-widget .widget-content a {
+			color: <?php echo get_option('setting_color-link-footer');?>
+		}
+		.chaos-contact-header a i {
+			padding-right: <?php echo get_theme_mod('setting_padding-socialmedia');?>;
+			font-size: <?php echo get_theme_mod('setting_size-socialmedia');?>;
+			color: <?php echo get_theme_mod('setting_iconcolor-socialmedia');?>;
+		}		
+	</style>	
 </head>
 
 <body <?php body_class(); ?>>
-<?php echo get_theme_mod('select_font');?>
-<?php echo get_option('select_font');?>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'twentynineteen' ); ?></a>
-	
-		<header id="masthead" class="<?php echo is_singular() && twentynineteen_can_show_post_thumbnail() ? 'site-header featured-image' : 'site-header'; ?>">
-		<?php echo get_option('setting-radio')?>
+		<?php 
+			if ( get_theme_mod('setting_header-background-100') == 1 ) {
+				$backgroundSize = '100%';
+			}
+			else {
+				$backgroundSize = 'auto';
+			}
+			
+			if ( get_theme_mod('setting_header-100-width') == 1 ) {
+				$fullWidth = ' chaos-full-width';
+			}
+			else {
+				$fullWidth = '';
+			}
+		?>
+		<div class="chaos-contact-header">
+			<div class="chaos-container">
+				<div class="chaos-social-media-icons chaos-social-media-align-<?php echo get_theme_mod('setting_align-socialmedia');?>">
+					<?php if( get_option('setting_facebook-socialmedia')) { ?>
+						<a href="<?php echo get_option('setting_facebook-socialmedia');?>" target="_blank">
+							<i class="fab fa-facebook-f"></i>
+						</a>
+					<?php } ?>
+					<?php if( get_option('setting_twitter-socialmedia')) { ?>
+						<a href="<?php echo get_option('setting_twitter-socialmedia');?>" target="_blank">
+							<i class="fab fa-twitter"></i> 
+						</a>
+					<?php } ?>
+					<?php if( get_option('setting_instagram-socialmedia')) { ?>
+						<a href="<?php echo get_option('setting_instagram-socialmedia');?>" target="_blank">
+							<i class="fab fa-instagram"></i>
+						</a>
+					<?php } ?>
+					<?php if( get_option('setting_xing-socialmedia')) { ?>
+						<a href="<?php echo get_option('setting_xing-socialmedia');?>" target="_blank">
+							<i class="fab fa-xing"></i> 
+						</a>
+					<?php } ?>
+				</div>
+			</div>
+		</div>
+		<header id="masthead" class="<?php echo is_singular() && twentynineteen_can_show_post_thumbnail() ? 'site-header featured-image' : 'site-header'; ?>" style="background-size: <?php echo $backgroundSize;?>;" >
 			<?php if ( get_theme_mod('setting_header-align') == 'right' ) { ?>
-				<div class="chaos-container chaos-header chaos-header-alin-right">
+				<div class="chaos-container chaos-header chaos-header-alin-right<?php echo $fullWidth;?>">
 					<div class="chaos-main-menu">
 						<?php
 						 if ( get_theme_mod('setting_menu-background') == 1 ) { 
@@ -123,7 +192,7 @@
 				</div>
 			<?php } 
 			else { ?>
-				<div class="chaos-container chaos-header chaos-header-alin-<?php echo get_theme_mod('setting_header-align');?>">
+				<div class="chaos-container chaos-header chaos-header-alin-<?php echo get_theme_mod('setting_header-align').$fullWidth;?>">
 					<div class="chaos-logo">
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" itemprop="url">
 							<img src="<?php echo get_theme_mod('setting_logo-img');?>" width="<?php echo get_option('setting_logo-width');?>" alt="logo" itemprop="logo" />
@@ -131,12 +200,23 @@
 					</div>
 					<div class="chaos-main-menu">
 					<?php
-						wp_nav_menu(
-							array(
-								'theme_location' => 'menu-1',
-								'menu_class'     => 'main-menu'
-							)
-						);
+						if ( get_theme_mod('setting_menu-background') == 1 ) { 
+							wp_nav_menu(
+								array(
+									'theme_location' => 'menu-1',
+									'menu_class'     => 'main-menu',
+									'container_class'		=>	'menu-background',
+								)
+							);
+						 }
+						 else {
+							wp_nav_menu(
+								array(
+									'theme_location' => 'menu-1',
+									'menu_class'     => 'main-menu',
+								)
+							);
+						 }
 					?>
 					</div>
 				</div>
