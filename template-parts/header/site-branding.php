@@ -10,7 +10,11 @@
 <div class="site-branding">
 
 	<?php if ( has_custom_logo() ) : ?>
-		<div class="site-logo"><?php the_custom_logo(); ?></div>
+		<div class="site-logo">
+			<a href="http://localhost/wordpress/" rel="home" itemprop="url">
+				<img src="http://localhost/wordpress/wp-content/uploads/2019/05/cropped-1200px-Logo_Logo.svg_.png" alt="test" itemprop="logo" />
+			</a>
+		</div>
 	<?php endif; ?>
 	<?php $blog_info = get_bloginfo( 'name' ); ?>
 	<?php if ( ! empty( $blog_info ) ) : ?>
