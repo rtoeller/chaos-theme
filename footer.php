@@ -45,7 +45,11 @@
 			<?php endif; ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
-
+	<div class="chaos-copyright">
+		<div class="chaos-container">
+			 &copy; Copyright 2019 MissChaos
+		</div>
+	</div>
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
