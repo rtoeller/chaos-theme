@@ -26,7 +26,8 @@ function wpv_customize_menu ( $wp_customize ) {
 	$wp_customize->add_setting( 'setting_menuhover-color' , array(
         'default' => '#fff',
         'sanitize_callback' => 'sanitize_hex_color',
-    ) );
+	) );
+	
     $wp_customize->add_control(
         new WP_Customize_Color_Control(
             $wp_customize,
@@ -44,6 +45,7 @@ function wpv_customize_menu ( $wp_customize ) {
 			'type' => 'theme_mod',
 		)
 	);
+	
 	$wp_customize->add_control( 'control_menu-padding', array(
 			'label'			=>		'Padding',
 			'section'		=>		'chaos_menu',

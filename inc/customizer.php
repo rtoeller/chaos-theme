@@ -163,8 +163,44 @@ require get_template_directory() . '/inc/section/chaos-section-generell.php';
 require get_template_directory() . '/inc/section/chaos-section-logo.php';
 require get_template_directory() . '/inc/section/chaos-section-header.php';
 require get_template_directory() . '/inc/section/chaos-section-menu.php';
-require get_template_directory() . '/inc/section/chaos-section-example.php';
+require get_template_directory() . '/inc/section/chaos-section-socialmedia.php';
+require get_template_directory() . '/inc/section/chaos-section-copyright.php';
+//require get_template_directory() . '/inc/section/chaos-section-example.php';
 
+function chaos_get_fonts() {
+	$fonts = array();
+
+	foreach( glob( get_template_directory() . '/fonts/*', GLOB_ONLYDIR) as $dir ) {
+		$font = basename($dir);
+		$fonts[$font] = ucfirst( $font );
+	}
+
+	return  $fonts;
+}
+
+function chaos_get_background_position() {
+	$position = array(
+			'left top' => 'left top',
+			'left center' => 'left center',
+			'left bottom' => 'left bottom',
+			'center center' => 'center center',
+			'right top' => 'right top',
+			'right center' => 'right center',
+			'right bottom' => 'right bottom',
+	);
+
+	return  $position;
+}
+
+function chaos_get_background_repeat() {
+	$repeat = array(
+			'no repeat' => 'no repeat',
+			'repeat-x' => 'repeat-x',
+			'repeat-y' => 'repeat-y',
+	);
+
+	return  $repeat;
+}
 
 function javascript_register ( $wp_customize ) {
 

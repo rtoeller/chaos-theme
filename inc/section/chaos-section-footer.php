@@ -14,7 +14,7 @@
 				'type'	=>	'option',
 			)
 		);
-		$wp_customize->add_control( 'control_content-width', array(
+		$wp_customize->add_control( 'control_footer-columns', array(
 				'label'		=>		'Footer Spalten',
 				'section'	=>		'chaos_footer',
 				'settings'	=>		'setting_footer-columns',
@@ -39,6 +39,7 @@
 				)
 			)
 		);
+		
 		// BACKGROUND POSITION
 		$wp_customize->add_setting( 'setting_footer-bg-position', array(
 				'capability' => 'edit_theme_options',
@@ -62,11 +63,11 @@
 			)
 		);
 
+		// BACKGROUND COLOR
 		$wp_customize->add_setting( 'setting_color-footer' , array(
 			'default' => '#fff',
 			'sanitize_callback' => 'sanitize_hex_color',
 		) );
-	
 		$wp_customize->add_control(
 			new WP_Customize_Color_Control(
 				$wp_customize,
@@ -89,6 +90,110 @@
 				'section'		=>		'chaos_footer',
 				'settings'		=>		'setting_footer-bordertop',
 				'type'			=>		'text',
+			)
+		);
+
+		$wp_customize->add_setting( 'setting_footer-padding', array(
+				'default'		=>		'',
+				'sanitize_callback'	=>	'sanitize_text_field',
+				'type' => 'theme_mod',
+			)
+		);
+		$wp_customize->add_control( 'control_footer-padding', array(
+				'label'			=>		'Footer Padding',
+				'section'		=>		'chaos_footer',
+				'settings'		=>		'setting_footer-padding',
+				'type'			=>		'text',
+			)
+		);
+
+		$wp_customize->add_setting( 'setting_color-text-footer' , array(
+			'default' => '#fff',
+			'sanitize_callback' => 'sanitize_hex_color',
+		) );
+	
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'color_picker_text_footer',
+				array(
+					'label'      => 'Footer Textfarbe',
+					'section'    => 'chaos_footer',
+					'settings'   => 'setting_color-text-footer',
+				) )
+		);
+
+		$wp_customize->add_setting( 'setting_color-link-footer' , array(
+			'default' => '#fff',
+			'sanitize_callback' => 'sanitize_hex_color',
+		) );
+	
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'color_picker_link_footer',
+				array(
+					'label'      => 'Footer Linkfarbe',
+					'section'    => 'chaos_footer',
+					'settings'   => 'setting_color-link-footer',
+				) )
+		);
+
+		// SCHRIFTART
+		$wp_customize->add_setting( 'select_font-footer', array(
+				'capability' => 'edit_theme_options',
+			)
+		);
+		$wp_customize->add_control( 'select_font-footer', array(
+				'type' => 'select',
+				'section' => 'chaos_footer', // Add a default or your own section
+				'label' => __( 'Schriftart' ),
+				'choices' => chaos_get_fonts(),
+			)
+		);
+
+		// SCHRIFTSTYLE
+		$wp_customize->add_setting( 'setting_font-weight-footer', array(
+				'default'		=>		'',
+				'sanitize_callback'	=>	'sanitize_text_field',
+				'type'	=>	'option',
+			)
+		);
+		$wp_customize->add_control( 'control_font-weight-footer', array(
+				'label'		=>		'Schriftstyle',
+				'section'	=>		'chaos_footer',
+				'settings'	=>		'setting_font-weight-footer',
+				'type'		=>		'text',
+			)
+		);
+
+		// SCHRIFTGRÖßE
+		$wp_customize->add_setting( 'setting_textsize-footer', array(
+				'default'		=>		'',
+				'sanitize_callback'	=>	'sanitize_text_field',
+				'type'	=>	'option',
+			)
+		);
+		$wp_customize->add_control( 'control_textsize-footer', array(
+				'label'		=>		'Textgröße',
+				'section'	=>		'chaos_footer',
+				'settings'	=>		'setting_textsize-footer',
+				'type'		=>		'text',
+			)
+		);
+
+		// LINE HEIGHT
+		$wp_customize->add_setting( 'setting_line-height-footer', array(
+				'default'		=>		'',
+				'sanitize_callback'	=>	'sanitize_text_field',
+				'type'	=>	'option',
+			)
+		);
+		$wp_customize->add_control( 'control_line-height-footer', array(
+				'label'		=>		'Schrift Line Height',
+				'section'	=>		'chaos_footer',
+				'settings'	=>		'setting_line-height-footer',
+				'type'		=>		'text',
 			)
 		);
 	}

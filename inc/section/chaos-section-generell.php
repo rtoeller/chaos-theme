@@ -7,6 +7,50 @@
 			)
 		);
 
+		// BACKGROUND IMAGE
+		$wp_customize->add_setting('setting_generell-background', array(
+			'default' => '',
+			'type' => 'theme_mod',
+			'capability' => 'edit_theme_options',
+		));
+		$wp_customize->add_control(
+			new WP_Customize_Image_Control(
+				$wp_customize,
+				'background-img',
+				array(
+					'label'      => 'Hintergrundbild',
+					'section'    => 'chaos_generell',
+					'settings'   => 'setting_generell-background',
+				)
+			)
+		);
+
+		$wp_customize->add_setting( 'select_generell-background-position', array(
+			'capability' => 'edit_theme_options',
+		)
+	);
+
+	$wp_customize->add_control( 'select_generell-background-position', array(
+			'type' => 'select',
+			'section' => 'chaos_generell', // Add a default or your own section
+			'label' => __( 'Hintergrund Position' ),
+			'choices' => chaos_get_background_position(),
+		)
+	);
+	
+	$wp_customize->add_setting( 'select_generell-background-repeat', array(
+			'capability' => 'edit_theme_options',
+		)
+	);
+
+	$wp_customize->add_control( 'select_generell-background-repeat', array(
+			'type' => 'select',
+			'section' => 'chaos_generell', // Add a default or your own section
+			'label' => __( 'Background Repeat' ),
+			'choices' => chaos_get_background_repeat(),
+		)
+	);
+
 		// CONTENTBREITE 
 		$wp_customize->add_setting( 'setting_content-width', array(
 				'default'		=>		'',
@@ -21,50 +65,70 @@
 				'type'		=>		'text',
 			)
 		);
-
+		
 		// SCHRIFTART
-		$wp_customize->add_setting( 'select-font', array(
+		$wp_customize->add_setting( 'select_font-generell', array(
 				'capability' => 'edit_theme_options',
-	//			'sanitize_callback' => 'themeslug_sanitize_select',
 			)
 		);
 		
-		$wp_customize->add_control( 'select-font', array(
+		$wp_customize->add_control( 'select_font-generell', array(
 				'type' => 'select',
 				'section' => 'chaos_generell', // Add a default or your own section
 				'label' => __( 'Schriftart' ),
-				//'description' => __( 'This is a custom select option.' ),
-				'choices' => array(
-				'montserrat' => __( 'Montserrat' ),
-				'value2' => __( 'Option 2' ),
-				'value3' => __( 'Option 3' ),
-				),
+				'choices' => chaos_get_fonts(),
 			)
 		);
-		/*function themeslug_sanitize_select( $input, $setting ) {
 
-			// Ensure input is a slug.
-			$input = sanitize_key( $input );
-			
-			// Get list of choices from the control associated with the setting.
-			$choices = $setting->manager->get_control( $setting->id )->choices;
-		  
-			// If the input is a valid key, return it; otherwise, return the default.
-			return ( array_key_exists( $input, $choices ) ? $input : $setting->default );
-		}*/
-		$wp_customize->add_setting( 'setting_font', array(
+		// SCHRIFTSTYLE
+		$wp_customize->add_setting( 'setting_font-weight-generell', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
 				'type'	=>	'option',
 			)
 		);
 		$wp_customize->add_control( 'control_font', array(
-				'label'		=>		'Schriftart',
+				'label'		=>		'Schriftstyle',
 				'section'	=>		'chaos_generell',
-				'settings'	=>		'setting_font',
+				'settings'	=>		'setting_font-weight-generell',
 				'type'		=>		'text',
 			)
 		);
+
+		// TEXTFARBE
+		$wp_customize->add_setting( 'setting_textcolor-generell' , array(
+			'default' => '#000',
+			'sanitize_callback' => 'sanitize_hex_color',
+		) );
+	
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'color_picker-textcolor-generell',
+				array(
+					'label'      => 'Textfarbe',
+					'section'    => 'chaos_generell',
+					'settings'   => 'setting_textcolor-generell',
+				) )
+		);
+
+		// LINKFARBE
+		$wp_customize->add_setting( 'setting_linkcolor-generell' , array(
+			'default' => '#43755c',
+			'sanitize_callback' => 'sanitize_hex_color',
+		) );
+	
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'color_picker-linkcolor-generell',
+				array(
+					'label'      => 'Linkfarbe',
+					'section'    => 'chaos_generell',
+					'settings'   => 'setting_linkcolor-generell',
+				) )
+		);
+
 		// SCHRIFTGRÖßE
 		$wp_customize->add_setting( 'setting_textsize', array(
 				'default'		=>		'',
@@ -76,6 +140,21 @@
 				'label'		=>		'Textgröße',
 				'section'	=>		'chaos_generell',
 				'settings'	=>		'setting_textsize',
+				'type'		=>		'text',
+			)
+		);
+
+		// LINE HEIGHT
+		$wp_customize->add_setting( 'setting_line-height-generell', array(
+				'default'		=>		'',
+				'sanitize_callback'	=>	'sanitize_text_field',
+				'type'	=>	'option',
+			)
+		);
+		$wp_customize->add_control( 'control_line-height-generell', array(
+				'label'		=>		'Schrift Line Height',
+				'section'	=>		'chaos_generell',
+				'settings'	=>		'setting_line-height-generell',
 				'type'		=>		'text',
 			)
 		);
