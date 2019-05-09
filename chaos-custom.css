@@ -79,13 +79,51 @@
 .chaos-contact-header a:last-child i {
   padding-right: 0px;
 }
+.chaos-copyright {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.chaos-copyright .copyright1,
+.chaos-copyright .copyright2 { 
+  display: table;
+}
+.chaos-copyright .copyright1 > div,
+.chaos-copyright .copyright2 > div { 
+  width: 50%;
+  display: table-cell;
+}
 .chaos-social-media-icons.chaos-social-media-align-right {
   text-align: right;
 }
-.chaos-copyright {
-  background-color: #3d3d3d;
-  color:  #fff;
-  padding-top: 15px;
-  padding-bottom: 15px; 
-  font-size: 16px;
+.chaos-copyright .copyright1 .chaos-social-media-icons,
+.chaos-copyright .copyright5 .chaos-social-media-icons,
+.chaos-copyright .copyright2 .chaos-copyright-text  {
+  text-align: right;
+}
+.chaos-copyright .copyright4,
+.chaos-copyright .copyright5 {
+  position: relative;
+} 
+.chaos-copyright .copyright3 .chaos-copyright-text,
+.chaos-copyright .copyright3 .chaos-social-media-icons,
+.chaos-copyright .copyright4 .chaos-copyright-text,
+.chaos-copyright .copyright5 .chaos-copyright-text {
+  text-align: center;
+}
+.chaos-copyright .copyright3 > div
+.chaos-copyright .copyright4 > div,
+.chaos-copyright .copyright5 > div {
+  width: 100%;
+  display: inherit;
+} 
+.chaos-copyright .copyright5 .chaos-social-media-icons,
+.chaos-copyright .copyright4 .chaos-social-media-icons {
+  top: 0px;
+  position: absolute;
+}
+.chaos-copyright .copyright4 .chaos-social-media-icons {
+  left: 0px;
+}
+.chaos-copyright .copyright5 .chaos-social-media-icons {
+  right: 0px;
 }
