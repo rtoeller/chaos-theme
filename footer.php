@@ -15,24 +15,21 @@
 
 	</div><!-- #content -->
 
-	<footer id="colophon" class="site-footer">
-		<?php get_template_part( 'template-parts/footer/footer', 'widgets' ); ?>
-		<div class="site-info">
-			<?php $blog_info = get_bloginfo( 'name' ); ?>
-			<?php if ( ! empty( $blog_info ) ) : ?>
-				<a class="site-name" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>,
-			<?php endif; ?>
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'twentynineteen' ) ); ?>" class="imprint">
-				<?php
-				/* translators: %s: WordPress. */
-				printf( __( 'Proudly powered by %s.', 'twentynineteen' ), 'WordPress' );
-				?>
-			</a>
+	<footer id="colophon" class="site-footer chaos-footer">
+		<div class="chaos-container"><!-- 
 			<?php
-			if ( function_exists( 'the_privacy_policy_link' ) ) {
-				the_privacy_policy_link( '', '<span role="separator" aria-hidden="true"></span>' );
-			}
-			?>
+				if ( get_option('setting_footer-columns') != '' ){
+					$footerCols = intval(get_option('setting_footer-columns'));
+				
+					for( $i = 1; $i <= $footerCols; $i++ ) { 
+						$footerWidget = 100 / $footerCols; ?>
+					#footer-widget --><div class="chaos-footer-widget" style="width: <?php echo $footerWidget;?>%"><!--
+					--><?php dynamic_sidebar('footer-'.$i.'-widget'); ?><!--
+					--></div><!--
+					<?php
+					}
+				}	
+			?>-->
 			<?php if ( has_nav_menu( 'footer' ) ) : ?>
 				<nav class="footer-navigation" aria-label="<?php esc_attr_e( 'Footer Menu', 'twentynineteen' ); ?>">
 					<?php
@@ -43,8 +40,8 @@
 							'depth'          => 1,
 						)
 					);
-					?>
-				</nav><!-- .footer-navigation -->
+					?> <!--
+				--></nav><!-- .footer-navigation -->
 			<?php endif; ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
