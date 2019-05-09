@@ -112,7 +112,23 @@
 			padding-right: <?php echo get_theme_mod('setting_padding-socialmedia');?>;
 			font-size: <?php echo get_theme_mod('setting_size-socialmedia');?>;
 			color: <?php echo get_theme_mod('setting_iconcolor-socialmedia');?>;
+		}
+		.chaos-copyright {
+			background-color: <?php echo get_theme_mod('setting_background-copyright');?>;
+			color: <?php echo get_theme_mod('setting_textcolor-copyright');?>;
+			font-family: "<?php echo get_theme_mod( 'select_font-copyright');?>";
+			font-size: <?php echo get_option('setting_textsize-copyright');?>;
+			font-weight: <?php echo get_option('setting_font-weight-copyright')?>;
+			line-height: <?php echo get_option('setting_line-height-copyright')?>;
 		}		
+		.chaos-copyright a {
+			color: <?php echo get_theme_mod('setting_linkkcolor-copyright');?>;
+		}
+		.chaos-social-media-copyright a {
+			color: <?php echo get_theme_mod('setting_iconcolor-copyright');?> ;
+			font-size: <?php echo get_theme_mod('setting_iconsize-copyright');?>;
+			padding-right: <?php echo get_theme_mod('setting_iconpadding-copyright');?>;
+		}
 	</style>	
 </head>
 
