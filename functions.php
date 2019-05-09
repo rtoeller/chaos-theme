@@ -321,13 +321,14 @@ require get_template_directory() . '/inc/template-tags.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
+require get_template_directory() . '/inc/chaos-create-css.php';
 
 function add_theme_scripts() {
 	wp_enqueue_style( 'style', get_stylesheet_uri() );
-   
-	wp_enqueue_style( 'custom', get_template_directory_uri() . '/custom.css', array(), '1.1', 'all');
+    wp_enqueue_style( 'custom', get_template_directory_uri() . '/chaos-custom.css', array(), '1.1', 'all');
 	wp_enqueue_style( 'fonts', get_template_directory_uri() . '/fonts.css', array(), '1.1', 'all');
-   
+	wp_enqueue_style( 'fontawesome', get_template_directory_uri() . '/fontawesome/css/all.css', array(), '1.1', 'all');
+
   }
   add_action( 'wp_enqueue_scripts', 'add_theme_scripts' );
   
@@ -368,3 +369,9 @@ function footer_sidebars() {
 	}
 }
 add_action( 'widgets_init', 'footer_sidebars' );
+
+$file = 'chaos-custom.css';
+$current = file_get_contents($file);
+$current .= 'Das ist ein Test';
+
+file_put_contents($file, $current);

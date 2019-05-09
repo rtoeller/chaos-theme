@@ -11,37 +11,39 @@
 
 get_header();
 ?>
-
+<div class="chaos-wrapper">
 	<section id="primary" class="content-area">
-		<main id="main" class="site-main">
-			<?php
-				if( get_theme_mod('setting_sidebar-check') == 1 ) {
-					$hasSidebar = ' has-sidebar';
-				}
-			?>
-			<div class="chaos-container<?php echo $hasSidebar;?>">
-				<div class="chaos-content">
+		
+			<main id="main" class="site-main">
 				<?php
-				/* Start the Loop */
-				while ( have_posts() ) :
-					the_post();
-
-					get_template_part( 'template-parts/content/content', 'page' );
-
-					// If comments are open or we have at least one comment, load up the comment template.
-					if ( comments_open() || get_comments_number() ) {
-						comments_template();
+					if( get_theme_mod('setting_sidebar-check') == 1 ) {
+						$hasSidebar = ' has-sidebar';
 					}
-
-				endwhile; // End of the loop.
 				?>
-				</div>
-				<div class="chaos-sidebar">
-					<?php dynamic_sidebar('custom-side-bar');?>
-				</div>
-			</div>
-		</main><!-- #main -->
-	</section><!-- #primary -->
+				<div class="chaos-container<?php echo $hasSidebar;?>">
+					<div class="chaos-content">
+					<?php
+					/* Start the Loop */
+					while ( have_posts() ) :
+						the_post();
 
+						get_template_part( 'template-parts/content/content', 'page' );
+
+						// If comments are open or we have at least one comment, load up the comment template.
+						if ( comments_open() || get_comments_number() ) {
+							comments_template();
+						}
+
+					endwhile; // End of the loop.
+					?>
+					</div>
+					<div class="chaos-sidebar">
+						<?php dynamic_sidebar('custom-side-bar');?>
+					</div>
+				</div>
+			</main><!-- #main -->
+		
+	</section><!-- #primary -->
+</div>
 <?php
 get_footer();

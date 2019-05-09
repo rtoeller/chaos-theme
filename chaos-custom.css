@@ -52,7 +52,7 @@
 .chaos-container .entry-content,
 .chaos-container .entry .entry-content > * {
   max-width: 100%; 
-  width: 100%; a
+  width: 100%; 
 }
 .chaos-sidebar {
   display: none;
@@ -70,4 +70,22 @@
 }
 .chaos-container.chaos-full-width {
   width: 100%;
+}
+.chaos-contact-header {
+  background-color: #e4e4e4;
+  padding-top: 15px;
+  padding-bottom: 15px; 
+}
+.chaos-contact-header a:last-child i {
+  padding-right: 0px;
+}
+.chaos-social-media-icons.chaos-social-media-align-right {
+  text-align: right;
+}
+.chaos-copyright {
+  background-color: #3d3d3d;
+  color:  #fff;
+  padding-top: 15px;
+  padding-bottom: 15px; 
+  font-size: 16px;
 }
