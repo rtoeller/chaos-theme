@@ -1,0 +1,26 @@
+.site-logo {
+  margin-bottom: 0;
+  right: auto;
+  top: auto;
+  position: relative;
+  display: inline-block;
+  width: 20%;
+}
+.site-branding-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.site-branding > div{
+  display: inline-block;
+  float: left;
+  
+}
+#site-navigation {
+  width: 80%;
+  text-align: right;
+
+}
+.site-title, .site-description {
+  display: none;
+}
