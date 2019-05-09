@@ -326,7 +326,45 @@ function add_theme_scripts() {
 	wp_enqueue_style( 'style', get_stylesheet_uri() );
    
 	wp_enqueue_style( 'custom', get_template_directory_uri() . '/custom.css', array(), '1.1', 'all');
+	wp_enqueue_style( 'fonts', get_template_directory_uri() . '/fonts.css', array(), '1.1', 'all');
    
   }
   add_action( 'wp_enqueue_scripts', 'add_theme_scripts' );
   
+
+function my_custom_sidebar() {
+    register_sidebar(
+        array (
+            'name' => __( 'Custom', 'twentynineteen' ),
+            'id' => 'custom-side-bar',
+            'description' => __( 'Custom Sidebar', 'twentynineteen' ),
+            'before_widget' => '<div class="widget-content">',
+            'after_widget' => "</div>",
+            'before_title' => '<h3 class="widget-title">',
+            'after_title' => '</h3>',
+        )
+    );
+}
+add_action( 'widgets_init', 'my_custom_sidebar' );
+
+
+function footer_sidebars() {
+	if ( get_option('setting_footer-columns') != '' ){
+		$footerCols = intval(get_option('setting_footer-columns'));
+	
+		for( $i = 1; $i <= $footerCols; $i++ ) {
+			register_sidebar(
+				array (
+					'name' => __( 'Footerspalte '.$i, 'twentynineteen' ),
+					'id' => 'footer-'.$i.'-widget',
+					'description' => __( 'Footerspalte '.$i, 'twentynineteen' ),
+					'before_widget' => '<div class="widget-content">',
+					'after_widget' => "</div>",
+					'before_title' => '<h3 class="widget-title">',
+					'after_title' => '</h3>',
+				)
+			);
+		}
+	}
+}
+add_action( 'widgets_init', 'footer_sidebars' );
