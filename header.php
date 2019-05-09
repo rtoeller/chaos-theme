@@ -150,93 +150,10 @@
 				$fullWidth = '';
 			}
 		?>
-		<div class="chaos-contact-header">
-			<div class="chaos-container">
-				<div class="chaos-social-media-icons chaos-social-media-align-<?php echo get_theme_mod('setting_align-socialmedia');?>">
-					<?php if( get_option('setting_facebook-socialmedia')) { ?>
-						<a href="<?php echo get_option('setting_facebook-socialmedia');?>" target="_blank">
-							<i class="fab fa-facebook-f"></i>
-						</a>
-					<?php } ?>
-					<?php if( get_option('setting_twitter-socialmedia')) { ?>
-						<a href="<?php echo get_option('setting_twitter-socialmedia');?>" target="_blank">
-							<i class="fab fa-twitter"></i> 
-						</a>
-					<?php } ?>
-					<?php if( get_option('setting_instagram-socialmedia')) { ?>
-						<a href="<?php echo get_option('setting_instagram-socialmedia');?>" target="_blank">
-							<i class="fab fa-instagram"></i>
-						</a>
-					<?php } ?>
-					<?php if( get_option('setting_xing-socialmedia')) { ?>
-						<a href="<?php echo get_option('setting_xing-socialmedia');?>" target="_blank">
-							<i class="fab fa-xing"></i> 
-						</a>
-					<?php } ?>
-				</div>
-			</div>
-		</div>
+		<?php require get_template_directory() . '/template-parts/header/contact-header.php';?>
+		
 		<header id="masthead" class="<?php echo is_singular() && twentynineteen_can_show_post_thumbnail() ? 'site-header featured-image' : 'site-header'; ?>" style="background-size: <?php echo $backgroundSize;?>;" >
-			<?php if ( get_theme_mod('setting_header-align') == 'right' ) { ?>
-				<div class="chaos-container chaos-header chaos-header-alin-right<?php echo $fullWidth;?>">
-					<div class="chaos-main-menu">
-						<?php
-						 if ( get_theme_mod('setting_menu-background') == 1 ) { 
-							wp_nav_menu(
-								array(
-									'theme_location' => 'menu-1',
-									'menu_class'     => 'main-menu',
-									'container_class'		=>	'menu-background',
-								)
-							);
-						 }
-						 else {
-							wp_nav_menu(
-								array(
-									'theme_location' => 'menu-1',
-									'menu_class'     => 'main-menu',
-								)
-							);
-						 }
-						?>
-					</div>
-					<div class="chaos-logo">
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" itemprop="url">
-							<img src="<?php echo get_theme_mod('setting_logo-img');?>" width="<?php echo get_option('setting_logo-width');?>" alt="logo" itemprop="logo" />
-						</a>
-					</div>
-				</div>
-			<?php } 
-			else { ?>
-				<div class="chaos-container chaos-header chaos-header-alin-<?php echo get_theme_mod('setting_header-align').$fullWidth;?>">
-					<div class="chaos-logo">
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" itemprop="url">
-							<img src="<?php echo get_theme_mod('setting_logo-img');?>" width="<?php echo get_option('setting_logo-width');?>" alt="logo" itemprop="logo" />
-						</a>
-					</div>
-					<div class="chaos-main-menu">
-					<?php
-						if ( get_theme_mod('setting_menu-background') == 1 ) { 
-							wp_nav_menu(
-								array(
-									'theme_location' => 'menu-1',
-									'menu_class'     => 'main-menu',
-									'container_class'		=>	'menu-background',
-								)
-							);
-						 }
-						 else {
-							wp_nav_menu(
-								array(
-									'theme_location' => 'menu-1',
-									'menu_class'     => 'main-menu',
-								)
-							);
-						 }
-					?>
-					</div>
-				</div>
-			<?php } ?>
+			<?php require get_template_directory() . '/template-parts/header/logo.php';?>
 		</header><!-- #masthead -->
 
 	<div id="content" class="site-content">
