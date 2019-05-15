@@ -17,8 +17,24 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="profile" href="https://gmpg.org/xfn/11" />
 	<?php wp_head(); ?>
-
+	
 	<style type="text/css">
+		<?php if ( get_theme_mod('setting_background-begin') == 'content' ) { ?>
+			#content {
+				background-color: <?php echo get_theme_mod('setting_generell-header');?>;
+				background-image: url(<?php echo get_theme_mod('setting_background');?>);
+				background-position: <?php echo get_theme_mod('select_background-position');?>;
+				background-repeat: <?php echo get_theme_mod('select_background-repeat');?>;
+			}
+		<?php } ?>
+		<?php if ( get_theme_mod('setting_background-begin') == 'body' ) { ?>
+			body {
+				background-color: <?php echo get_theme_mod('setting_generell-header');?>;
+				background-image: url(<?php echo get_theme_mod('setting_background');?>);
+				background-position: <?php echo get_theme_mod('select_background-position');?>;
+				background-repeat: <?php echo get_theme_mod('select_background-repeat');?>;
+			}
+		<?php } ?>
 		body {
 			font-family: "<?php echo get_theme_mod( 'select_font-generell');?>";
 			font-size: <?php echo get_option('setting_textsize');?>;
@@ -28,12 +44,6 @@
 		}
 		a {
 			color: <?php echo get_theme_mod('setting_linkcolor-generell');?>;
-		}
-		#content {
-			background-color: <?php echo get_theme_mod('setting_generell-header');?>;
-			background-image: url(<?php echo get_theme_mod('setting_generell-background');?>);
-			background-position: <?php echo get_theme_mod('select_generell-background-position');?>;
-			background-repeat: <?php echo get_theme_mod('select_generell-background-repeat');?>;
 		}
 		#masthead {
 			background-color: <?php echo get_theme_mod('setting_color-header');?>;
@@ -53,7 +63,9 @@
 			width: <?php echo get_option('setting_textfield');?>
 		}
 		.chaos-container {
-			width: <?php echo get_option('setting_content-width');?>
+			width: calc(<?php echo get_option('setting_content-width');?> + (<?php echo get_option('setting_content-padding');?>*2));
+			padding-left: <?php echo get_option('setting_content-padding');?>;
+			padding-right: <?php echo get_option('setting_content-padding');?>;
 		}
 		.chaos-container h1 {
 			font-size: <?php echo get_option('setting_h1');?>
@@ -108,11 +120,6 @@
 		.chaos-footer-widget .widget-content a {
 			color: <?php echo get_option('setting_color-link-footer');?>
 		}
-		.chaos-contact-header a i {
-			padding-right: <?php echo get_theme_mod('setting_padding-socialmedia');?>;
-			font-size: <?php echo get_theme_mod('setting_size-socialmedia');?>;
-			color: <?php echo get_theme_mod('setting_iconcolor-socialmedia');?>;
-		}
 		.chaos-copyright {
 			background-color: <?php echo get_theme_mod('setting_background-copyright');?>;
 			color: <?php echo get_theme_mod('setting_textcolor-copyright');?>;
@@ -129,28 +136,57 @@
 			font-size: <?php echo get_theme_mod('setting_iconsize-copyright');?>;
 			padding-right: <?php echo get_theme_mod('setting_iconpadding-copyright');?>;
 		}
+		.chaos-contact-header {
+			background-color: <?php echo get_theme_mod('setting_background-contact-header');?>;
+			color: <?php echo get_theme_mod('setting_textcolor-contact-header');?>;
+			font-family: "<?php echo get_theme_mod( 'select_font-contact-header');?>";
+			font-size: <?php echo get_option('setting_textsize-contact-header');?>;
+			font-weight: <?php echo get_option('setting_font-weight-contact-header')?>;
+			line-height: <?php echo get_option('setting_line-height-contact-header')?>;
+		}		
+		.chaos-contact-header a {
+			color: <?php echo get_theme_mod('setting_linkkcolor-contact-header');?>;
+		}
+		.chaos-social-media-contact-header a {
+			color: <?php echo get_theme_mod('setting_iconcolor-contact-header');?> ;
+			font-size: <?php echo get_theme_mod('setting_iconsize-contact-header');?>;
+			padding-right: <?php echo get_theme_mod('setting_iconpadding-contact-header');?>;
+		}
 	</style>	
 </head>
 
 <body <?php body_class(); ?>>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'twentynineteen' ); ?></a>
-		<?php 
-			if ( get_theme_mod('setting_header-background-100') == 1 ) {
-				$backgroundSize = '100%';
+	<?php if ( get_theme_mod('setting_display-contact-header') == 1 ) { ?>
+		<div class="chaos-contact-header">
+		<?php
+			if ( get_theme_mod('setting_100-width-contact-header') == 1 ) {
+				$fullWidthContact = ' chaos-full-width';
 			}
 			else {
-				$backgroundSize = 'auto';
-			}
-			
-			if ( get_theme_mod('setting_header-100-width') == 1 ) {
-				$fullWidth = ' chaos-full-width';
-			}
-			else {
-				$fullWidth = '';
+				$fullWidthContact = '';
 			}
 		?>
-		<?php require get_template_directory() . '/template-parts/header/contact-header.php';?>
+			<div class="chaos-container <?php echo get_theme_mod('setting_align-contact-header').$fullWidthContact;?>">
+				<?php require get_template_directory() . '/template-parts/header/contact-header.php';?>
+			</div>
+		</div>
+	<?php } ?>
+	<?php 
+		if ( get_theme_mod('setting_header-background-100') == 1 ) {
+			$backgroundSize = '100%';
+		}
+		else {
+			$backgroundSize = 'auto';
+		}
+		
+		if ( get_theme_mod('setting_header-100-width') == 1 ) {
+			$fullWidth = ' chaos-full-width';
+		}
+		else {
+			$fullWidth = '';
+		}
+	?>
 		
 		<header id="masthead" class="<?php echo is_singular() && twentynineteen_can_show_post_thumbnail() ? 'site-header featured-image' : 'site-header'; ?>" style="background-size: <?php echo $backgroundSize;?>;" >
 			<?php require get_template_directory() . '/template-parts/header/logo.php';?>

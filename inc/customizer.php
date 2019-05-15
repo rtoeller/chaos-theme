@@ -165,6 +165,8 @@ require get_template_directory() . '/inc/section/chaos-section-header.php';
 require get_template_directory() . '/inc/section/chaos-section-menu.php';
 require get_template_directory() . '/inc/section/chaos-section-socialmedia.php';
 require get_template_directory() . '/inc/section/chaos-section-copyright.php';
+require get_template_directory() . '/inc/section/chaos-section-contact-header.php';
+require get_template_directory() . '/inc/section/chaos-section-background.php';
 //require get_template_directory() . '/inc/section/chaos-section-example.php';
 
 function chaos_get_fonts() {

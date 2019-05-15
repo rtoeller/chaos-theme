@@ -7,51 +7,7 @@
 			)
 		);
 
-		// BACKGROUND IMAGE
-		$wp_customize->add_setting('setting_generell-background', array(
-			'default' => '',
-			'type' => 'theme_mod',
-			'capability' => 'edit_theme_options',
-		));
-		$wp_customize->add_control(
-			new WP_Customize_Image_Control(
-				$wp_customize,
-				'background-img',
-				array(
-					'label'      => 'Hintergrundbild',
-					'section'    => 'chaos_generell',
-					'settings'   => 'setting_generell-background',
-				)
-			)
-		);
-
-		$wp_customize->add_setting( 'select_generell-background-position', array(
-			'capability' => 'edit_theme_options',
-		)
-	);
-
-	$wp_customize->add_control( 'select_generell-background-position', array(
-			'type' => 'select',
-			'section' => 'chaos_generell', // Add a default or your own section
-			'label' => __( 'Hintergrund Position' ),
-			'choices' => chaos_get_background_position(),
-		)
-	);
-	
-	$wp_customize->add_setting( 'select_generell-background-repeat', array(
-			'capability' => 'edit_theme_options',
-		)
-	);
-
-	$wp_customize->add_control( 'select_generell-background-repeat', array(
-			'type' => 'select',
-			'section' => 'chaos_generell', // Add a default or your own section
-			'label' => __( 'Background Repeat' ),
-			'choices' => chaos_get_background_repeat(),
-		)
-	);
-
-		// CONTENTBREITE 
+		// CONTENTWIDTH
 		$wp_customize->add_setting( 'setting_content-width', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
@@ -62,6 +18,20 @@
 				'label'		=>		'Contentbreite',
 				'section'	=>		'chaos_generell',
 				'settings'	=>		'setting_content-width',
+				'type'		=>		'text',
+			)
+		);
+		// PADDING CONTENTELEMENTS
+		$wp_customize->add_setting( 'setting_content-padding', array(
+				'default'		=>		'30px',
+				'sanitize_callback'	=>	'sanitize_text_field',
+				'type'	=>	'option',
+			)
+		);
+		$wp_customize->add_control( 'control_content-padding', array(
+				'label'		=>		'Padding Contentelemente',
+				'section'	=>		'chaos_generell',
+				'settings'	=>		'setting_content-padding',
 				'type'		=>		'text',
 			)
 		);
@@ -93,6 +63,23 @@
 				'settings'	=>		'setting_font-weight-generell',
 				'type'		=>		'text',
 			)
+		);
+
+		// PRIMARY COLOR
+		$wp_customize->add_setting( 'setting_primarycolor-generell' , array(
+			'default' => '#43755c',
+			'sanitize_callback' => 'sanitize_hex_color',
+		) );
+	
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'color_picker-primarycolor-generell',
+				array(
+					'label'      => 'Primary Farbe',
+					'section'    => 'chaos_generell',
+					'settings'   => 'setting_primarycolor-generell',
+				) )
 		);
 
 		// TEXTFARBE
@@ -158,7 +145,7 @@
 				'type'		=>		'text',
 			)
 		);
-
+		
 		// H1
 		$wp_customize->add_setting( 'setting_h1', array(
 				'default'		=>		'',

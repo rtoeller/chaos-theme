@@ -72,7 +72,7 @@ function wpv_customize_header ( $wp_customize ) {
 	);
 
 	$wp_customize->add_setting( 'setting_color-header' , array(
-        'default' => '#fff',
+        'default' => '',
         'sanitize_callback' => 'sanitize_hex_color',
     ) );
 

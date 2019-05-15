@@ -67,7 +67,7 @@
 			)
 		);
 
-		// ICONCOLOR
+		/*/ ICONCOLOR
 		$wp_customize->add_setting( 'setting_iconcolor-socialmedia' , array(
 			'default' => '#43755c',
 			'sanitize_callback' => 'sanitize_hex_color',
@@ -153,6 +153,6 @@
 					'right' => 'right',
 				),
 			)
-		);
+		);*/
 	}
 	add_action( 'customize_register', 'wpv_customize_socialmedia' );

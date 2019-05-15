@@ -11,10 +11,16 @@
 
 get_header();
 ?>
-
+<div class="chaos-wrapper" style="margin-top: <?php echo get_option('setting_page-margin');?>; margin-bottom: <?php echo get_option('setting_page-margin');?>;">
 	<section id="primary" class="content-area">
 		<main id="main" class="site-main">
-
+			<?php
+				if( get_theme_mod('setting_sidebar-check') == 1 ) {
+					$hasSidebar = ' has-sidebar';
+				}
+			?>
+			<div class="chaos-container<?php echo $hasSidebar;?>">
+				<div class="chaos-content">
 			<?php
 
 			/* Start the Loop */
@@ -52,9 +58,10 @@ get_header();
 
 			endwhile; // End of the loop.
 			?>
-
+			</div>
+			</div>
 		</main><!-- #main -->
 	</section><!-- #primary -->
-
+</div>
 <?php
 get_footer();
