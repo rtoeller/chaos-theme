@@ -197,6 +197,7 @@ function chaos_get_background_position() {
 function chaos_get_background_repeat() {
 	$repeat = array(
 			'no repeat' => 'no repeat',
+			'repeat' => 'repeat',
 			'repeat-x' => 'repeat-x',
 			'repeat-y' => 'repeat-y',
 	);
