@@ -321,7 +321,7 @@ require get_template_directory() . '/inc/template-tags.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
-require_once( get_template_directory() . '/inc/chaos-create-css.php');
+require get_template_directory() . '/inc/chaos-create-css.php';
 
 function add_theme_scripts() {
 	wp_enqueue_style( 'style', get_stylesheet_uri() );

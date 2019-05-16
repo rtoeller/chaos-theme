@@ -19,42 +19,6 @@
 	<?php wp_head(); ?>
 	
 	<style type="text/css">
-		<?php if ( get_theme_mod('setting_background-begin') == 'content' ) { ?>
-			#content {
-				background-color: <?php echo get_theme_mod('setting_generell-header');?>;
-				background-image: url(<?php echo get_theme_mod('setting_background');?>);
-				background-position: <?php echo get_theme_mod('select_background-position');?>;
-				background-repeat: <?php echo get_theme_mod('select_background-repeat');?>;
-			}
-		<?php } ?>
-		<?php if ( get_theme_mod('setting_background-begin') == 'body' ) { ?>
-			body {
-				background-color: <?php echo get_theme_mod('setting_generell-header');?>;
-				background-image: url(<?php echo get_theme_mod('setting_background');?>);
-				background-position: <?php echo get_theme_mod('select_background-position');?>;
-				background-repeat: <?php echo get_theme_mod('select_background-repeat');?>;
-			}
-		<?php } ?>
-		body {
-			font-family: "<?php echo get_theme_mod( 'select_font-generell');?>";
-			font-size: <?php echo get_option('setting_textsize');?>;
-			font-weight: <?php echo get_option('setting_font-weight-generell')?>;
-			line-height: <?php echo get_option('setting_line-height-generell')?>;
-			color: <?php echo get_theme_mod('setting_textcolor-generell');?>;
-		}
-		a {
-			color: <?php echo get_theme_mod('setting_linkcolor-generell');?>;
-		}
-		#masthead {
-			background-color: <?php echo get_theme_mod('setting_color-header');?>;
-			background-image: url(<?php echo get_theme_mod('setting_header-background');?>);
-			background-position: <?php echo get_theme_mod('select_header-background-position');?>;
-			background-repeat: <?php echo get_theme_mod('select_header-background-repeat');?>;
-			padding-top: <?php echo get_theme_mod('setting_header-padding');?>;
-			padding-bottom: <?php echo get_theme_mod('setting_header-padding');?>;
-			border-bottom: <?php echo get_theme_mod('setting_header-borderbottom');?>;
-		
-		}
 		.chaos-wrapper  {
 			margin-top: <?php echo get_option('setting_page-margin');?>;
 			margin-bottom: <?php echo get_option('setting_page-margin');?>;
