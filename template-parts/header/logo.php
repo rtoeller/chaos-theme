@@ -47,14 +47,21 @@ else { ?>
 				);
 			 }
 			 else {
-				wp_nav_menu(
-					array(
-						'theme_location' => 'menu-1',
-						'menu_class'     => 'main-menu',
-					)
-				);
-			 }
-		?>
+				require get_template_directory() . '/template-parts/header/menu.php';
+			} 
+ 		?>
 		</div>
 	</div>
-<?php } ?>
+<?php } 
+
+function hasSubmenu ($menuitems, $parent_id) {
+	foreach( $menuitems as $child ) { 
+		$title = $child->title;
+		$link = $child->url;
+		
+		if ( $parent_id == $child->menu_item_parent )  { 
+			return true; 
+		}
+	}
+	return false;
+}

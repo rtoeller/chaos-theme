@@ -13,7 +13,7 @@
   margin: auto;
 }
 .chaos-main-menu {
-  color: #fff;
+  color: #3d3d3d;
 }
 .chaos-header-alin-left .chaos-main-menu,
 .chaos-header-alin-right .chaos-logo {
@@ -22,21 +22,32 @@
 .main-menu-more {
   display: none;
 }
-.chaos-main-menu ul.main-menu {
+.chaos-main-menu ul {
   list-style-type: none;
   padding: 0px;
 }
-.chaos-main-menu ul.main-menu li,
-.menu-background .chaos-main-menu ul.main-menu li:last-child {
+.chaos-main-menu ul li,
+.menu-background .chaos-main-menu ul li:last-child {
   padding-right: 15px;
   display: inline-block;
 }
-.chaos-main-menu ul.main-menu li:last-child {
+.chaos-main-menu ul li:last-child {
   padding-right: 0px;
 }
-.chaos-main-menu ul.main-menu li button,
-.chaos-main-menu ul.main-menu li ul.sub-menu {
-  display: none !important;
+ul.chaos-main-menu > li {
+  position: relative;
+}
+ul.chaos-main-menu li ul {
+  position: absolute;
+  display: none;
+}
+ul.chaos-main-menu li:hover ul {
+  display: block;
+}
+ul.chaos-main-menu li.sub-item {
+  background: red;
+  width: 300px;
+  text-align: left;
 }
 .chaos-container .entry-title::before {
   content: '';
@@ -169,4 +180,7 @@
 }
 .chaos-contact-header .header5 .chaos-social-media-icons {
   right: 0px;
+}
+#masthead {
+  
 }
