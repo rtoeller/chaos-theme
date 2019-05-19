@@ -7,6 +7,7 @@ function wpv_customize_menu ( $wp_customize ) {
 		)
 	);
 
+	// SCHRIFTFARBE MENÜ
 	$wp_customize->add_setting( 'setting_menu-color' , array(
         'default' => '#fff',
         'sanitize_callback' => 'sanitize_hex_color',
@@ -17,12 +18,13 @@ function wpv_customize_menu ( $wp_customize ) {
             $wp_customize,
             'color_picker',
             array(
-                'label'      => 'Farbe',
+                'label'      => 'Menü Farbe',
                 'section'    => 'chaos_menu',
                 'settings'   => 'setting_menu-color',
             ) )
 	);
 
+	// HOVERFARBE MENÜ
 	$wp_customize->add_setting( 'setting_menuhover-color' , array(
         'default' => '#fff',
         'sanitize_callback' => 'sanitize_hex_color',
@@ -33,7 +35,41 @@ function wpv_customize_menu ( $wp_customize ) {
             $wp_customize,
             'color_picker1',
             array(
-                'label'      => 'Farbe Hover',
+                'label'      => 'Menü Hoverfarbe',
+                'section'    => 'chaos_menu',
+                'settings'   => 'setting_menuhover-color',
+            ) )
+	);
+
+	// SCHRIFTFARBE SUMENÜ
+	$wp_customize->add_setting( 'setting_menu-color' , array(
+        'default' => '#fff',
+        'sanitize_callback' => 'sanitize_hex_color',
+    ) );
+
+    $wp_customize->add_control(
+        new WP_Customize_Color_Control(
+            $wp_customize,
+            'color_picker',
+            array(
+                'label'      => 'Menü Farbe',
+                'section'    => 'chaos_menu',
+                'settings'   => 'setting_menu-color',
+            ) )
+	);
+
+	// HOVERFARBE MENÜ
+	$wp_customize->add_setting( 'setting_menuhover-color' , array(
+        'default' => '#fff',
+        'sanitize_callback' => 'sanitize_hex_color',
+	) );
+
+    $wp_customize->add_control(
+        new WP_Customize_Color_Control(
+            $wp_customize,
+            'color_picker1',
+            array(
+                'label'      => 'Menü Hoverfarbe',
                 'section'    => 'chaos_menu',
                 'settings'   => 'setting_menuhover-color',
             ) )
@@ -70,5 +106,139 @@ function wpv_customize_menu ( $wp_customize ) {
 			)
 		)
 	);
+	// SCHRIFTART
+	$wp_customize->add_setting( 'select_font-menu', array(
+			'capability' => 'edit_theme_options',
+		)
+	);
+
+	$wp_customize->add_control( 'select_font-menu', array(
+			'type' => 'select',
+			'section' => 'chaos_menu', // Add a default or your own section
+			'label' => __( 'Schriftart' ),
+			'choices' => chaos_get_fonts(),
+		)
+	);
+
+	// SCHRIFTSTYLE
+	$wp_customize->add_setting( 'setting_font-weight-menu', array(
+			'default'		=>		'',
+			'sanitize_callback'	=>	'sanitize_text_field',
+			'type'	=>	'option',
+		)
+	);
+	$wp_customize->add_control( 'control_font-weight-menu', array(
+			'label'		=>		'Schriftstyle',
+			'section'	=>		'chaos_menu',
+			'settings'	=>		'setting_font-weight-menu',
+			'type'		=>		'text',
+		)
+	);
+
+	// SCHRIFTGRÖßE MENU
+	$wp_customize->add_setting( 'setting_textsize-menu', array(
+			'default'		=>		'',
+			'sanitize_callback'	=>	'sanitize_text_field',
+			'type'	=>	'option',
+		)
+	);
+	$wp_customize->add_control( 'control_textsize-menu', array(
+			'label'		=>		'Menü Textgröße',
+			'section'	=>		'chaos_menu',
+			'settings'	=>		'setting_textsize-menu',
+			'type'		=>		'text',
+		)
+	);
+
+	// SCHRIFTGRÖßE SUBMENU
+	$wp_customize->add_setting( 'setting_textsize-submenu', array(
+			'default'		=>		'',
+			'sanitize_callback'	=>	'sanitize_text_field',
+			'type'	=>	'option',
+		)
+	);
+	$wp_customize->add_control( 'control_textsize_submenu', array(
+			'label'		=>		'Submenu Textgröße',
+			'section'	=>		'chaos_menu',
+			'settings'	=>		'setting_textsize-submenu',
+			'type'		=>		'text',
+		)
+	);
+	// WEITE SUBMENU
+	$wp_customize->add_setting( 'setting_width-submenu', array(
+			'default'		=>		'',
+			'sanitize_callback'	=>	'sanitize_text_field',
+			'type'	=>	'option',
+		)
+	);
+	$wp_customize->add_control( 'control_width_submenu', array(
+			'label'		=>		'Submenu width',
+			'section'	=>		'chaos_menu',
+			'settings'	=>		'setting_width-submenu',
+			'type'		=>		'text',
+		)
+	);
+
+	// HINTERGRUNDFARBE SUBMENÜ
+	$wp_customize->add_setting( 'setting_bg-submenu-color' , array(
+        'default' => '#fff',
+        'sanitize_callback' => 'sanitize_hex_color',
+    ) );
+
+    $wp_customize->add_control(
+        new WP_Customize_Color_Control(
+            $wp_customize,
+            'color_picker_bg-submenu',
+            array(
+                'label'      => 'Submenü Hintergrundfarbe',
+                'section'    => 'chaos_menu',
+                'settings'   => 'setting_bg-submenu-color',
+            ) )
+	);
+
+	// BORDER AUßEN
+	$wp_customize->add_setting( 'setting_border-outer-submenu', array(
+			'default'		=>		'',
+			'sanitize_callback'	=>	'sanitize_text_field',
+			'type'	=>	'option',
+		)
+	);
+	$wp_customize->add_control( 'control_border-outer-submenu', array(
+			'label'		=>		'Submenu Border außen',
+			'section'	=>		'chaos_menu',
+			'settings'	=>		'setting_border-outer-submenu',
+			'type'		=>		'text',
+		)
+	);
+	
+	// BORDER INNEN
+	$wp_customize->add_setting( 'setting_border-inner-submenu', array(
+			'default'		=>		'',
+			'sanitize_callback'	=>	'sanitize_text_field',
+			'type'	=>	'option',
+		)
+	);
+	$wp_customize->add_control( 'control_border-inner-submenu', array(
+			'label'		=>		'Submenu Border innen',
+			'section'	=>		'chaos_menu',
+			'settings'	=>		'setting_border-inner-submenu',
+			'type'		=>		'text',
+		)
+	);
+
+	// BORDER INNEN
+	$wp_customize->add_setting( 'setting_padding-submenu', array(
+			'default'		=>		'',
+			'sanitize_callback'	=>	'sanitize_text_field',
+			'type'	=>	'option',
+		)
+	);
+	$wp_customize->add_control( 'control_padding-submenu', array(
+			'label'		=>		'Submenu padding',
+			'section'	=>		'chaos_menu',
+			'settings'	=>		'setting_padding-submenu',
+			'type'		=>		'text',
+		)
+	);
 }
-add_action( 'customize_register', 'wpv_customize_menu' );
+add_action( 'customize_register', 'wpv_customize_menu' ); 

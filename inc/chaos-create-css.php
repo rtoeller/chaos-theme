@@ -1,5 +1,5 @@
 <?php 
-	$file =  $_SERVER['DOCUMENT_ROOT'].'/wordpress/wp-content/themes/twentynineteen/chaos-customizer.css';
+	$file =  $_SERVER['DOCUMENT_ROOT'].'/wordpress/wp-content/themes/chaos/chaos-customizer.css';
 	$css = '';
 
 	// #content
@@ -83,6 +83,102 @@
 			$css .= 'border-bottom: '.get_theme_mod('setting_header-borderbottom').';';
 		}
 	$css .= '}';
+
+	//.chaos-main-menu
+	$css .= 'ul.chaos-main-menu > li > a {';
+		if ( get_theme_mod('setting_menu-color') ){
+			$css .= 'color: '.get_theme_mod('setting_menu-color').';';
+		}
+		if ( get_option('setting_font-weight-menu') ){
+			$css .= 'font-weight: '.get_option('setting_font-weight-menu').';';
+		}
+		if ( get_option('setting_font-menu') ){
+			$css .= 'font-family: '.get_option('setting_font-menu').';';
+		}
+		if ( get_option('setting_textsize-menu') ){
+			$css .= 'font-size: '.get_option('setting_textsize-menu').';';
+		}
+	$css .= '}';
+		if ( get_theme_mod('setting_menuhover-color') ){
+			$css .= 'ul.chaos-main-menu li a:hover,
+					ul.chaos-main-menu li.current_page_item a {
+						color: '. get_theme_mod('setting_menuhover-color').';
+					}';
+		}
+		$css .= 'ul.chaos-main-menu.menu-background > li {
+						color: '. get_theme_mod('setting_menu-color').';
+					}';
+		$css .= 'ul.chaos-main-menu.menu-background > li a,
+					ul.chaos-main-menu.menu-background > li.current_page_item a {
+						color: '. get_theme_mod('setting_menuhover-color').';
+				}';
+		$css .= 'ul.chaos-main-menu.menu-background > li:hover,
+				ul.chaos-main-menu.menu-background > li.current_page_item {
+					background-color: '. get_theme_mod('setting_menu-color').';
+				}';
+		$css .= 'ul.chaos-main-menu.menu-background > li:hover a,
+					ul.chaos-main-menu.menu-background > li.current_page_item a {
+					color: '. get_theme_mod('setting_menuhover-color').';
+				}';
+		$css .= 'ul.chaos-submenu li.sub-item a {';
+			if ( get_theme_mod('setting_menu-color') ){
+				$css .= 'color: '.get_theme_mod('setting_menu-color').';';
+			}
+			if ( get_option('setting_textsize-submenu') ){
+				$css .= 'font-size: '.get_option('setting_textsize-submenu').';';
+			}
+			if ( get_option('setting_padding-submenu') ){
+				$css .= 'padding: '.get_option('setting_padding-submenu').';';
+			}
+			if ( get_option('setting_width-submenu') ){
+				$css .= 'width: '.get_option('setting_width-submenu').';';
+			}
+		$css .= '}';
+		$css .= 'ul.chaos-submenu li.sub-item:hover {';
+		$css .= 'background-color: '. get_theme_mod('setting_menu-color').';';
+		$css .= 'border-color: '. get_theme_mod('setting_menu-color').';';
+		$css .= '}';
+		$css .= 'ul.chaos-submenu li.sub-item:hover a{';
+		$css .= 'color: '. get_theme_mod('setting_menuhover-color').';';
+		$css .= '}';
+		$css .= 'ul.chaos-submenu li.sub-item {';
+			if ( get_theme_mod('setting_bg-submenu-color') ){
+				$css .= 'background-color: '.get_theme_mod('setting_bg-submenu-color').';';
+			}
+			if ( get_option('setting_border-inner-submenu') ){
+				$css .= 'border-bottom: '.get_option('setting_border-inner-submenu').';';
+			}
+			if ( get_option('setting_width-submenu') ){
+				$css .= 'width: '.get_option('setting_width-submenu').';';
+			}
+		$css .= '}';
+		$css .= 'ul.chaos-submenu {';
+			if ( get_option('setting_border-outer-submenu') ){
+				$css .= 'border: '.get_option('setting_border-outer-submenu').';';
+			}
+			$css .= 'border-top: 3px solid '.get_theme_mod('setting_menu-color').';';
+			
+		$css .= '}';
+		$css .= 'ul.chaos-submenu li ul.chaos-submenu {';
+		$css .= 'top: -3px;';
+		$css .= 'right: -'.get_option('setting_width-submenu').';';
+		$css .= '}';
+		/*.chaos-main-menu ul.main-menu li a {
+			color: <?php echo get_theme_mod('setting_menu-color');?>
+		}
+		.chaos-main-menu ul.main-menu li a:hover,
+		.chaos-main-menu ul.main-menu li.current_page_item a {
+			color: <?php echo get_theme_mod('setting_menuhover-color');?>;
+		}
+		.menu-background ul li.current_page_item,
+		.menu-background ul li:hover {
+			background-color: <?php echo get_theme_mod('setting_menuhover-color');?>;
+			color: <?php echo get_theme_mod('setting_menu-color');?>;
+		}
+		.menu-background ul li.current_page_item a,
+		.menu-background ul li a:hover  {
+			color: <?php echo get_theme_mod('setting_menu-color');?> !important;
+		}
 	/*
 	.chaos-wrapper  {
 		margin-top: <?php echo get_option('setting_page-margin');?>;

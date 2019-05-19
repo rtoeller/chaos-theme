@@ -37,31 +37,8 @@ else { ?>
 		</div>
 		<div class="chaos-main-menu">
 		<?php
-			if ( get_theme_mod('setting_menu-background') == 1 ) { 
-				wp_nav_menu(
-					array(
-						'theme_location' => 'menu-1',
-						'menu_class'     => 'main-menu',
-						'container_class'		=>	'menu-background',
-					)
-				);
-			 }
-			 else {
-				require get_template_directory() . '/template-parts/header/menu.php';
-			} 
- 		?>
+			require get_template_directory() . '/template-parts/header/menu.php';
+		?>
 		</div>
 	</div>
 <?php } 
-
-function hasSubmenu ($menuitems, $parent_id) {
-	foreach( $menuitems as $child ) { 
-		$title = $child->title;
-		$link = $child->url;
-		
-		if ( $parent_id == $child->menu_item_parent )  { 
-			return true; 
-		}
-	}
-	return false;
-}

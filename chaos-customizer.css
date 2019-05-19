@@ -1,1 +1,15 @@
-#content {background-image: url(http://localhost/wordpress/wp-content/uploads/2019/05/hintergrund.jpg);background-position: center center;background-repeat: repeat;}body {font-family: "lato";font-size: 22px;font-weight: 300;line-height: 30px;color: #3d3d3d;}#masthead {background-position: left top;background-repeat: no repeat;padding-top: 30px;padding-bottom: 30px;border-bottom: 12px solid #43755c;}
+#content {background-image: url(http://localhost/wordpress/wp-content/uploads/2019/05/hintergrund.jpg);background-position: left top;background-repeat: repeat;}body {font-family: "lato";font-size: 22px;font-weight: 300;line-height: 30px;color: #8224e3;}#masthead {padding-top: 30px;padding-bottom: 30px;border-bottom: 8px solid yellow;}ul.chaos-main-menu > li > a {color: #680c22;font-weight: bold;font-size: 32px;}ul.chaos-main-menu li a:hover,
+					ul.chaos-main-menu li.current_page_item a {
+						color: #dd9933;
+					}ul.chaos-main-menu.menu-background > li {
+						color: #680c22;
+					}ul.chaos-main-menu.menu-background > li a,
+					ul.chaos-main-menu.menu-background > li.current_page_item a {
+						color: #dd9933;
+				}ul.chaos-main-menu.menu-background > li:hover,
+				ul.chaos-main-menu.menu-background > li.current_page_item {
+					background-color: #680c22;
+				}ul.chaos-main-menu.menu-background > li:hover a,
+					ul.chaos-main-menu.menu-background > li.current_page_item a {
+					color: #dd9933;
+				}ul.chaos-submenu li.sub-item a {color: #680c22;font-size: 25px;padding: 8px 10px;width: 200px;}ul.chaos-submenu li.sub-item:hover {background-color: #680c22;border-color: #680c22;}ul.chaos-submenu li.sub-item:hover a{color: #dd9933;}ul.chaos-submenu li.sub-item {background-color: #e8e8e8;border-bottom: 1px dotted #888;width: 200px;}ul.chaos-submenu {border-top: 3px solid #680c22;}ul.chaos-submenu li ul.chaos-submenu {top: -3px;right: -200px;}

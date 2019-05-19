@@ -41,13 +41,19 @@ ul.chaos-main-menu li ul {
   position: absolute;
   display: none;
 }
-ul.chaos-main-menu li:hover ul {
+ul.chaos-main-menu li:hover > ul {
   display: block;
 }
 ul.chaos-main-menu li.sub-item {
-  background: red;
   width: 300px;
+  padding: 0px;
   text-align: left;
+}
+ul.chaos-main-menu li.sub-item:last-child {
+  border: none;
+}
+ul.chaos-main-menu li.sub-item a {
+  width: 100%;
 }
 .chaos-container .entry-title::before {
   content: '';
@@ -180,7 +186,4 @@ ul.chaos-main-menu li.sub-item {
 }
 .chaos-contact-header .header5 .chaos-social-media-icons {
   right: 0px;
-}
-#masthead {
-  
 }
