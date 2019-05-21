@@ -152,7 +152,7 @@
 				$css .= 'width: '.get_option('setting_width-submenu').';';
 			}
 		$css .= '}';
-		$css .= 'ul.chaos-submenu {';
+		$css .= 'ul.chaos-main-menu > li > ul.chaos-submenu {';
 			if ( get_option('setting_border-outer-submenu') ){
 				$css .= 'border: '.get_option('setting_border-outer-submenu').';';
 			}
@@ -163,6 +163,12 @@
 		$css .= 'top: -3px;';
 		$css .= 'right: -'.get_option('setting_width-submenu').';';
 		$css .= '}';
+		$css .= '.chaos-megamenu-wrapper { ';
+		$css .= 'width: '.get_option('setting_content-width').';';
+		$left = str_replace('px', '', get_option('setting_content-width'));
+		$left = intval($left);
+		$left = $left / 2;
+		$css .= 'left: -'.$left.'px';
 		/*.chaos-main-menu ul.main-menu li a {
 			color: <?php echo get_theme_mod('setting_menu-color');?>
 		}

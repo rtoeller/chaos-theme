@@ -35,7 +35,7 @@ else { ?>
 				<img src="<?php echo get_theme_mod('setting_logo-img');?>" width="<?php echo get_option('setting_logo-width');?>" alt="logo" itemprop="logo" />
 			</a>
 		</div>
-		<div class="chaos-main-menu">
+		<div class="chaos-main-menu mega-menu">
 		<?php
 			require get_template_directory() . '/template-parts/header/menu.php';
 		?>

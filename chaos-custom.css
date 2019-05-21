@@ -41,6 +41,17 @@ ul.chaos-main-menu li ul {
   position: absolute;
   display: none;
 }
+.mega-menu ul.chaos-main-menu li ul {
+  display: inherit;
+}
+.chaos-megamenu-wrapper > ul.chaos-submenu,
+.chaos-megamenu-wrapper ul.chaos-submenu li ul,
+.chaos-megamenu-wrapper ul.chaos-submenu li ul li  {
+  width: 100%;
+}
+.chaos-megamenu-wrapper > ul.chaos-submenu > li {
+  position: relative;
+}
 ul.chaos-main-menu li:hover > ul {
   display: block;
 }
@@ -54,6 +65,34 @@ ul.chaos-main-menu li.sub-item:last-child {
 }
 ul.chaos-main-menu li.sub-item a {
   width: 100%;
+}
+.chaos-megamenu-wrapper {
+  margin-left: 50%;
+  position: absolute;
+  
+  z-index: 100
+}
+.mega-menu ul.chaos-main-menu > li {
+  position: static;
+}
+.mega-menu ul.chaos-main-menu > li:hover .chaos-megamenu-wrapper {
+  display: block;
+}
+.mega-menu ul.chaos-main-menu > li > ul.chaos-submenu {
+  display: inline-block !important;
+  position: absolute;
+  left: 0px;
+}
+.mega-menu ul.chaos-main-menu li > ul.chaos-submenu > li.sub-item > ul.chaos-submenu:first-child > li.sub-item {
+  display: block;
+}
+.mega-menu ul.chaos-submenu li ul.chaos-submenu {
+  right: auto;
+  top: auto;
+  display: block
+}
+.mega-menu ul.chaos-submenu li ul.chaos-submenu li {
+  display: block;
 }
 .chaos-container .entry-title::before {
   content: '';
