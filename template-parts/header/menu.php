@@ -18,23 +18,40 @@
 		$link = $item->url;
 		if ( !$item->menu_item_parent ) {
 			$hasSubmenu = '';
+			$menu_classes = '';
+			$classes = '';
+			$fullWidth = '';
 			$parent_id = $item->ID;
+			$classes = $item->classes;
+			foreach( $classes as $class )  {
+				$space = ' ';
+				$menu_classes .= $space.$class;
+			}
+			$searchMegaMenu = strpos($menu_classes, 'mega');
+			$searchFullWidth = strpos($menu_classes, 'full-width');
 			$submenu = hasSubmenu($menuitems, $parent_id); 
 			if($submenu) {
 				$hasSubmenu = ' has-submenu';
 			}
 			?>
-			<li class="item<?php echo $hasSubmenu;?>">		
+			<li class="item<?php echo $menu_classes.$hasSubmenu;?>">		
 				<a href="<?php echo $link; ?>" class="title">
 					<?php echo $title; ?>
 				</a>
 				<?php if ( $submenu ) { ?>
-					<div class="chaos-megamenu-wrapper">
+					<?php if ( $searchMegaMenu !== false ) { ?>
+						<?php if ( $searchFullWidth !== false ) { 
+							$fullWidth = ' chaos-full-width';
+						} ?>
+					 	<div class="chaos-container chaos-megamenu-wrapper<?php echo $fullWidth;?>">
+					<?php } ?>
 						<ul class="chaos-submenu">
 							<?php echo doSubmenu($menuitems, $parent_id);?>
 						</ul>
-					<div style="clear: both;"></div>
-				</div>
+					<?php if ( $searchMegaMenu !== false ) { ?>
+						<div style="clear: both;"></div>
+						</div>
+					<?php } ?>
 				<?php }?>
 			</li>
 		<?php } ?>	

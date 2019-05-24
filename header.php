@@ -27,6 +27,7 @@
 			width: <?php echo get_option('setting_textfield');?>
 		}
 		.chaos-container {
+			width: <?php echo get_option('setting_content-width');?>;
 			width: calc(<?php echo get_option('setting_content-width');?> + (<?php echo get_option('setting_content-padding');?>*2));
 			padding-left: <?php echo get_option('setting_content-padding');?>;
 			padding-right: <?php echo get_option('setting_content-padding');?>;

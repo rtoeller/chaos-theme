@@ -1,9 +1,9 @@
 <?php 
-	$file =  $_SERVER['DOCUMENT_ROOT'].'/wordpress/wp-content/themes/chaos/chaos-customizer.css';
+	$file =  $_SERVER['DOCUMENT_ROOT'].'/wp-content/themes/chaos/chaos-customizer.css';
 	$css = '';
 
 	// #content
-	if ( get_theme_mod('setting_background-begin') == 'content' ) { 
+	//if ( get_theme_mod('setting_background-begin') == 'content' ) { 
 		$css .= '#content {';
 		if( get_theme_mod('setting_generell-header') ) {
 			$css .= 'background-color: '.get_theme_mod('setting_generell-header').';';
@@ -18,7 +18,7 @@
 			$css .= 'background-repeat: '.get_theme_mod('select_background-repeat').';';
 		}
 		$css .= '}';
-	}
+	//}
 	
 	// body
 	$css .= 'body {';
@@ -116,8 +116,8 @@
 				ul.chaos-main-menu.menu-background > li.current_page_item {
 					background-color: '. get_theme_mod('setting_menu-color').';
 				}';
-		$css .= 'ul.chaos-main-menu.menu-background > li:hover a,
-					ul.chaos-main-menu.menu-background > li.current_page_item a {
+		$css .= 'ul.chaos-main-menu.menu-background > li:hover > a,
+					ul.chaos-main-menu.menu-background > li.current_page_item > a {
 					color: '. get_theme_mod('setting_menuhover-color').';
 				}';
 		$css .= 'ul.chaos-submenu li.sub-item a {';
@@ -134,16 +134,27 @@
 				$css .= 'width: '.get_option('setting_width-submenu').';';
 			}
 		$css .= '}';
-		$css .= 'ul.chaos-submenu li.sub-item:hover {';
+		$css .= 'ul.chaos-submenu li.sub-item:hover > {';
 		$css .= 'background-color: '. get_theme_mod('setting_menu-color').';';
 		$css .= 'border-color: '. get_theme_mod('setting_menu-color').';';
 		$css .= '}';
-		$css .= 'ul.chaos-submenu li.sub-item:hover a{';
+		$css .= 'ul.chaos-submenu li.sub-item:hover > a{';
 		$css .= 'color: '. get_theme_mod('setting_menuhover-color').';';
 		$css .= '}';
 		$css .= 'ul.chaos-submenu li.sub-item {';
 			if ( get_theme_mod('setting_bg-submenu-color') ){
 				$css .= 'background-color: '.get_theme_mod('setting_bg-submenu-color').';';
+			}
+			if ( get_option('setting_border-inner-submenu') ){
+				$css .= 'border-bottom: '.get_option('setting_border-inner-submenu').';';
+			}
+			if ( get_option('setting_width-submenu') ){
+				$css .= 'width: '.get_option('setting_width-submenu').';';
+			}
+		$css .= '}';
+		$css .= 'ul.chaos-submenu li.sub-item:hover {';
+			if ( get_theme_mod('setting_bg-submenu-hover-color') ){
+				$css .= 'background-color: '.get_theme_mod('setting_bg-submenu-hover-color').';';
 			}
 			if ( get_option('setting_border-inner-submenu') ){
 				$css .= 'border-bottom: '.get_option('setting_border-inner-submenu').';';
@@ -158,6 +169,9 @@
 			}
 			$css .= 'border-top: 3px solid '.get_theme_mod('setting_menu-color').';';
 			
+		$css .= '}';
+		$css .= '.chaos-megamenu-wrapper > ul.chaos-submenu {';
+			$css .= 'border-top: 3px solid '.get_theme_mod('setting_menu-color').';';
 		$css .= '}';
 		$css .= 'ul.chaos-submenu li ul.chaos-submenu {';
 		$css .= 'top: -3px;';

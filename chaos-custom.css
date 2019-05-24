@@ -41,7 +41,7 @@ ul.chaos-main-menu li ul {
   position: absolute;
   display: none;
 }
-.mega-menu ul.chaos-main-menu li ul {
+ul.chaos-main-menu li.mega-menu ul {
   display: inherit;
 }
 .chaos-megamenu-wrapper > ul.chaos-submenu,
@@ -54,6 +54,9 @@ ul.chaos-main-menu li ul {
 }
 ul.chaos-main-menu li:hover > ul {
   display: block;
+}
+ul.chaos-main-menu li.mega-menu:hover > ul {
+  display: inherit;
 }
 ul.chaos-main-menu li.sub-item {
   width: 300px;
@@ -69,30 +72,35 @@ ul.chaos-main-menu li.sub-item a {
 .chaos-megamenu-wrapper {
   margin-left: 50%;
   position: absolute;
-  
+  display: none;
   z-index: 100
 }
-.mega-menu ul.chaos-main-menu > li {
+ul.chaos-main-menu > li.mega-menu {
   position: static;
 }
-.mega-menu ul.chaos-main-menu > li:hover .chaos-megamenu-wrapper {
+ul.chaos-main-menu > li.mega-menu:hover .chaos-megamenu-wrapper {
   display: block;
 }
-.mega-menu ul.chaos-main-menu > li > ul.chaos-submenu {
+ul.chaos-main-menu > li.mega-menu > ul.chaos-submenu {
   display: inline-block !important;
   position: absolute;
   left: 0px;
 }
-.mega-menu ul.chaos-main-menu li > ul.chaos-submenu > li.sub-item > ul.chaos-submenu:first-child > li.sub-item {
+ul.chaos-main-menu li.mega-menu > ul.chaos-submenu > li.sub-item > ul.chaos-submenu:first-child > li.sub-item {
   display: block;
 }
-.mega-menu ul.chaos-submenu li ul.chaos-submenu {
+ul.chaos-submenu li.mega-menu ul.chaos-submenu {
   right: auto;
   top: auto;
   display: block
 }
-.mega-menu ul.chaos-submenu li ul.chaos-submenu li {
+ul.chaos-submenu li.mega-menu ul.chaos-submenu li {
   display: block;
+}
+li.mega-menu ul.chaos-submenu li ul.chaos-submenu {
+  right: 0px;
+  position: relative;
+  vertical-align: top;
 }
 .chaos-container .entry-title::before {
   content: '';
