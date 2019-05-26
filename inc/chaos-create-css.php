@@ -1,5 +1,5 @@
 <?php 
-	$file =  $_SERVER['DOCUMENT_ROOT'].'/wp-content/themes/chaos/chaos-customizer.css';
+	$file =  $_SERVER['DOCUMENT_ROOT'].'/wordpress/wp-content/themes/chaos/chaos-customizer.css';
 	$css = '';
 
 	// #content
@@ -123,6 +123,7 @@
 		$css .= 'ul.chaos-submenu li.sub-item a {';
 			if ( get_theme_mod('setting_menu-color') ){
 				$css .= 'color: '.get_theme_mod('setting_menu-color').';';
+				$css .= 'font-weight: '.get_option('setting_font-weight-submenu').';';
 			}
 			if ( get_option('setting_textsize-submenu') ){
 				$css .= 'font-size: '.get_option('setting_textsize-submenu').';';
@@ -133,7 +134,7 @@
 			if ( get_option('setting_width-submenu') ){
 				$css .= 'width: '.get_option('setting_width-submenu').';';
 			}
-		$css .= '}';
+		$css	 .= '}';
 		$css .= 'ul.chaos-submenu li.sub-item:hover > {';
 		$css .= 'background-color: '. get_theme_mod('setting_menu-color').';';
 		$css .= 'border-color: '. get_theme_mod('setting_menu-color').';';
@@ -141,7 +142,7 @@
 		$css .= 'ul.chaos-submenu li.sub-item:hover > a{';
 		$css .= 'color: '. get_theme_mod('setting_menuhover-color').';';
 		$css .= '}';
-		$css .= 'ul.chaos-submenu li.sub-item {';
+		$css .= 'ul.chaos-submenu li.sub-item a {';
 			if ( get_theme_mod('setting_bg-submenu-color') ){
 				$css .= 'background-color: '.get_theme_mod('setting_bg-submenu-color').';';
 			}
@@ -152,7 +153,7 @@
 				$css .= 'width: '.get_option('setting_width-submenu').';';
 			}
 		$css .= '}';
-		$css .= 'ul.chaos-submenu li.sub-item:hover {';
+		$css .= 'ul.chaos-submenu li.sub-item a:hover {';
 			if ( get_theme_mod('setting_bg-submenu-hover-color') ){
 				$css .= 'background-color: '.get_theme_mod('setting_bg-submenu-hover-color').';';
 			}
@@ -178,11 +179,23 @@
 		$css .= 'right: -'.get_option('setting_width-submenu').';';
 		$css .= '}';
 		$css .= '.chaos-megamenu-wrapper { ';
-		$css .= 'width: '.get_option('setting_content-width').';';
-		$left = str_replace('px', '', get_option('setting_content-width'));
-		$left = intval($left);
-		$left = $left / 2;
-		$css .= 'left: -'.$left.'px';
+			$css .= 'width: '.get_option('setting_content-width').';';
+			$left = str_replace('px', '', get_option('setting_content-width'));
+			$left = intval($left);
+			$left = $left / 2;
+			$css .= 'left: -'.$left.'px';
+		$css .= '}';
+		$css .= '.chaos-megamenu-wrapper { ';
+			$css .= 'background-color: '.get_theme_mod('setting_bg-submenu-color').';';
+		$css .= '}';
+		$css .= '.chaos-mobile-menu .chaos-main-menu { ';
+			$css .= 'background-color: '.get_theme_mod('setting_bg-submenu-color').';';
+			$css .= 'padding-left: '.get_option('setting_content-padding').';';
+			$css .= 'padding-right: '.get_option('setting_content-padding').';';
+		$css .= '}';
+		$css .= '.chaos-mobile-menu .chaos-main-menu { ';
+			$css .= 'background-color: '.get_theme_mod('setting_bg-submenu-color').';';
+		$css .= '}';
 		/*.chaos-main-menu ul.main-menu li a {
 			color: <?php echo get_theme_mod('setting_menu-color');?>
 		}

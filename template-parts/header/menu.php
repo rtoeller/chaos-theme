@@ -1,4 +1,19 @@
+<div class="chaos-main-menu">
+	<?php
+		doMainmenu(0);
+	?>
+	<div class="mobile-menu">
+		<i style="font-size: 50px; color: #43755c;" class="fas fa-hamburger"></i>		
+		<div class="chaos-mobile-menu">
+			<?php doMainmenu(1); ?>
+		</div>
+	</div>
+</div>
+
 <?php
+	
+
+function doMainmenu($mobile) { 
 	$menu_name = 'menu-1';
 	$locations = get_nav_menu_locations();
 	$menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
@@ -34,12 +49,12 @@
 				$hasSubmenu = ' has-submenu';
 			}
 			?>
-			<li class="item<?php echo $menu_classes.$hasSubmenu;?>">		
+			<li class="item<?php if( $mobile == false) { echo $menu_classes;} echo $hasSubmenu;?>">		
 				<a href="<?php echo $link; ?>" class="title">
 					<?php echo $title; ?>
 				</a>
 				<?php if ( $submenu ) { ?>
-					<?php if ( $searchMegaMenu !== false ) { ?>
+					<?php if ( ($searchMegaMenu !== false ) and ( $mobile == false ) ) { ?>
 						<?php if ( $searchFullWidth !== false ) { 
 							$fullWidth = ' chaos-full-width';
 						} ?>
@@ -57,10 +72,8 @@
 		<?php } ?>	
 	<?php } ?>
 	</ul>
-	<div class="mobile-menu">
-		<i style="font-size: 50px; color: #43755c;" class="fas fa-hamburger"></i>		
-	</div>
 <?php
+}
 
 function hasSubmenu ($menuitems, $parent_id) {
 	foreach( $menuitems as $child ) { 
