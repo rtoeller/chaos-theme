@@ -2,14 +2,14 @@
 	<?php
 		doMainmenu(0);
 	?>
-	<div class="mobile-menu">
+	
+</div>
+<div class="mobile-menu">
 		<i style="font-size: 50px; color: #43755c;" class="fas fa-hamburger"></i>		
 		<div class="chaos-mobile-menu">
 			<?php doMainmenu(1); ?>
 		</div>
 	</div>
-</div>
-
 <?php
 	
 
@@ -47,11 +47,17 @@ function doMainmenu($mobile) {
 			$submenu = hasSubmenu($menuitems, $parent_id); 
 			if($submenu) {
 				$hasSubmenu = ' has-submenu';
+				$mobileAfter = '<i class="arrow"></i>';
 			}
 			?>
 			<li class="item<?php if( $mobile == false) { echo $menu_classes;} echo $hasSubmenu;?>">		
 				<a href="<?php echo $link; ?>" class="title">
-					<?php echo $title; ?>
+					<?php 
+						echo $title; 
+						if( $mobile == true ) {
+							echo $mobileAfter;
+						}
+					?>
 				</a>
 				<?php if ( $submenu ) { ?>
 					<?php if ( ($searchMegaMenu !== false ) and ( $mobile == false ) ) { ?>

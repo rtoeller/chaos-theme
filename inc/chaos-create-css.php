@@ -39,8 +39,8 @@
 		if ( get_theme_mod( 'select_font-generell') ){
 			$css .= 'font-family: "'.get_theme_mod( 'select_font-generell').'";';
 		}
-		if ( get_option('setting_textsize') ){
-			$css .= 'font-size: '.get_option('setting_textsize').';';
+		if ( get_option('setting_textsize-generell') ){
+			$css .= 'font-size: '.get_option('setting_textsize-generell').';';
 		}
 		if ( get_option('setting_font-weight-generell') ){
 			$css .= 'font-weight: '.get_option('setting_font-weight-generell').';';
@@ -164,7 +164,7 @@
 				$css .= 'width: '.get_option('setting_width-submenu').';';
 			}
 		$css .= '}';
-		$css .= 'ul.chaos-main-menu > li > ul.chaos-submenu {';
+		$css .= '.chaos-main-menu ul.chaos-main-menu > li > ul.chaos-submenu {';
 			if ( get_option('setting_border-outer-submenu') ){
 				$css .= 'border: '.get_option('setting_border-outer-submenu').';';
 			}
@@ -195,6 +195,35 @@
 		$css .= '}';
 		$css .= '.chaos-mobile-menu .chaos-main-menu { ';
 			$css .= 'background-color: '.get_theme_mod('setting_bg-submenu-color').';';
+		$css .= '}';
+		if ( get_option('setting_menu-responsive') ){
+			$css .= '@media screen and (max-width: '.get_option('setting_menu-responsive').') {';
+				$css .= '.mobile-menu { display: block !important;}';
+				$css .= '.chaos-main-menu { display: none;}';
+				$css .= '.chaos-header.chaos-container { margin: inherit; }';
+				$css .= '.mobile-menu .fas { position: absolute; right: '.get_option('setting_content-padding').';}';
+			$css .= '}';
+		}
+		$css .= '.chaos-pagetitle-wrapper { ';
+			$css .= 'background-color: '.get_theme_mod('setting_bgcolor-pagetitle').';';
+			$css .= 'margin-top: '.get_option('setting_margintop-pagetitle').';';
+			$css .= 'padding-top: '.get_option('setting_padding-pagetitle').';';
+			$css .= 'padding-bottom: '.get_option('setting_padding-pagetitle').';';
+		$css .= '}';
+
+		$css .= '.chaos-breadcrumb { ';
+			$css .= 'font-family: '.get_option('setting_font-breadcrumb').';';
+			$css .= 'font-size: '.get_option('setting_textsize-breadcrumb').';';
+			$css .= 'color: '.get_theme_mod('setting_textcolor-breadcrumb').';';
+			$css .= 'font-weight: '.get_option('setting_font-weight-breadcrumb').';';
+		$css .= '}';
+		$css .= '.chaos-breadcrumb a { ';
+			$css .= 'color: '.get_theme_mod('setting_linkcolor-breadcrumb').';';
+			$css .= 'padding-left: '.get_option('setting_padding-breadcrumb').';';
+			$css .= 'padding-right: '.get_option('setting_padding-breadcrumb').';';
+		$css .= '}';
+		$css .= '.chaos-breadcrumb:before { ';
+			$css .= 'content: "'.get_option('setting_before-breadcrumb').'";';
 		$css .= '}';
 		/*.chaos-main-menu ul.main-menu li a {
 			color: <?php echo get_theme_mod('setting_menu-color');?>

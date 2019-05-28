@@ -27,8 +27,7 @@
 			width: <?php echo get_option('setting_textfield');?>
 		}
 		.chaos-container {
-			width: <?php echo get_option('setting_content-width');?>;
-			width: calc(<?php echo get_option('setting_content-width');?> + (<?php echo get_option('setting_content-padding');?>*2));
+			max-width: calc(<?php echo get_option('setting_content-width');?> + (<?php echo get_option('setting_content-padding');?>*2));
 			padding-left: <?php echo get_option('setting_content-padding');?>;
 			padding-right: <?php echo get_option('setting_content-padding');?>;
 		}
@@ -94,7 +93,7 @@
 			line-height: <?php echo get_option('setting_line-height-copyright')?>;
 		}		
 		.chaos-copyright a {
-			color: <?php echo get_theme_mod('setting_linkkcolor-copyright');?>;
+			color: <?php echo get_theme_mod('setting_linkcolor-copyright');?>;
 		}
 		.chaos-social-media-copyright a {
 			color: <?php echo get_theme_mod('setting_iconcolor-copyright');?> ;

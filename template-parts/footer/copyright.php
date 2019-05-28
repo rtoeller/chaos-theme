@@ -23,11 +23,28 @@
 		</div>
 		<div class="chaos-copyright-text">
 			<?php echo get_theme_mod('setting_text-copyright');?>
+			<div class="chaos-copyright-menu">
+				<?php
+					wp_nav_menu( array(
+						'menu'   => get_theme_mod('setting_menu-copyright'),
+					) );
+				?>	
+			</div>	
 		</div>
 		<div style="clear: both;"></div>
 	<?php } else { ?>
 		<div class="chaos-copyright-text">
 			<?php echo get_theme_mod('setting_text-copyright');?>
+			
+			<?php if( get_theme_mod('setting_menu-copyright') ) { ?>
+				<div class="chaos-copyright-menu">
+					<?php
+						wp_nav_menu( array(
+							'menu'   => get_theme_mod('setting_menu-copyright'),
+						) );
+					?>	
+				</div>		
+			<?php } ?>
 		</div>
 		<div class="chaos-social-media-icons chaos-social-media-copyright">
 			<?php if( get_option('setting_facebook-socialmedia')) { ?>

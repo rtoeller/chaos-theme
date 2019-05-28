@@ -24,6 +24,23 @@ function wpv_customize_copyright ( $wp_customize ) {
     ) );
 
     // SOCIALMEDIA ALIGN
+	$wp_customize->add_setting( 'setting_menu-copyright', array(
+            'default'   => '', // Set default value
+            'sanitize_callback' => 'esc_attr', // Sanitize input
+        )
+    );
+    $wp_customize->add_control(
+        'control_radio_menu_copyright',
+        array(
+            'section'  => 'chaos_copyright',
+            'settings' => 'setting_menu-copyright',
+            'type' => 'select',
+            'label' => 'Copyright Menü',
+            'choices' => chaos_get_menus(),
+        )
+    );
+
+    // SOCIALMEDIA ALIGN
 	$wp_customize->add_setting( 'setting_align-copyright', array(
             'default'   => 'right', // Set default value
             'sanitize_callback' => 'esc_attr', // Sanitize input

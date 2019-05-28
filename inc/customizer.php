@@ -167,6 +167,9 @@ require get_template_directory() . '/inc/section/chaos-section-socialmedia.php';
 require get_template_directory() . '/inc/section/chaos-section-copyright.php';
 require get_template_directory() . '/inc/section/chaos-section-contact-header.php';
 require get_template_directory() . '/inc/section/chaos-section-background.php';
+require get_template_directory() . '/inc/section/chaos-section-responsive.php';
+require get_template_directory() . '/inc/section/chaos-section-breadcrumb.php';
+require get_template_directory() . '/inc/section/chaos-section-pagetitle.php';
 //require get_template_directory() . '/inc/section/chaos-section-example.php';
 
 function chaos_get_fonts() {
@@ -203,6 +206,17 @@ function chaos_get_background_repeat() {
 	);
 
 	return  $repeat;
+}
+
+function chaos_get_menus() {
+	$menus = get_terms('nav_menu');
+	$custom_menus = array();
+	$custom_menus[0] = '';
+	foreach($menus as $menu){
+		$custom_menus[$menu->slug] = $menu->name;
+	} 
+
+	return  $custom_menus;
 }
 
 function javascript_register ( $wp_customize ) {

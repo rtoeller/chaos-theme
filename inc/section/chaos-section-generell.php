@@ -117,16 +117,16 @@
 		);
 
 		// SCHRIFTGRÖßE
-		$wp_customize->add_setting( 'setting_textsize', array(
+		$wp_customize->add_setting( 'setting_textsize-generell', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
 				'type'	=>	'option',
 			)
 		);
-		$wp_customize->add_control( 'control_textsize', array(
+		$wp_customize->add_control( 'control_textsize-generell', array(
 				'label'		=>		'Textgröße',
 				'section'	=>		'chaos_generell',
-				'settings'	=>		'setting_textsize',
+				'settings'	=>		'setting_textsize-generell',
 				'type'		=>		'text',
 			)
 		);

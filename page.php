@@ -11,6 +11,10 @@
 
 get_header();
 ?>
+
+<div class="chaos-pagetitle-wrapper">
+	<?php require get_template_directory() . '/template-parts/content/breadcrumb.php';?>
+</div>
 <div class="chaos-wrapper">
 	<section id="primary" class="content-area">
 		
