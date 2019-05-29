@@ -81,7 +81,7 @@ if ( ! function_exists( 'twentynineteen_entry_footer' ) ) :
 
 			// Posted on
 			twentynineteen_posted_on();
-
+			
 			/* translators: used between list items, there is a space after the comma. */
 			$categories_list = get_the_category_list( __( ', ', 'twentynineteen' ) );
 			if ( $categories_list ) {

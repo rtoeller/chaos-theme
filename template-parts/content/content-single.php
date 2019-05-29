@@ -13,9 +13,15 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<?php if ( ! twentynineteen_can_show_post_thumbnail() ) : ?>
-	<header class="entry-header">
-		<?php get_template_part( 'template-parts/header/entry', 'header' ); ?>
-	</header>
+	<?php if ( get_theme_mod('setting_display-pagetitle') == 0 ) { ?>
+		<header class="entry-header">
+			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		</header>
+	<?php } ?> 
+	<?php if ( get_theme_mod('setting_position-metatags') == 0 ) { 
+		get_template_part( 'template-parts/content/chaos-meta-tags' ); 
+	}	
+	?>
 	<?php endif; ?>
 
 	<div class="entry-content">
@@ -43,10 +49,10 @@
 		);
 		?>
 	</div><!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<?php twentynineteen_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
+	<?php if ( get_theme_mod('setting_position-metatags') == 1 ) { 
+		get_template_part( 'template-parts/content/chaos-meta-tags' ); 
+	}	
+	?>
 
 	<?php if ( ! is_singular( 'attachment' ) ) : ?>
 		<?php get_template_part( 'template-parts/post/author', 'bio' ); ?>

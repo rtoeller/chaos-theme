@@ -11,6 +11,9 @@
 
 get_header();
 ?>
+<div class="chaos-pagetitle-wrapper">
+	<?php require get_template_directory() . '/template-parts/content/breadcrumb.php';?>
+</div>
 <div class="chaos-wrapper" style="margin-top: <?php echo get_option('setting_page-margin');?>; margin-bottom: <?php echo get_option('setting_page-margin');?>;">
 	<section id="primary" class="content-area">
 		<main id="main" class="site-main">
@@ -51,11 +54,12 @@ get_header();
 					);
 				}
 
-				// If comments are open or we have at least one comment, load up the comment template.
-				if ( comments_open() || get_comments_number() ) {
-					comments_template();
+				if ( get_theme_mod('setting_do-comments-metatags') == 1 ) { 
+					// If comments are open or we have at least one comment, load up the comment template.
+					if ( comments_open() || get_comments_number() ) {
+						comments_template();
+					}
 				}
-
 			endwhile; // End of the loop.
 			?>
 			</div>
