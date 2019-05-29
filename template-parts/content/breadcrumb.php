@@ -4,12 +4,14 @@
 		<h1><?php echo get_the_title();?> </h1>
 	</div>
 	<?php } ?>
-	<div class="chaos-breadcrumb">
-		<?php 
-			$id = get_the_ID();
-			echo doBreadcrumb($id); 
-		?>
-	</div>
+	<?php if ( get_theme_mod('setting_display-breadcrumb') == 1 ) { ?>
+		<div class="chaos-breadcrumb">
+			<?php 
+				$id = get_the_ID();
+				echo doBreadcrumb($id); 
+			?>
+		</div>
+	<?php } ?>
 </div>
 
 <?php

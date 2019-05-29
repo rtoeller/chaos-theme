@@ -7,6 +7,25 @@
 			)
 		);
 
+		// DISPLAY BREADCRUMB
+		$wp_customize->add_setting( 'setting_display-breadcrumb', array(
+				'default'   => 1, // Set default value
+				'sanitize_callback' => 'esc_attr', // Sanitize input
+			)
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'checkbox_display-breadcrumb', // Setting ID
+				array(
+					'label'     => 'Breadcrumb anzeigen',
+					'section'   => 'chaos_breadcrumb', // No hyphen
+					'settings'  => 'setting_display-breadcrumb', // Setting ID
+					'type'      => 'checkbox',
+				)
+			)
+		);
+
 		// BREADCRUMB BEFORE
 		$wp_customize->add_setting( 'setting_before-breadcrumb', array(
 				'default'		=>		'',

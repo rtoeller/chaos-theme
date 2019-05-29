@@ -170,6 +170,7 @@ require get_template_directory() . '/inc/section/chaos-section-background.php';
 require get_template_directory() . '/inc/section/chaos-section-responsive.php';
 require get_template_directory() . '/inc/section/chaos-section-breadcrumb.php';
 require get_template_directory() . '/inc/section/chaos-section-pagetitle.php';
+require get_template_directory() . '/inc/section/chaos-section-metatags.php';
 //require get_template_directory() . '/inc/section/chaos-section-example.php';
 
 function chaos_get_fonts() {

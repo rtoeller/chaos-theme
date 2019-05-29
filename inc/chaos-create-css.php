@@ -99,6 +99,8 @@
 			$css .= 'font-size: '.get_option('setting_textsize-menu').';';
 		}
 	$css .= '}';
+
+	// chaos-main-menu hover
 		if ( get_theme_mod('setting_menuhover-color') ){
 			$css .= 'ul.chaos-main-menu li a:hover,
 					ul.chaos-main-menu li.current_page_item a {
@@ -120,6 +122,8 @@
 					ul.chaos-main-menu.menu-background > li.current_page_item > a {
 					color: '. get_theme_mod('setting_menuhover-color').';
 				}';
+
+		// chaos-main-menu submenu
 		$css .= 'ul.chaos-submenu li.sub-item a {';
 			if ( get_theme_mod('setting_menu-color') ){
 				$css .= 'color: '.get_theme_mod('setting_menu-color').';';
@@ -164,6 +168,8 @@
 				$css .= 'width: '.get_option('setting_width-submenu').';';
 			}
 		$css .= '}';
+
+		// chaos-main-menu megamenu
 		$css .= '.chaos-main-menu ul.chaos-main-menu > li > ul.chaos-submenu {';
 			if ( get_option('setting_border-outer-submenu') ){
 				$css .= 'border: '.get_option('setting_border-outer-submenu').';';
@@ -196,6 +202,8 @@
 		$css .= '.chaos-mobile-menu .chaos-main-menu { ';
 			$css .= 'background-color: '.get_theme_mod('setting_bg-submenu-color').';';
 		$css .= '}';
+
+		// responsive menu
 		if ( get_option('setting_menu-responsive') ){
 			$css .= '@media screen and (max-width: '.get_option('setting_menu-responsive').') {';
 				$css .= '.mobile-menu { display: block !important;}';
@@ -204,6 +212,8 @@
 				$css .= '.mobile-menu .fas { position: absolute; right: '.get_option('setting_content-padding').';}';
 			$css .= '}';
 		}
+
+		// pagetitle
 		$css .= '.chaos-pagetitle-wrapper { ';
 			$css .= 'background-color: '.get_theme_mod('setting_bgcolor-pagetitle').';';
 			$css .= 'margin-top: '.get_option('setting_margintop-pagetitle').';';
@@ -211,6 +221,7 @@
 			$css .= 'padding-bottom: '.get_option('setting_padding-pagetitle').';';
 		$css .= '}';
 
+		// breadcrumb
 		$css .= '.chaos-breadcrumb { ';
 			$css .= 'font-family: '.get_option('setting_font-breadcrumb').';';
 			$css .= 'font-size: '.get_option('setting_textsize-breadcrumb').';';
@@ -218,7 +229,7 @@
 			$css .= 'font-weight: '.get_option('setting_font-weight-breadcrumb').';';
 		$css .= '}';
 		$css .= '.chaos-breadcrumb a { ';
-			$css .= 'color: '.get_theme_mod('setting_linkcolor-breadcrumb').';';
+			$css .= 'color: '.get_theme_mod('setting_linkcolor-breadcrumb').' !important;';
 			$css .= 'padding-left: '.get_option('setting_padding-breadcrumb').';';
 			$css .= 'padding-right: '.get_option('setting_padding-breadcrumb').';';
 		$css .= '}';
