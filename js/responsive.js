@@ -6,7 +6,23 @@ jQuery(window).resize(function (){
 });
 
 function doResponsiveColums() {
-	//jQuery('.chaos-column-responsive').parent().remove();
+	jQuery('.chaos-columns-responsive').each(function() {
+		//jQuery('.wp-block-columns').children().before().html('hier');
+		var classes = jQuery(this).attr('class');
+		var hasClass = getGutenbergColumnClass(classes);
+		jQuery('.empty').remove();
+		var responsive = jQuery(this).html();
+
+		jQuery(this).prev('.wp-block-columns'+hasClass).append(responsive);
+		console.log(responsive);
+		if( responsive != undefined ){
+			jQuery(this).append(responsive);
+		}
+		jQuery(this).remove();
+
+		jQuery(hasClass+'.wp-block-column').removeClass('chaos-column-responsive');
+		jQuery(hasClass+'.wp-block-column').removeClass(hasClass);
+	});
 	
 	var findColNum = 0;
 	var device = [
@@ -26,18 +42,25 @@ function doResponsiveColums() {
 		var childrens = jQuery(this).children().size();
 		
 		if( findColNum == 0 ) {
-			console.log('else');
+			console.log('0 '+findColNum);
 			jQuery(this).children('.chaos-column-responsive').each(function() {
 				var html = jQuery(this).html();
-
-				// DAS HIER FUNKTIONIERT NOCH NICHT
-				jQuery(this).prev('.wp-block-columns').append(html);
+				jQuery(this).parent().prev('.wp-block-columns').append('<div class="wp-block-column">'+html+'</div>');
+				jQuery(this).remove();
+			});		
+			jQuery(this).children('.empty').each(function() {
+				jQuery(this).remove();
 			});
+
+			if( jQuery('.wp-block-columns').is(':empty') ) {
+				jQuery(this).remove();
+			}
 		}
 		else if( childrens > findColNum) {
+			console.log('else '+findColNum);
 			var i = 0;
 			var content = '';
-			var empty = '<div class="wp-block-column"></div>';
+			var empty = '<div class="wp-block-column empty"></div>';
 			var gbColClass = getGutenbergColumnClass(jQuery(this).attr('class'));
 			jQuery(this).children().each(function() {
 				i++;
@@ -45,12 +68,13 @@ function doResponsiveColums() {
 					content = content + '<div class="wp-block-column chaos-column-responsive '+gbColClass+'">';
 					jQuery(this).remove();
 					content = content + jQuery(this).html() + '</div>';					
-
+					if( i % findColNum == 0 ) {
+						content = content + '</div><div class="wp-block-columns chaos-columns-responsive">';
+					}
 				}
 			});
 			var rest = childrens - findColNum;
 			rest = findColNum - rest;
-			console.log('rest ' + rest);
 			if( rest > 0 ) {
 				for( var j = 1; j < rest; j++ ) {
 					empty = empty + empty;
@@ -59,9 +83,9 @@ function doResponsiveColums() {
 			else if( rest == 0 ) {
 				empty = '';
 			}
-			content = content;
+			
 
-			jQuery(this).after('<div class="wp-block-columns">'+content+empty+'</div>');
+			jQuery(this).after('<div class="wp-block-columns chaos-columns-responsive">'+content+empty+'</div>');
 		}
 	});
 }
