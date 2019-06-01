@@ -16,7 +16,14 @@
 
 <?php
 function doBreadcrumb( $pid ){ 
-    $parent = wp_get_post_parent_id( $page_id );
+	$parent = wp_get_post_parent_id( $page_id );
+	$postType = get_post_type();
+	// TODO: geht nich 
+	/*if( $postType == 'post' ) {
+		$categories = get_the_category( $page_id );
+		print_r($categories);
+		$breadcrumb .= '<a href="'.$categories[0]->slug.'">'.$categories[0]->name.'</a>';
+	}*/
     while ( $pid != 0 ) {
         $page_name = get_the_title( $pid );
         $link = get_the_permalink( $pid );

@@ -212,6 +212,13 @@
 				$css .= '.mobile-menu .fas { position: absolute; right: '.get_option('setting_content-padding').';}';
 			$css .= '}';
 		}
+		$css .= '@media screen and (max-width: 640px) {';
+			$css .= '.wp-block-column { ';
+				$css .= 'flex-basis: 100%;';
+				$css .= 'margin-left: 0px !important;';
+				$css .= 'margin-right: 0px !important;';
+			$css .= '}';
+		$css .= '}';
 
 		// pagetitle
 		$css .= '.chaos-pagetitle-wrapper { ';
