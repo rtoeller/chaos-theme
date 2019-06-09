@@ -18,19 +18,27 @@
 function doBreadcrumb( $pid ){ 
 	$parent = wp_get_post_parent_id( $page_id );
 	$postType = get_post_type();
-	// TODO: geht nich 
-	/*if( $postType == 'post' ) {
-		$categories = get_the_category( $page_id );
-		print_r($categories);
-		$breadcrumb .= '<a href="'.$categories[0]->slug.'">'.$categories[0]->name.'</a>';
-	}*/
-    while ( $pid != 0 ) {
+
+	while ( $pid != 0 ) {
         $page_name = get_the_title( $pid );
         $link = get_the_permalink( $pid );
         $breadcrumb = '<a href="'.$link.'">'.$page_name. '</a>'.$space.$breadcrumb;
         $space = get_option('setting_symbol-breadcrumb');
         $pid = wp_get_post_parent_id( $pid );
-    }
+	}
+	
+	if( $postType == 'post' ) {
+		$categories = get_the_category( $page_id );
+		$cat_name = $categories[0]->name;
+		$cat_ID = $categories[0]->cat_ID;
+		$link = get_category_link( $cat_ID );
+		$parent_id  = $categories[0]->parent;
+		$catLinks .= '<a href="'.$link.'">'.$cat_name. '</a>';
+		$parentCat = get_category_parents( $parent_id, true, $space); 
+		$catLinks = $parentCat.$catLinks.$space; 
+		$breadcrumb = $catLinks.$breadcrumb;
+	}
+    
 	$wp_query = null; 
 	$wp_query = $temp;
 	
