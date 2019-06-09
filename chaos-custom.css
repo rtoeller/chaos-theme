@@ -137,6 +137,9 @@ li.mega-menu ul.chaos-submenu li ul.chaos-submenu {
   vertical-align: top;
   padding: 0px 15px;
 }
+.mega-menu ul.chaos-submenu li ul.chaos-submenu { 
+  left: 0px;
+}
 .mobile-menu .chaos-main-menu {
   width: 100%;
   position: absolute;

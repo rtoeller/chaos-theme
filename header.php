@@ -78,10 +78,10 @@
 			font-weight: <?php echo get_option('setting_font-weight-footer')?>;
 			line-height: <?php echo get_option('setting_line-height-footer')?>;
 		}
-		.chaos-footer-widget {
+		.chaos-footer .wp-block-columns .wp-block-column {
 			color: <?php echo get_theme_mod('setting_color-text-footer');?>; 
 		}
-		.chaos-footer-widget .widget-content a {
+		.chaos-footer .wp-block-columns .widget-content a {
 			color: <?php echo get_option('setting_color-link-footer');?>
 		}
 		.chaos-copyright {

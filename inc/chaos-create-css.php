@@ -181,8 +181,8 @@
 			$css .= 'border-top: 3px solid '.get_theme_mod('setting_menu-color').';';
 		$css .= '}';
 		$css .= 'ul.chaos-submenu li ul.chaos-submenu {';
-		$css .= 'top: -3px;';
-		$css .= 'right: -'.get_option('setting_width-submenu').';';
+			$css .= 'top: -3px;';
+			$css .= 'left: '.get_option('setting_width-submenu').';';
 		$css .= '}';
 		$css .= '.chaos-megamenu-wrapper { ';
 			$css .= 'width: '.get_option('setting_content-width').';';
