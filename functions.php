@@ -371,3 +371,24 @@ function footer_sidebars() {
 	}
 }
 add_action( 'widgets_init', 'footer_sidebars' );
+
+wp_register_script( 'responsive_handle', get_template_directory_uri().'/js/responsive.js' );
+$responsive_array = array(
+	'tabletquer' => get_option('setting_tabletquer-responsive'),
+	'tablethoch' => get_option('setting_tablethoch-responsive'),
+	'mobilequer' => get_option('setting_mobilequer-responsive'),
+	'mobilehoch' => get_option('setting_mobilehoch-responsive'),
+	'col_tabletquer' => get_option('setting_contentcolumn-tabletquer-responsive'),
+	'col_tablethoch' => get_option('setting_contentcolumn-tablethoch-responsive'),
+	'col_mobilequer' => get_option('setting_contentcolumn-mobilequer-responsive'),
+	'col_mobilehoch' => get_option('setting_contentcolumn-mobilehoch-responsive'),
+	'footer_tabletquer' => get_option('setting_footercolumn-tabletquer-responsive'),
+	'footer_tablethoch' => get_option('setting_footercolumn-tablethoch-responsive'),
+	'footer_mobilequer' => get_option('setting_footercolumn-mobilequer-responsive'),
+	'footer_mobilehoch' => get_option('setting_footercolumn-mobilehoch-responsive'),
+	
+);
+wp_localize_script( 'responsive_handle', 'responsive', $responsive_array );
+
+// Enqueued script with localized data.
+wp_enqueue_script( 'responsive_handle' );

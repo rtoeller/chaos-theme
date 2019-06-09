@@ -16,14 +16,14 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer chaos-footer">
-		<div class="chaos-container"><!-- 
+		<div class="chaos-container">
+		<?php $footerCols = intval(get_option('setting_footer-columns')); ?>
+		<div class="wp-block-columns has-<?php echo $footerCols;?>-columns"><!-- 
 			<?php
 				if ( get_option('setting_footer-columns') != '' ){
-					$footerCols = intval(get_option('setting_footer-columns'));
-				
 					for( $i = 1; $i <= $footerCols; $i++ ) { 
 						$footerWidget = 100 / $footerCols; ?>
-					#footer-widget --><div class="chaos-footer-widget" style="width: <?php echo $footerWidget;?>%"><!--
+					#footer-widget --><div class="wp-block-column" ><!--
 					--><?php dynamic_sidebar('footer-'.$i.'-widget'); ?><!--
 					--></div><!--
 					<?php
@@ -43,6 +43,7 @@
 					?> <!--
 				--></nav><!-- .footer-navigation -->
 			<?php endif; ?>
+		</div>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 	<div class="chaos-copyright">

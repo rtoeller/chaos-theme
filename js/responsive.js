@@ -1,12 +1,14 @@
 jQuery(window).load(function (){
-	doResponsiveColums();
+	doResponsiveColums('');
+	doResponsiveColums('.chaos-footer ');
 });
 jQuery(window).resize(function (){
-	doResponsiveColums();
+	doResponsiveColums('');
+	doResponsiveColums('.chaos-footer ');
 });
 
-function doResponsiveColums() {
-	jQuery('.chaos-columns-responsive').each(function() {
+function doResponsiveColums(my_class) {
+	jQuery(my_class+'.chaos-columns-responsive').each(function() {
 		//jQuery('.wp-block-columns').children().before().html('hier');
 		var classes = jQuery(this).attr('class');
 		var hasClass = getGutenbergColumnClass(classes);
@@ -14,7 +16,6 @@ function doResponsiveColums() {
 		var responsive = jQuery(this).html();
 
 		jQuery(this).prev('.wp-block-columns'+hasClass).append(responsive);
-		console.log(responsive);
 		if( responsive != undefined ){
 			jQuery(this).append(responsive);
 		}
@@ -25,11 +26,20 @@ function doResponsiveColums() {
 	});
 	
 	var findColNum = 0;
-	var device = [
-		[640, 1],
-		[768, 2],
-		[1024, 3],
-	]
+	if( my_class != '') {
+		var device = [
+			[parseInt(responsive.mobilehoch, 10), responsive.footer_mobilehoch],
+			[parseInt(responsive.tablethoch, 10), responsive.footer_tablethoch],
+			[parseInt(responsive.tabletquer, 10), responsive.footer_tabletquer],
+		];
+	}
+	else {
+		var device = [
+			[parseInt(responsive.mobilehoch, 10), responsive.col_mobilehoch],
+			[parseInt(responsive.tablethoch, 10), responsive.col_tablethoch],
+			[parseInt(responsive.tabletquer, 10), responsive.col_tabletquer],
+		];
+	}	
 	var deviceWidth = jQuery('body').width();
 	for( var d = 0; d < device.length; d++ ){
 		if( deviceWidth <= device[d][0] ) {
@@ -38,11 +48,10 @@ function doResponsiveColums() {
 		}		
 	}
 
-	jQuery('.wp-block-columns').each(function() {
+	jQuery(my_class+'.wp-block-columns').each(function() {
 		var childrens = jQuery(this).children().size();
 		
 		if( findColNum == 0 ) {
-			console.log('0 '+findColNum);
 			jQuery(this).children('.chaos-column-responsive').each(function() {
 				var html = jQuery(this).html();
 				jQuery(this).parent().prev('.wp-block-columns').append('<div class="wp-block-column">'+html+'</div>');
@@ -57,7 +66,6 @@ function doResponsiveColums() {
 			}
 		}
 		else if( childrens > findColNum) {
-			console.log('else '+findColNum);
 			var i = 0;
 			var content = '';
 			var empty = '<div class="wp-block-column empty"></div>';

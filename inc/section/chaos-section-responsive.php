@@ -97,65 +97,124 @@
 			)
 		);
 
-		// FOOTERCOLUMN TABLET QUER
-		$wp_customize->add_setting( 'setting_footercolumn-tabletquer-responsive', array(
+		// CONTENTCOLUMN TABLET QUER
+		$wp_customize->add_setting( 'setting_contentcolumn-tabletquer-responsive', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
 				'type'	=>	'option',
 			)
 		);
-		$wp_customize->add_control( 'control_footercolumn-tabletquer-responsive', array(
-				'label'		=>		'Footerspalte Tablet Quer',
+		$wp_customize->add_control( 'control_contentcolumn-tabletquer-responsive', array(
+				'label'		=>		'Contentspalten Tablet Quer',
 				'section'	=>		'chaos_responsive',
-				'settings'	=>		'setting_footercolumn-tabletquer-responsive',
+				'settings'	=>		'setting_contentcolumn-tabletquer-responsive',
 				'type'		=>		'text',
 			)
 		);
 
-		// FOOTERCOLUMN TABLET HOCHKANT
-		$wp_customize->add_setting( 'setting_footercolumn-tablethoch-responsive', array(
+		// CONTENTCOLUMN TABLET HOCHKANT
+		$wp_customize->add_setting( 'setting_contentcolumn-tablethoch-responsive', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
 				'type'	=>	'option',
 			)
 		);
-		$wp_customize->add_control( 'control_footercolumn-tablethoch-responsive', array(
-				'label'		=>		'Footerspalte Tablet Hochkant',
+		$wp_customize->add_control( 'control_contentcolumn-tablethoch-responsive', array(
+				'label'		=>		'Contentspalten Tablet Hochkant',
 				'section'	=>		'chaos_responsive',
-				'settings'	=>		'setting_footercolumn-tablethoch-responsive',
+				'settings'	=>		'setting_contentcolumn-tablethoch-responsive',
 				'type'		=>		'text',
 			)
 		);
 
-		// FOOTERCOLUMN MOBILE QUER
-		$wp_customize->add_setting( 'setting_footercolumn-mobilequer-responsive', array(
+		// CONTENTCOLUMN MOBILE QUER
+		$wp_customize->add_setting( 'setting_contentcolumn-mobilequer-responsive', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
 				'type'	=>	'option',
 			)
 		);
-		$wp_customize->add_control( 'control_footercolumn-mobilequer-responsive', array(
-				'label'		=>		'Footerspalte Mobil Quer',
+		$wp_customize->add_control( 'control_contentcolumn-mobilequer-responsive', array(
+				'label'		=>		'Contentspalten Mobil Quer',
 				'section'	=>		'chaos_responsive',
-				'settings'	=>		'setting_footercolumn-mobilequer-responsive',
+				'settings'	=>		'setting_contentcolumn-mobilequer-responsive',
 				'type'		=>		'text',
 			)
 		);
 
-		// FOOTERCOLUMN MOBILE HOCHKANT
-		$wp_customize->add_setting( 'setting_footercolumn-mobilehoch-responsive', array(
+		// COTENTCOLUMN MOBILE HOCHKANT
+		$wp_customize->add_setting( 'setting_contentcolumn-mobilehoch-responsive', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
 				'type'	=>	'option',
 			)
 		);
-		$wp_customize->add_control( 'control_footercolumn-mobilehoch-responsive', array(
-				'label'		=>		'Footerspalte Mobil Hochkant',
+		$wp_customize->add_control( 'control_contentcolumn-mobilehoch-responsive', array(
+				'label'		=>		'Contentspalten Mobil Hochkant',
 				'section'	=>		'chaos_responsive',
-				'settings'	=>		'setting_footercolumn-mobilehoch-responsive',
+				'settings'	=>		'setting_contentcolumn-mobilehoch-responsive',
 				'type'		=>		'text',
 			)
 		);	
-		
+	
+		// FOOTERCOLUMN TABLET QUER
+		$wp_customize->add_setting( 'setting_footercolumn-tabletquer-responsive', array(
+			'default'		=>		'',
+			'sanitize_callback'	=>	'sanitize_text_field',
+			'type'	=>	'option',
+		)
+	);
+	$wp_customize->add_control( 'control_footercolumn-tabletquer-responsive', array(
+			'label'		=>		'Footerspalte Tablet Quer',
+			'section'	=>		'chaos_responsive',
+			'settings'	=>		'setting_footercolumn-tabletquer-responsive',
+			'type'		=>		'text',
+		)
+	);
+
+	// FOOTERCOLUMN TABLET HOCHKANT
+	$wp_customize->add_setting( 'setting_footercolumn-tablethoch-responsive', array(
+			'default'		=>		'',
+			'sanitize_callback'	=>	'sanitize_text_field',
+			'type'	=>	'option',
+		)
+	);
+	$wp_customize->add_control( 'control_footercolumn-tablethoch-responsive', array(
+			'label'		=>		'Footerspalte Tablet Hochkant',
+			'section'	=>		'chaos_responsive',
+			'settings'	=>		'setting_footercolumn-tablethoch-responsive',
+			'type'		=>		'text',
+		)
+	);
+
+	// FOOTERCOLUMN MOBILE QUER
+	$wp_customize->add_setting( 'setting_footercolumn-mobilequer-responsive', array(
+			'default'		=>		'',
+			'sanitize_callback'	=>	'sanitize_text_field',
+			'type'	=>	'option',
+		)
+	);
+	$wp_customize->add_control( 'control_footercolumn-mobilequer-responsive', array(
+			'label'		=>		'Footerspalte Mobil Quer',
+			'section'	=>		'chaos_responsive',
+			'settings'	=>		'setting_footercolumn-mobilequer-responsive',
+			'type'		=>		'text',
+		)
+	);
+
+	// FOOTERCOLUMN MOBILE HOCHKANT
+	$wp_customize->add_setting( 'setting_footercolumn-mobilehoch-responsive', array(
+			'default'		=>		'',
+			'sanitize_callback'	=>	'sanitize_text_field',
+			'type'	=>	'option',
+		)
+	);
+	$wp_customize->add_control( 'control_footercolumn-mobilehoch-responsive', array(
+			'label'		=>		'Footerspalte Mobil Hochkant',
+			'section'	=>		'chaos_responsive',
+			'settings'	=>		'setting_footercolumn-mobilehoch-responsive',
+			'type'		=>		'text',
+		)
+	);
 	}
 	add_action( 'customize_register', 'wpv_customize_responsive' );
