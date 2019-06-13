@@ -205,9 +205,10 @@ i.arrow:before {
 .chaos-container .entry-title,
 .chaos-container .entry-content,
 .chaos-container .entry-header,
+.chaos-container .hfeed .entry .entry-header, 
 .chaos-container .entry-footer {
   padding: 0px;
-  margin: 0px;
+  margin: 0px !important;
 }
 .chaos-container .entry-content,
 .chaos-container .entry .entry-content > * {
@@ -363,4 +364,12 @@ i.arrow:before {
   margin-left: 0px;
   margin-right: 0px;
   max-width: 100%;
+}
+.chaos-sidebar .chaos-content {
+  width: auto !important;
+  padding-right: 0px !important;
+  float: right;
+}
+.chaos-clear {
+  clear: both;
 }

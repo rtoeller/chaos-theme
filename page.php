@@ -42,7 +42,9 @@ get_header();
 					?>
 					</div>
 					<div class="chaos-sidebar">
-						<?php dynamic_sidebar('custom-side-bar');?>
+						<div class="chaos-content">
+							<?php dynamic_sidebar('custom-side-bar');?>
+						</div>
 					</div>
 				</div>
 			</main><!-- #main -->

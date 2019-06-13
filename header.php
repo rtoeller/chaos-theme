@@ -26,29 +26,6 @@
 		.site-branding {
 			width: <?php echo get_option('setting_textfield');?>
 		}
-		.chaos-container {
-			max-width: calc(<?php echo get_option('setting_content-width');?> + (<?php echo get_option('setting_content-padding');?>*2));
-			padding-left: <?php echo get_option('setting_content-padding');?>;
-			padding-right: <?php echo get_option('setting_content-padding');?>;
-		}
-		.chaos-container h1 {
-			font-size: <?php echo get_option('setting_h1');?>
-		}
-		.chaos-container h2 {
-			font-size: <?php echo get_option('setting_h2');?>
-		}
-		.chaos-container h3 {
-			font-size: <?php echo get_option('setting_h3');?>
-		}
-		.has-sidebar .chaos-content {
-			display: inline-block;
-			width: calc(100% - <?php echo get_option('setting_sidebar-width');?>);
-		}
-		.has-sidebar .chaos-sidebar {
-			width: <?php echo get_option('setting_sidebar-width');?>;
-			display: inline-block;
-			float: right;
-		}
 		.chaos-main-menu ul.main-menu li {
 			padding: <?php echo get_theme_mod('setting_menu-padding');?>;
 		}

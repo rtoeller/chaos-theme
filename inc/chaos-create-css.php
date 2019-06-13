@@ -36,23 +36,155 @@
 				$css .= 'background-repeat: '.get_theme_mod('select_background-repeat').';';
 			}
 		}
-		if ( get_theme_mod( 'select_font-generell') ){
-			$css .= 'font-family: "'.get_theme_mod( 'select_font-generell').'";';
+		if ( get_theme_mod( 'select_fontbody-fonts') ){
+			$css .= 'font-family: "'.get_theme_mod( 'select_fontbody-fonts').'";';
 		}
-		if ( get_option('setting_textsize-generell') ){
-			$css .= 'font-size: '.get_option('setting_textsize-generell').';';
+		if ( get_option('setting_textsize-body-fonts') ){
+			$css .= 'font-size: '.get_option('setting_textsize-body-fonts').';';
 		}
-		if ( get_option('setting_font-weight-generell') ){
-			$css .= 'font-weight: '.get_option('setting_font-weight-generell').';';
+		if ( get_option('setting_font-weight-body-fonts') ){
+			$css .= 'font-weight: '.get_option('setting_font-weight-body-fonts').';';
 		}
-		if ( get_option('setting_line-height-generell') ){
-			$css .= 'line-height: '.get_option('setting_line-height-generell').';';
+		if ( get_option('setting_line-height-body-fonts') ){
+			$css .= 'line-height: '.get_option('setting_line-height-fonts').';';
 		}
-		if ( get_theme_mod('setting_textcolor-generell') ){
-			$css .= 'color: '.get_theme_mod('setting_textcolor-generell').';';
+		if ( get_theme_mod('setting_textcolor-body-fonts') ){
+			$css .= 'color: '.get_theme_mod('setting_textcolor-body-fonts').';';
 		}
 	$css .= '}';
 	
+	// chaos-container
+	$css .= '.chaos-container { ';
+		$css .= 'max-width: calc('.get_option('setting_content-width').' + ('.get_option('setting_content-padding').'*2));';
+		$css .= 'padding-left: '.get_option('setting_content-padding').';';
+		$css .= 'padding-right: '.get_option('setting_content-padding').';';
+	$css .= '}';
+
+	// has sidebar
+	$css .= '.has-sidebar .chaos-content {';
+		$css .= 'display: inline-block;';
+		$css  .= 'width: calc(100% - '.get_option('setting_sidebar-width').');';
+		$css .= 'padding-right: calc('.get_option('setting_content-padding').' / 2);';
+	$css .= '}';
+	$css .= '.has-sidebar .chaos-sidebar {';
+		$css .= 'width: '.get_option('setting_sidebar-width').';';
+		$css .= 'display: inline-block;';
+		$css .= 'float: right;';
+		$css .= 'padding-left: calc('.get_option('setting_content-padding').' / 2);';
+	$css .= '}';
+	// h1 
+	$css .= '.chaos-container h1 { ';
+		if ( get_theme_mod( 'select_font-h1-fonts') ){
+			$css .= 'font-family: "'.get_theme_mod( 'select_font-h1-fonts').'";';
+		}
+		if ( get_option('setting_textsize-h1-fonts') ){
+			$css .= 'font-size: '.get_option('setting_textsize-h1-fonts').';';
+		}
+		if ( get_option('setting_font-weight-h1-fonts') ){
+			$css .= 'font-weight: '.get_option('setting_font-weight-h1-fonts').';';
+		}
+		if ( get_option('setting_line-height-h1-fonts') ){
+			$css .= 'line-height: '.get_option('setting_line-height-h1-fonts').';';
+		}
+		if ( get_theme_mod('setting_textcolor-h1-fonts') ){
+			$css .= 'color: '.get_theme_mod('setting_textcolor-h1-fonts').';';
+		}
+	$css .= '}';
+	
+	// h2 
+	$css .= '.chaos-container h2 { ';
+		if ( get_theme_mod( 'select_font-h2-fonts') ){
+			$css .= 'font-family: "'.get_theme_mod( 'select_font-h2-fonts').'";';
+		}
+		if ( get_option('setting_textsize-h2-fonts') ){
+			$css .= 'font-size: '.get_option('setting_textsize-h2-fonts').';';
+		}
+		if ( get_option('setting_font-weight-h2-fonts') ){
+			$css .= 'font-weight: '.get_option('setting_font-weight-h2-fonts').';';
+		}
+		if ( get_option('setting_line-height-h2-fonts') ){
+			$css .= 'line-height: '.get_option('setting_line-height-h2-fonts').';';
+		}
+		if ( get_theme_mod('setting_textcolor-h2-fonts') ){
+			$css .= 'color: '.get_theme_mod('setting_textcolor-h2-fonts').';';
+		}
+	$css .= '}';
+
+	// h3 
+	$css .= '.chaos-container h3 { ';
+		if ( get_theme_mod( 'select_font-h3-fonts') ){
+			$css .= 'font-family: "'.get_theme_mod( 'select_font-h3-fonts').'";';
+		}
+		if ( get_option('setting_textsize-h3-fonts') ){
+			$css .= 'font-size: '.get_option('setting_textsize-h3-fonts').';';
+		}
+		if ( get_option('setting_font-weight-h3-fonts') ){
+			$css .= 'font-weight: '.get_option('setting_font-weight-h3-fonts').';';
+		}
+		if ( get_option('setting_line-height-h3-fonts') ){
+			$css .= 'line-height: '.get_option('setting_line-height-h3-fonts').';';
+		}
+		if ( get_theme_mod('setting_textcolor-h3-fonts') ){
+			$css .= 'color: '.get_theme_mod('setting_textcolor-h3-fonts').';';
+		}
+	$css .= '}';
+	
+	// h4 
+	$css .= '.chaos-container h4 { ';
+		if ( get_theme_mod( 'select_font-h4-fonts') ){
+			$css .= 'font-family: "'.get_theme_mod( 'select_font-h4-fonts').'";';
+		}
+		if ( get_option('setting_textsize-h4-fonts') ){
+			$css .= 'font-size: '.get_option('setting_textsize-h4-fonts').';';
+		}
+		if ( get_option('setting_font-weight-h4-fonts') ){
+			$css .= 'font-weight: '.get_option('setting_font-weight-h4-fonts').';';
+		}
+		if ( get_option('setting_line-height-h4-fonts') ){
+			$css .= 'line-height: '.get_option('setting_line-height-h4-fonts').';';
+		}
+		if ( get_theme_mod('setting_textcolor-h4-fonts') ){
+			$css .= 'color: '.get_theme_mod('setting_textcolor-h4-fonts').';';
+		}
+	$css .= '}';
+
+	// h5 
+	$css .= '.chaos-container h5 { ';
+		if ( get_theme_mod( 'select_font-h5-fonts') ){
+			$css .= 'font-family: "'.get_theme_mod( 'select_font-h5-fonts').'";';
+		}
+		if ( get_option('setting_textsize-h5-fonts') ){
+			$css .= 'font-size: '.get_option('setting_textsize-h5-fonts').';';
+		}
+		if ( get_option('setting_font-weight-h5-fonts') ){
+			$css .= 'font-weight: '.get_option('setting_font-weight-h5-fonts').';';
+		}
+		if ( get_option('setting_line-height-h5-fonts') ){
+			$css .= 'line-height: '.get_option('setting_line-height-h5-fonts').';';
+		}
+		if ( get_theme_mod('setting_textcolor-h5-fonts') ){
+			$css .= 'color: '.get_theme_mod('setting_textcolor-h5-fonts').';';
+		}
+	$css .= '}';
+	
+	// h6 
+	$css .= '.chaos-container h6 { ';
+		if ( get_theme_mod( 'select_font-h6-fonts') ){
+			$css .= 'font-family: "'.get_theme_mod( 'select_font-h6-fonts').'";';
+		}
+		if ( get_option('setting_textsize-h6-fonts') ){
+			$css .= 'font-size: '.get_option('setting_textsize-h6-fonts').';';
+		}
+		if ( get_option('setting_font-weight-h6-fonts') ){
+			$css .= 'font-weight: '.get_option('setting_font-weight-h6-fonts').';';
+		}
+		if ( get_option('setting_line-height-h6-fonts') ){
+			$css .= 'line-height: '.get_option('setting_line-height-h6-fonts').';';
+		}
+		if ( get_theme_mod('setting_textcolor-h6-fonts') ){
+			$css .= 'color: '.get_theme_mod('setting_textcolor-h6-fonts').';';
+		}
+	$css .= '}';
 
 	// a
 	if ( get_theme_mod( 'setting_linkcolor-generell') ){

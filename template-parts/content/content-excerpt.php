@@ -23,11 +23,16 @@
 
 	<?php twentynineteen_post_thumbnail(); ?>
 
+	<?php if ( get_theme_mod('setting_position-metatags') == 0 ) { 
+		get_template_part( 'template-parts/content/chaos-meta-tags' ); 
+	}	
+	?>
 	<div class="entry-content">
 		<?php the_excerpt(); ?>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
-		<?php twentynineteen_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
+	<?php if ( get_theme_mod('setting_position-metatags') == 1 ) { 
+		get_template_part( 'template-parts/content/chaos-meta-tags' ); 
+	}	
+	?>
 </article><!-- #post-${ID} -->
