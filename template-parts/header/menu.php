@@ -47,7 +47,7 @@ function doMainmenu($mobile) {
 			$submenu = hasSubmenu($menuitems, $parent_id); 
 			if($submenu) {
 				$hasSubmenu = ' has-submenu';
-				$mobileAfter = '<i class="arrow"></i>';
+				$mobileAfter = '<i class="arrow fas"></i>';
 			}
 			?>
 			<li class="item<?php if( $mobile == false) { echo $menu_classes;} echo $hasSubmenu;?>">		
@@ -67,7 +67,7 @@ function doMainmenu($mobile) {
 					 	<div class="chaos-container chaos-megamenu-wrapper<?php echo $fullWidth;?>">
 					<?php } ?>
 						<ul class="chaos-submenu">
-							<?php echo doSubmenu($menuitems, $parent_id);?>
+							<?php echo doSubmenu($menuitems, $parent_id, $submenu, $mobile);?>
 						</ul>
 					<?php if ( $searchMegaMenu !== false ) { ?>
 						<div style="clear: both;"></div>
@@ -89,21 +89,35 @@ function hasSubmenu ($menuitems, $parent_id) {
 	}
 	return false;
 }
-function doSubmenu ($menuitems, $parent_id) {
+function doSubmenu ($menuitems, $parent_id, $submenu, $mobile) {
+	if($submenu == true) {
+		$hasSubmenu = ' has-submenu';
+
+		if( $mobile == true ) {
+			$mobileAfter = '<i class="arrow fas"></i>';
+			
+		}	
+	}
 	foreach( $menuitems as $child ) { 
 		$title = $child->title;
 		$link = $child->url;
 		
 		if ( $parent_id == $child->menu_item_parent )  { 
-			$sub .= '<li class="sub-item">
-						<a href="'.$link.'" class="title">
-							'.$title.'
-						</a>';
 			if( hasSubmenu( $menuitems, $child->ID ) ) {
-				$sub .= '<ul class="chaos-submenu">';
-				$sub .= doSubmenu($menuitems, $child->ID);
+				$submenu = true;
+				$sub .= '<li class="sub-item has-submenu">
+						<a href="'.$link.'" class="title">
+							'.$title;
+				$sub .= $mobileAfter.'</a><ul class="chaos-submenu">';
+				$sub .= doSubmenu($menuitems, $child->ID ,$submenu, $mobile);
 				$sub .= '</ul>';
 			} 
+			else {
+				$sub .= '<li class="sub-item">
+							<a href="'.$link.'" class="title">
+								'.$title.	
+							'</a>';
+			}
 			$sub .= '</li>';
 		}
 	}

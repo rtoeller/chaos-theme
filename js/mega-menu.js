@@ -23,24 +23,21 @@ jQuery(document).ready(function (){
 	jQuery('.mobile-menu i.fa-hamburger').click(function() {
 		if( jQuery(this).parent().hasClass('open') ) {
 			jQuery(this).parent().removeClass('open');
+			jQuery('li.has-submenu').removeClass('open');
+			//jQuery('.mobile-menu .chaos-mobile-menu li').removeClass('open');
 		}
 		else {
 			jQuery(this).parent().addClass('open');
-
-			/*jQuery('.mobile-menu .chaos-submenu li').each(function() {
-				if( jQuery(this).find('.chaos-submenu') ) {
-					jQuery(this).children('a').append('<i class="arrow"></div>');
-				}
-			});*/
 		}
 	});
 
-	// .mobile-menu ul.chaos-main-menu > li.has-submenu.open > a:after {
-	jQuery('.mobile-menu i.fas').click(function(e) {
+	// open submenu 
+	jQuery('.mobile-menu .arrow').click(function(e) {
 		e.preventDefault();
 		if( jQuery(this).closest('li').hasClass('has-submenu') ) {
 			if( jQuery(this).closest('li').hasClass('open') ) {
 				jQuery(this).closest('li').removeClass('open');
+				jQuery(this).closest('li').children('ul').children('li').removeClass('open');
 			}
 			else {
 				jQuery(this).closest('li').addClass('open');

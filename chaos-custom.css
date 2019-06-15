@@ -154,7 +154,7 @@ li.mega-menu ul.chaos-submenu li ul.chaos-submenu {
   display: block;
 }
 .mobile-menu {
-  display: none !important;
+  /*display: none !important;*/
 }
 .mobile-menu i {
   cursor: pointer;
@@ -183,20 +183,28 @@ li.mega-menu ul.chaos-submenu li ul.chaos-submenu {
 .mobile-menu ul.chaos-main-menu li.open > ul.chaos-submenu {
   display: block;
 }
-i.arrow:before {
+i.arrow, i.arrow:before {
   font-family: 'Font Awesome 5 Free';
   content: '\f107';
   font-style: normal;
+  font-size: 32px;
 }
-/*.mobile-menu ul.chaos-main-menu li.open i.arrow::before {
+.mobile-menu ul.chaos-main-menu li.open > a > i.arrow::before {
   content: '\f106';
-}*/
+}
 .mobile-menu ul.chaos-main-menu li ul.chaos-submenu {
   top: 0px;
+  left: 0px;
+}
+.mobile-menu ul.chaos-main-menu li ul.chaos-submenu {
+  padding-left: 8px;
 }
 .mobile-menu ul.chaos-main-menu li.has-submenu i {
   position: absolute;
   right: 0px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 5px;
 }
 .chaos-container .entry-title::before {
   content: '';

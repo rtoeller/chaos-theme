@@ -334,6 +334,9 @@
 		$css .= '.chaos-mobile-menu .chaos-main-menu { ';
 			$css .= 'background-color: '.get_theme_mod('setting_bg-submenu-color').';';
 		$css .= '}';
+		$css .= '.chaos-mobile-menu .chaos-submenu .sub-item.has-submenu.open { ';
+			$css .= 'border-bottom: 2px solid '.get_theme_mod('setting_menu-color').';';
+		$css .= '}';
 
 		// responsive menu
 		if ( get_option('setting_menu-responsive') ){
