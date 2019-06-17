@@ -154,7 +154,7 @@ li.mega-menu ul.chaos-submenu li ul.chaos-submenu {
   display: block;
 }
 .mobile-menu {
-  /*display: none !important;*/
+  display: none !important;
 }
 .mobile-menu i {
   cursor: pointer;
@@ -299,6 +299,9 @@ i.arrow, i.arrow:before {
   width: 100%;
   display: inherit;
 } 
+.chaos-copyright .copyright5 > div { 
+  width: auto !important;
+}
 .chaos-copyright .copyright5 .chaos-social-media-icons,
 .chaos-copyright .copyright4 .chaos-social-media-icons {
   top: 0px;
