@@ -55,18 +55,20 @@ get_header();
 
 					if ( get_theme_mod('setting_do-comments-metatags') == 1 ) { 
 						// If comments are open or we have at least one comment, load up the comment template.
-						if ( comments_open() || get_comments_nu<div class="chaos-sidebar">
+						if ( comments_open() || get_comments_number() ) {
+							comments_template();
+						}
+					} ?>
+					
+				<?php 
+					endwhile; // End of the loop.
+				?>
+				</div>
+				<div class="chaos-sidebar">
 					<div class="chaos-content">
 						<?php dynamic_sidebar('custom-side-bar');?>
 					</div>
-				</div>mber() ) {
-							comments_template();
-						}
-					}
-				endwhile; // End of the loop.
-				?>
 				</div>
-				
 				<div class="chaos-clear"></div>
 			</div>
 		</main><!-- #main -->
