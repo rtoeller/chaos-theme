@@ -19,14 +19,19 @@ function doBreadcrumb( $pid ){
 	$parent = wp_get_post_parent_id( $page_id );
 	$postType = get_post_type();
 
-	while ( $pid != 0 ) {
-        $page_name = get_the_title( $pid );
-        $link = get_the_permalink( $pid );
-        $breadcrumb = '<a href="'.$link.'">'.$page_name. '</a>'.$space.$breadcrumb;
-        $space = get_option('setting_symbol-breadcrumb');
-        $pid = wp_get_post_parent_id( $pid );
+	if( !is_archive() ) {
+		while ( $pid != 0 ) {
+			$page_name = get_the_title( $pid );
+			$link = get_the_permalink( $pid );
+			$breadcrumb = '<a href="'.$link.'">'.$page_name. '</a>'.$space.$breadcrumb;
+			$space = get_option('setting_symbol-breadcrumb');
+			$pid = wp_get_post_parent_id( $pid );
+		}
 	}
-	
+	else {
+		$space = get_option('setting_symbol-breadcrumb');
+	}
+
 	if( $postType == 'post' ) {
 		$categories = get_the_category( $page_id );
 		$cat_name = $categories[0]->name;
@@ -35,7 +40,10 @@ function doBreadcrumb( $pid ){
 		$parent_id  = $categories[0]->parent;
 		$catLinks .= '<a href="'.$link.'">'.$cat_name. '</a>';
 		$parentCat = get_category_parents( $parent_id, true, $space); 
-		$catLinks = $parentCat.$catLinks.$space; 
+		$catLinks = $parentCat.$catLinks;
+		if( !is_archive() ) {
+			$catLinks .= $space; 
+		}
 		$breadcrumb = $catLinks.$breadcrumb;
 	}
     
