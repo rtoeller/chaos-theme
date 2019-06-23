@@ -1,5 +1,5 @@
 <?php 
-	$file =  $_SERVER['DOCUMENT_ROOT'].'/wordpress/wp-content/themes/chaos/chaos-customizer.css';
+	$file =  $_SERVER['DOCUMENT_ROOT'].'/wp-content/themes/chaos/chaos-customizer.css';
 	$css = '';
 
 	// #content
@@ -54,11 +54,40 @@
 	$css .= '}';
 	
 	// chaos-container
-	$css .= '.chaos-container { ';
+	$css .= '.chaos-container, .chaos-content-text { ';
 		$css .= 'max-width: calc('.get_option('setting_content-width').' + ('.get_option('setting_content-padding').'*2));';
 		$css .= 'padding-left: '.get_option('setting_content-padding').';';
 		$css .= 'padding-right: '.get_option('setting_content-padding').';';
+		$css .= 'margin: auto;';
 	$css .= '}';
+	$css .= '.chaos-content-text { ';
+		$css .= 'padding-left: 0px;';
+		$css .= 'padding-right: 0px;';
+	$css .= '}';
+
+	// chaos-container in main
+	$css .= '#main .chaos-container { ';
+		$css .= 'max-width: 100%;';
+		$css .= 'width: 100%;';
+		$css .= 'padding-left: 0px;';
+		$css .= 'padding-right: 0px;';
+	$css .= '}';
+	
+	$css .= '#main .entry-content > *, article header, .entry .entry-header {';
+		$css .= 'max-width: calc('.get_option('setting_content-width').' + ('.get_option('setting_content-padding').'*2));';
+		$css .= 'margin-left: auto !important;';
+		$css .= 'margin-right: auto !important;';
+		$css .= 'padding-left: '.get_option('setting_content-padding').';';
+		$css .= 'padding-right: '.get_option('setting_content-padding').';';
+	$css .= '}';
+
+	// chaos-container fullwidth
+	$css .= '#main .entry-content > div.alignfull {';
+		$css .= 'left: 0px;';
+		$css .= 'max-width: calc(100% + ('.get_option('setting_content-padding').'*2));';
+		$css .= 'width: calc(100% + ('.get_option('setting_content-padding').'*2));';
+	$css .= '}';
+
 
 	// has sidebar
 	$css .= '.has-sidebar .chaos-content {';
