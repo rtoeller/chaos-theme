@@ -54,12 +54,41 @@
 	$css .= '}';
 	
 	// chaos-container
-	$css .= '.chaos-container, .chaos-content-text { ';
-		$css .= 'max-width: calc('.get_option('setting_content-width').' + ('.get_option('setting_content-padding').'*2));';
-		$css .= 'padding-left: '.get_option('setting_content-padding').';';
-		$css .= 'padding-right: '.get_option('setting_content-padding').';';
-		$css .= 'margin: auto;';
-	$css .= '}';
+	if ( get_option('setting_content-width') ){
+		$css .= '.chaos-container, .chaos-content-text, #main .chaos-container.has-sidbar { ';
+			$css .= 'max-width: calc('.get_option('setting_content-width').' + ('.get_option('setting_content-padding').'*2));';
+			$css .= 'padding-left: '.get_option('setting_content-padding').';';
+			$css .= 'padding-right: '.get_option('setting_content-padding').';';
+			$css .= 'margin: auto;';
+		$css .= '}';
+		$css .= '#main .entry-content > *, article header, .entry .entry-header {';
+			$css .= 'max-width: calc('.get_option('setting_content-width').' + ('.get_option('setting_content-padding').'*2));';
+			$css .= 'margin-left: auto !important;';
+			$css .= 'margin-right: auto !important;';
+			$css .= 'padding-left: '.get_option('setting_content-padding').';';
+			$css .= 'padding-right: '.get_option('setting_content-padding').';';
+		$css .= '}';
+	
+		// chaos-container fullwidth
+		$css .= '#main .entry-content > div.alignfull {';
+			$css .= 'left: 0px;';
+			$css .= 'max-width: calc(100% + ('.get_option('setting_content-padding').'*2));';
+			$css .= 'width: calc(100% + ('.get_option('setting_content-padding').'*2));';
+		$css .= '}';
+	
+		// has sidebar
+		$css .= '.has-sidebar .chaos-content {';
+			$css .= 'display: inline-block;';
+			$css  .= 'width: calc(100% - '.get_option('setting_sidebar-width').');';
+			$css .= 'padding-right: calc('.get_option('setting_content-padding').' / 2);';
+		$css .= '}';
+		$css .= '.has-sidebar .chaos-sidebar {';
+			$css .= 'width: '.get_option('setting_sidebar-width').';';
+			$css .= 'display: inline-block;';
+			$css .= 'float: right;';
+			$css .= 'padding-left: calc('.get_option('setting_content-padding').' / 2);';
+		$css .= '}';
+	}
 	$css .= '.chaos-content-text { ';
 		$css .= 'padding-left: 0px;';
 		$css .= 'padding-right: 0px;';
@@ -73,34 +102,7 @@
 		$css .= 'padding-right: 0px;';
 	$css .= '}';
 	
-	$css .= '#main .entry-content > *, article header, .entry .entry-header {';
-		$css .= 'max-width: calc('.get_option('setting_content-width').' + ('.get_option('setting_content-padding').'*2));';
-		$css .= 'margin-left: auto !important;';
-		$css .= 'margin-right: auto !important;';
-		$css .= 'padding-left: '.get_option('setting_content-padding').';';
-		$css .= 'padding-right: '.get_option('setting_content-padding').';';
-	$css .= '}';
-
-	// chaos-container fullwidth
-	$css .= '#main .entry-content > div.alignfull {';
-		$css .= 'left: 0px;';
-		$css .= 'max-width: calc(100% + ('.get_option('setting_content-padding').'*2));';
-		$css .= 'width: calc(100% + ('.get_option('setting_content-padding').'*2));';
-	$css .= '}';
-
-
-	// has sidebar
-	$css .= '.has-sidebar .chaos-content {';
-		$css .= 'display: inline-block;';
-		$css  .= 'width: calc(100% - '.get_option('setting_sidebar-width').');';
-		$css .= 'padding-right: calc('.get_option('setting_content-padding').' / 2);';
-	$css .= '}';
-	$css .= '.has-sidebar .chaos-sidebar {';
-		$css .= 'width: '.get_option('setting_sidebar-width').';';
-		$css .= 'display: inline-block;';
-		$css .= 'float: right;';
-		$css .= 'padding-left: calc('.get_option('setting_content-padding').' / 2);';
-	$css .= '}';
+	
 	// h1 
 	$css .= '.chaos-container h1 { ';
 		if ( get_theme_mod( 'select_font-h1-fonts') ){
@@ -217,9 +219,9 @@
 
 	// a
 	if ( get_theme_mod( 'setting_linkcolor-generell') ){
-		$css .= 'a {
-					color: '.get_theme_mod('setting_linkcolor-generell').';
-				}';
+		$css .= 'a { ';
+			$css .= 'color: '.get_theme_mod('setting_linkcolor-generell').';';
+		$css .= '}';
 	}
 
 	//#masthead
@@ -263,26 +265,31 @@
 
 	// chaos-main-menu hover
 		if ( get_theme_mod('setting_menuhover-color') ){
-			$css .= 'ul.chaos-main-menu li a:hover,
-					ul.chaos-main-menu li.current_page_item a {
-						color: '. get_theme_mod('setting_menuhover-color').';
-					}';
+			$css .= 'ul.chaos-main-menu li a:hover,	ul.chaos-main-menu li.current_page_item a { ';
+				$css .= 'color: '. get_theme_mod('setting_menuhover-color').';';
+			$css .= '}';
+			$css .= 'ul.chaos-main-menu.menu-background > li:hover > a,	ul.chaos-main-menu.menu-background > li.current_page_item > a { ';
+				$css .= 'color: '. get_theme_mod('setting_menuhover-color').';';
+			$css .= '}';
+			$css .= 'ul.chaos-main-menu.menu-background > li a, ul.chaos-main-menu.menu-background > li.current_page_item a {  ';
+				$css .= 'color: '. get_theme_mod('setting_menuhover-color').';';
+			$css .= '}';
+			$css .= 'ul.chaos-submenu li.sub-item:hover > a{';
+				$css .= 'color: '. get_theme_mod('setting_menuhover-color').';';
+			$css .= '}';
 		}
-		$css .= 'ul.chaos-main-menu.menu-background > li {
-						color: '. get_theme_mod('setting_menu-color').';
-					}';
-		$css .= 'ul.chaos-main-menu.menu-background > li a,
-					ul.chaos-main-menu.menu-background > li.current_page_item a {
-						color: '. get_theme_mod('setting_menuhover-color').';
-				}';
-		$css .= 'ul.chaos-main-menu.menu-background > li:hover,
-				ul.chaos-main-menu.menu-background > li.current_page_item {
-					background-color: '. get_theme_mod('setting_menu-color').';
-				}';
-		$css .= 'ul.chaos-main-menu.menu-background > li:hover > a,
-					ul.chaos-main-menu.menu-background > li.current_page_item > a {
-					color: '. get_theme_mod('setting_menuhover-color').';
-				}';
+		if ( get_theme_mod('setting_menu-color') ){
+			$css .= 'ul.chaos-main-menu.menu-background > li { ';
+				$css .= 'color: '. get_theme_mod('setting_menu-color').';';
+			$css .= '}';		
+			$css .= 'ul.chaos-main-menu.menu-background > li:hover,	ul.chaos-main-menu.menu-background > li.current_page_item { ';
+				$css .= 'background-color: '. get_theme_mod('setting_menu-color').';';
+			$css .= '}';
+			$css .= 'ul.chaos-submenu li.sub-item:hover > {';
+				$css .= 'background-color: '. get_theme_mod('setting_menu-color').';';
+				$css .= 'border-color: '. get_theme_mod('setting_menu-color').';';
+			$css .= '}';
+		}
 
 		// chaos-main-menu submenu
 		$css .= 'ul.chaos-submenu li.sub-item a {';
@@ -300,13 +307,7 @@
 				$css .= 'width: '.get_option('setting_width-submenu').';';
 			}
 		$css	 .= '}';
-		$css .= 'ul.chaos-submenu li.sub-item:hover > {';
-		$css .= 'background-color: '. get_theme_mod('setting_menu-color').';';
-		$css .= 'border-color: '. get_theme_mod('setting_menu-color').';';
-		$css .= '}';
-		$css .= 'ul.chaos-submenu li.sub-item:hover > a{';
-		$css .= 'color: '. get_theme_mod('setting_menuhover-color').';';
-		$css .= '}';
+		
 		$css .= 'ul.chaos-submenu li.sub-item a {';
 			if ( get_theme_mod('setting_bg-submenu-color') ){
 				$css .= 'background-color: '.get_theme_mod('setting_bg-submenu-color').';';
@@ -376,6 +377,8 @@
 				$css .= '.mobile-menu .fas { position: absolute; right: '.get_option('setting_content-padding').';}';
 			$css .= '}';
 		}
+
+		// -------- Macht das Sinn ------------ //
 		$css .= '@media screen and (max-width: 640px) {';
 			$css .= '.wp-block-column { ';
 				$css .= 'flex-basis: 100%;';
@@ -383,29 +386,51 @@
 				$css .= 'margin-right: 0px !important;';
 			$css .= '}';
 		$css .= '}';
+		// --------------------------------- //
+
 
 		// pagetitle
 		$css .= '.chaos-pagetitle-wrapper { ';
-			$css .= 'background-color: '.get_theme_mod('setting_bgcolor-pagetitle').';';
-			$css .= 'margin-top: '.get_option('setting_margintop-pagetitle').';';
-			$css .= 'padding-top: '.get_option('setting_padding-pagetitle').';';
-			$css .= 'padding-bottom: '.get_option('setting_padding-pagetitle').';';
+			if ( get_theme_mod('setting_bgcolor-pagetitle') ) {
+				$css .= 'background-color: '.get_theme_mod('setting_bgcolor-pagetitle').';';
+			}
+			if ( get_option('setting_margintop-pagetitle') ) {
+				$css .= 'margin-top: '.get_option('setting_margintop-pagetitle').';';
+			}
+			if ( get_option('setting_padding-pagetitle') ) {
+				$css .= 'padding-top: '.get_option('setting_padding-pagetitle').';';
+				$css .= 'padding-bottom: '.get_option('setting_padding-pagetitle').';';
+			}
 		$css .= '}';
 
 		// breadcrumb
 		$css .= '.chaos-breadcrumb { ';
-			$css .= 'font-family: '.get_option('setting_font-breadcrumb').';';
-			$css .= 'font-size: '.get_option('setting_textsize-breadcrumb').';';
-			$css .= 'color: '.get_theme_mod('setting_textcolor-breadcrumb').';';
-			$css .= 'font-weight: '.get_option('setting_font-weight-breadcrumb').';';
+			if ( get_option('setting_font-breadcrumb') ) {
+				$css .= 'font-family: '.get_option('setting_font-breadcrumb').';';
+			}
+			if ( get_option('setting_textsize-breadcrumb') ) {
+				$css .= 'font-size: '.get_option('setting_textsize-breadcrumb').';';
+			}
+			if ( get_option('setting_textcolor-breadcrumb') ) {
+				$css .= 'color: '.get_theme_mod('setting_textcolor-breadcrumb').';';
+			}
+			if ( get_option('setting_font-weight-breadcrumb') ) {
+				$css .= 'font-weight: '.get_option('setting_font-weight-breadcrumb').';';
+			}
 		$css .= '}';
 		$css .= '.chaos-breadcrumb a { ';
-			$css .= 'color: '.get_theme_mod('setting_linkcolor-breadcrumb').' !important;';
-			$css .= 'padding-left: '.get_option('setting_padding-breadcrumb').';';
-			$css .= 'padding-right: '.get_option('setting_padding-breadcrumb').';';
+			if ( get_option('setting_linkcolor-breadcrumb') ) {
+				$css .= 'color: '.get_theme_mod('setting_linkcolor-breadcrumb').' !important;';
+			}
+			if ( get_option('setting_padding-breadcrumb') ) {
+				$css .= 'padding-left: '.get_option('setting_padding-breadcrumb').';';
+				$css .= 'padding-right: '.get_option('setting_padding-breadcrumb').';';
+			}
 		$css .= '}';
 		$css .= '.chaos-breadcrumb:before { ';
-			$css .= 'content: "'.get_option('setting_before-breadcrumb').'";';
+			if ( get_option('setting_before-breadcrumb') ) {
+				$css .= 'content: "'.get_option('setting_before-breadcrumb').'";';
+			}
 		$css .= '}';
 		/*.chaos-main-menu ul.main-menu li a {
 			color: <?php echo get_theme_mod('setting_menu-color');?>
