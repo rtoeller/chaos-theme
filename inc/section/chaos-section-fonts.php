@@ -10,6 +10,7 @@
 		// BODY SCHRIFTART
 		$wp_customize->add_setting( 'select_fontbody-fonts', array(
 				'capability' => 'edit_theme_options',
+				'type' => 'theme_mod',
 			)
 		);
 		
@@ -25,7 +26,7 @@
 		$wp_customize->add_setting( 'setting_font-weight-body-fonts', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_font-weight-body-fonts', array(
@@ -57,7 +58,7 @@
 		$wp_customize->add_setting( 'setting_textsize-body-fonts', array(
 				'default'		=>		'18px',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_textsize-body-fonts', array(
@@ -72,7 +73,7 @@
 		$wp_customize->add_setting( 'setting_line-height-body-fonts', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_line-height-body-fonts', array(
@@ -86,6 +87,7 @@
 		// H1 SCHRIFTART
 		$wp_customize->add_setting( 'select_font-h1-fonts', array(
 				'capability' => 'edit_theme_options',
+				'type' => 'theme_mod',
 			)
 		);
 		
@@ -101,7 +103,7 @@
 		$wp_customize->add_setting( 'setting_font-weight-h1-fonts', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_font-weight-h1-fonts', array(
@@ -133,7 +135,7 @@
 		$wp_customize->add_setting( 'setting_textsize-h1-fonts', array(
 				'default'		=>		'40px',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_textsize-h1-fonts', array(
@@ -148,7 +150,7 @@
 		$wp_customize->add_setting( 'setting_line-height-h1-fonts', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_line-height-h1-fonts', array(
@@ -162,6 +164,7 @@
 		// H2 SCHRIFTART
 		$wp_customize->add_setting( 'select_font-h2-fonts', array(
 				'capability' => 'edit_theme_options',
+				'type' => 'theme_mod',
 			)
 		);
 		
@@ -177,7 +180,7 @@
 		$wp_customize->add_setting( 'setting_font-weight-h2-fonts', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_font-weight-h2-fonts', array(
@@ -209,7 +212,7 @@
 		$wp_customize->add_setting( 'setting_textsize-h2-fonts', array(
 				'default'		=>		'36px',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_textsize-h2-fonts', array(
@@ -224,7 +227,7 @@
 		$wp_customize->add_setting( 'setting_line-height-h2-fonts', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_line-height-h2-fonts', array(
@@ -253,7 +256,7 @@
 		$wp_customize->add_setting( 'setting_font-weight-h3-fonts', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_font-weight-h3-fonts', array(
@@ -268,6 +271,7 @@
 		$wp_customize->add_setting( 'setting_textcolor-h3-fonts' , array(
 			'default' => '#43755c',
 			'sanitize_callback' => 'sanitize_hex_color',
+			'type' => 'theme_mod',
 		) );
 
 		$wp_customize->add_control(
@@ -285,7 +289,7 @@
 		$wp_customize->add_setting( 'setting_textsize-h3-fonts', array(
 				'default'		=>		'28px',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_textsize-h3-fonts', array(
@@ -300,7 +304,7 @@
 		$wp_customize->add_setting( 'setting_line-height-h3-fonts', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_line-height-h3-fonts', array(
@@ -314,6 +318,7 @@
 		// H4 SCHRIFTART
 		$wp_customize->add_setting( 'select_font-h4-fonts', array(
 				'capability' => 'edit_theme_options',
+				'type' => 'theme_mod',
 			)
 		);
 		
@@ -329,7 +334,7 @@
 		$wp_customize->add_setting( 'setting_font-weight-h4-fonts', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_font-weight-h4-fonts', array(
@@ -344,6 +349,7 @@
 		$wp_customize->add_setting( 'setting_textcolor-h4-fonts' , array(
 			'default' => '#43755c',
 			'sanitize_callback' => 'sanitize_hex_color',
+			'type' => 'theme_mod',
 		) );
 
 		$wp_customize->add_control(
@@ -361,7 +367,7 @@
 		$wp_customize->add_setting( 'setting_textsize-h4-fonts', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_textsize-h4-fonts', array(
@@ -376,7 +382,7 @@
 		$wp_customize->add_setting( 'setting_line-height-h4-fonts', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_line-height-h4-fonts', array(
@@ -390,6 +396,7 @@
 		// H5 SCHRIFTART
 		$wp_customize->add_setting( 'select_font-h5-fonts', array(
 				'capability' => 'edit_theme_options',
+				'type' => 'theme_mod',
 			)
 		);
 		
@@ -405,7 +412,7 @@
 		$wp_customize->add_setting( 'setting_font-weight-h5-fonts', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_font-weight-h5-fonts', array(
@@ -420,6 +427,7 @@
 		$wp_customize->add_setting( 'setting_textcolor-h5-fonts' , array(
 			'default' => '#43755c',
 			'sanitize_callback' => 'sanitize_hex_color',
+			'type' => 'theme_mod',
 		) );
 
 		$wp_customize->add_control(
@@ -437,7 +445,7 @@
 		$wp_customize->add_setting( 'setting_textsize-h5-fonts', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_textsize-h5-fonts', array(
@@ -452,7 +460,7 @@
 		$wp_customize->add_setting( 'setting_line-height-h5-fonts', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_line-height-h5-fonts', array(
@@ -466,6 +474,7 @@
 		// H6 SCHRIFTART
 		$wp_customize->add_setting( 'select_font-h6-fonts', array(
 				'capability' => 'edit_theme_options',
+				'type' => 'theme_mod',
 			)
 		);
 		
@@ -481,7 +490,7 @@
 		$wp_customize->add_setting( 'setting_font-weight-h6-fonts', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_font-weight-h6-fonts', array(
@@ -496,6 +505,7 @@
 		$wp_customize->add_setting( 'setting_textcolor-h6-fonts' , array(
 			'default' => '#43755c',
 			'sanitize_callback' => 'sanitize_hex_color',
+			'type' => 'theme_mod',
 		) );
 
 		$wp_customize->add_control(
@@ -513,7 +523,7 @@
 		$wp_customize->add_setting( 'setting_textsize-h6-fonts', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_textsize-h6-fonts', array(
@@ -528,7 +538,7 @@
 		$wp_customize->add_setting( 'setting_line-height-h6-fonts', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_line-height-h6-fonts', array(

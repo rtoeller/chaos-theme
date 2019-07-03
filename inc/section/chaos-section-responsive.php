@@ -11,7 +11,7 @@
 		$wp_customize->add_setting( 'setting_menu-responsive', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_menu-responsive', array(
@@ -26,7 +26,7 @@
 		$wp_customize->add_setting( 'setting_content-responsive', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_content-responsive', array(
@@ -41,7 +41,7 @@
 		$wp_customize->add_setting( 'setting_tabletquer-responsive', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_tabletquer-responsive', array(
@@ -56,7 +56,7 @@
 		$wp_customize->add_setting( 'setting_tablethoch-responsive', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_tablethoch-responsive', array(
@@ -71,7 +71,7 @@
 		$wp_customize->add_setting( 'setting_mobilequer-responsive', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_mobilequer-responsive', array(
@@ -86,7 +86,7 @@
 		$wp_customize->add_setting( 'setting_mobilehoch-responsive', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_mobilehoch-responsive', array(
@@ -101,7 +101,7 @@
 		$wp_customize->add_setting( 'setting_contentcolumn-tabletquer-responsive', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_contentcolumn-tabletquer-responsive', array(
@@ -116,7 +116,7 @@
 		$wp_customize->add_setting( 'setting_contentcolumn-tablethoch-responsive', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_contentcolumn-tablethoch-responsive', array(
@@ -131,7 +131,7 @@
 		$wp_customize->add_setting( 'setting_contentcolumn-mobilequer-responsive', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_contentcolumn-mobilequer-responsive', array(
@@ -146,7 +146,7 @@
 		$wp_customize->add_setting( 'setting_contentcolumn-mobilehoch-responsive', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_contentcolumn-mobilehoch-responsive', array(
@@ -161,7 +161,7 @@
 		$wp_customize->add_setting( 'setting_footercolumn-tabletquer-responsive', array(
 			'default'		=>		'',
 			'sanitize_callback'	=>	'sanitize_text_field',
-			'type'	=>	'option',
+			'type' => 'theme_mod',
 		)
 	);
 	$wp_customize->add_control( 'control_footercolumn-tabletquer-responsive', array(
@@ -176,7 +176,7 @@
 	$wp_customize->add_setting( 'setting_footercolumn-tablethoch-responsive', array(
 			'default'		=>		'',
 			'sanitize_callback'	=>	'sanitize_text_field',
-			'type'	=>	'option',
+			'type' => 'theme_mod',
 		)
 	);
 	$wp_customize->add_control( 'control_footercolumn-tablethoch-responsive', array(
@@ -191,7 +191,7 @@
 	$wp_customize->add_setting( 'setting_footercolumn-mobilequer-responsive', array(
 			'default'		=>		'',
 			'sanitize_callback'	=>	'sanitize_text_field',
-			'type'	=>	'option',
+			'type' => 'theme_mod',
 		)
 	);
 	$wp_customize->add_control( 'control_footercolumn-mobilequer-responsive', array(
@@ -206,7 +206,7 @@
 	$wp_customize->add_setting( 'setting_footercolumn-mobilehoch-responsive', array(
 			'default'		=>		'',
 			'sanitize_callback'	=>	'sanitize_text_field',
-			'type'	=>	'option',
+			'type' => 'theme_mod',
 		)
 	);
 	$wp_customize->add_control( 'control_footercolumn-mobilehoch-responsive', array(

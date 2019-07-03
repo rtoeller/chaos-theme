@@ -17,10 +17,10 @@
 
 	<footer id="colophon" class="site-footer chaos-footer">
 		<div class="chaos-container">
-		<?php $footerCols = intval(get_option('setting_footer-columns')); ?>
+		<?php $footerCols = intval(get_theme_mod('setting_footer-columns')); ?>
 		<div class="wp-block-columns has-<?php echo $footerCols;?>-columns"><!-- 
 			<?php
-				if ( get_option('setting_footer-columns') != '' ){
+				if ( get_theme_mod('setting_footer-columns') != '' ){
 					for( $i = 1; $i <= $footerCols; $i++ ) { 
 						$footerWidget = 100 / $footerCols; ?>
 					#footer-widget --><div class="wp-block-column" ><!--

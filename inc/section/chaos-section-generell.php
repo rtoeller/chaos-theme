@@ -9,9 +9,9 @@
 
 		// CONTENTWIDTH
 		$wp_customize->add_setting( 'setting_content-width', array(
-				'default'		=>		'',
+				'default'		=>		'1000px',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_content-width', array(
@@ -25,7 +25,7 @@
 		$wp_customize->add_setting( 'setting_content-padding', array(
 				'default'		=>		'30px',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_content-padding', array(
@@ -54,7 +54,7 @@
 		$wp_customize->add_setting( 'setting_font-weight-generell', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_font', array(
@@ -103,6 +103,7 @@
 		$wp_customize->add_setting( 'setting_linkcolor-generell' , array(
 			'default' => '#43755c',
 			'sanitize_callback' => 'sanitize_hex_color',
+			'type' => 'theme_mod',
 		) );
 	
 		$wp_customize->add_control(
@@ -120,7 +121,7 @@
 		$wp_customize->add_setting( 'setting_textsize-generell', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_textsize-generell', array(
@@ -135,58 +136,13 @@
 		$wp_customize->add_setting( 'setting_line-height-generell', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_line-height-generell', array(
 				'label'		=>		'Schrift Line Height',
 				'section'	=>		'chaos_generell',
 				'settings'	=>		'setting_line-height-generell',
-				'type'		=>		'text',
-			)
-		);
-		
-		// H1
-		$wp_customize->add_setting( 'setting_h1', array(
-				'default'		=>		'',
-				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
-			)
-		);
-		$wp_customize->add_control( 'control_h1', array(
-				'label'		=>		'Schriftgröße h1',
-				'section'	=>		'chaos_generell',
-				'settings'	=>		'setting_h1',
-				'type'		=>		'text',
-			)
-		);
-
-		// H2
-		$wp_customize->add_setting( 'setting_h2', array(
-				'default'		=>		'',
-				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
-			)
-		);
-		$wp_customize->add_control( 'control_h2', array(
-				'label'		=>		'Schriftgröße h2',
-				'section'	=>		'chaos_generell',
-				'settings'	=>		'setting_h2',
-				'type'		=>		'text',
-			)
-		);
-
-		// H3
-		$wp_customize->add_setting( 'setting_h3', array(
-				'default'		=>		'',
-				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
-			)
-		);
-		$wp_customize->add_control( 'control_h3', array(
-				'label'		=>		'Schriftgröße h3',
-				'section'	=>		'chaos_generell',
-				'settings'	=>		'setting_h3',
 				'type'		=>		'text',
 			)
 		);
@@ -214,7 +170,7 @@
 		$wp_customize->add_setting( 'setting_sidebar-width', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_sidebar-width', array(
@@ -226,9 +182,9 @@
 		);
 
 		$wp_customize->add_setting( 'setting_page-margin', array(
-				'default'		=>		'',
+				'default'		=>		'50px',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_page-margin', array(

@@ -30,7 +30,7 @@
 		$wp_customize->add_setting( 'setting_before-breadcrumb', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_before-breadcrumb', array(
@@ -45,7 +45,7 @@
 		$wp_customize->add_setting( 'setting_padding-breadcrumb', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_padding-breadcrumb', array(
@@ -61,7 +61,7 @@
 		$wp_customize->add_setting( 'setting_symbol-breadcrumb', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_symbol-breadcrumb', array(
@@ -90,7 +90,7 @@
 		$wp_customize->add_setting( 'setting_font-weight-breadcrumb', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_font-weight-breadcrumb', array(
@@ -105,6 +105,7 @@
 		$wp_customize->add_setting( 'setting_textcolor-breadcrumb' , array(
 			'default' => '#000',
 			'sanitize_callback' => 'sanitize_hex_color',
+			'type' => 'theme_mod',
 		) );
 	
 		$wp_customize->add_control(
@@ -122,6 +123,7 @@
 		$wp_customize->add_setting( 'setting_linkcolor-breadcrumb' , array(
 			'default' => '#43755c',
 			'sanitize_callback' => 'sanitize_hex_color',
+			'type' => 'theme_mod',
 		) );
 	
 		$wp_customize->add_control(
@@ -139,7 +141,7 @@
 		$wp_customize->add_setting( 'setting_textsize-breadcrumb', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_textsize-breadcrumb', array(
@@ -154,7 +156,7 @@
 		$wp_customize->add_setting( 'setting_line-height-breadcrumb', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_line-height-breadcrumb', array(

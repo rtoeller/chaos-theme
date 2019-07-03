@@ -14,7 +14,7 @@ get_header();
 <div class="chaos-pagetitle-wrapper">
 	<?php require get_template_directory() . '/template-parts/content/breadcrumb.php';?>
 </div>
-<div class="chaos-wrapper" style="margin-top: <?php echo get_option('setting_page-margin');?>; margin-bottom: <?php echo get_option('setting_page-margin');?>;">
+<div class="chaos-wrapper" style="margin-top: <?php echo get_theme_mod('setting_page-margin');?>; margin-bottom: <?php echo get_theme_mod('setting_page-margin');?>;">
 	<section id="primary" class="content-area">
 		<main id="main" class="site-main">
 			<?php

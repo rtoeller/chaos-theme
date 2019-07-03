@@ -24,12 +24,12 @@ function doBreadcrumb( $pid ){
 			$page_name = get_the_title( $pid );
 			$link = get_the_permalink( $pid );
 			$breadcrumb = '<a href="'.$link.'">'.$page_name. '</a>'.$space.$breadcrumb;
-			$space = get_option('setting_symbol-breadcrumb');
+			$space = get_theme_mod('setting_symbol-breadcrumb');
 			$pid = wp_get_post_parent_id( $pid );
 		}
 	}
 	else {
-		$space = get_option('setting_symbol-breadcrumb');
+		$space = get_theme_mod('setting_symbol-breadcrumb');
 	}
 
 	if( $postType == 'post' ) {

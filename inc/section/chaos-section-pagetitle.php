@@ -47,7 +47,7 @@
 		$wp_customize->add_setting( 'setting_margintop-pagetitle', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_margintop-pagetitle', array(
@@ -63,7 +63,7 @@
 		$wp_customize->add_setting( 'setting_padding-pagetitle', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_padding-pagetitle', array(

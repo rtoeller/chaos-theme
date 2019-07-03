@@ -23,7 +23,7 @@
 			background-color: <?php echo get_theme_mod('setting_color');?>
 		}
 		.site-branding {
-			width: <?php echo get_option('setting_textfield');?>
+			width: <?php echo get_theme_mod('setting_textfield');?>
 		}
 	</style>
 </head>
@@ -33,7 +33,7 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'twentynineteen' ); ?></a>
 
 		<header id="masthead" class="<?php echo is_singular() && twentynineteen_can_show_post_thumbnail() ? 'site-header featured-image' : 'site-header'; ?>">
-		<?php echo get_option('setting-radio')?>
+		<?php echo get_theme_mod('setting-radio')?>
 			<div class="site-branding-container">
 				<?php get_template_part( 'template-parts/header/site', 'branding' ); ?>
 			</div><!-- .layout-wrap -->

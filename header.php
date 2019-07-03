@@ -20,11 +20,11 @@
 	
 	<style type="text/css">
 		.chaos-wrapper  {
-			margin-top: <?php echo get_option('setting_page-margin');?>;
-			margin-bottom: <?php echo get_option('setting_page-margin');?>;
+			margin-top: <?php echo get_theme_mod('setting_page-margin');?>;
+			margin-bottom: <?php echo get_theme_mod('setting_page-margin');?>;
 		}
 		.site-branding {
-			width: <?php echo get_option('setting_textfield');?>
+			width: <?php echo get_theme_mod('setting_textfield');?>
 		}
 		.chaos-main-menu ul.main-menu li {
 			padding: <?php echo get_theme_mod('setting_menu-padding');?>;
@@ -51,23 +51,23 @@
 			padding-top: <?php echo get_theme_mod('setting_footer-padding')?>;
 			padding-bottom: <?php echo get_theme_mod('setting_footer-padding')?>;
 			font-family: "<?php echo get_theme_mod( 'select_font-footer');?>";
-			font-size: <?php echo get_option('setting_textsize-footer');?>;
-			font-weight: <?php echo get_option('setting_font-weight-footer')?>;
-			line-height: <?php echo get_option('setting_line-height-footer')?>;
+			font-size: <?php echo get_theme_mod('setting_textsize-footer');?>;
+			font-weight: <?php echo get_theme_mod('setting_font-weight-footer')?>;
+			line-height: <?php echo get_theme_mod('setting_line-height-footer')?>;
 		}
 		.chaos-footer .wp-block-columns .wp-block-column {
 			color: <?php echo get_theme_mod('setting_color-text-footer');?>; 
 		}
 		.chaos-footer .wp-block-columns .widget-content a {
-			color: <?php echo get_option('setting_color-link-footer');?>
+			color: <?php echo get_theme_mod('setting_color-link-footer');?>
 		}
 		.chaos-copyright {
 			background-color: <?php echo get_theme_mod('setting_background-copyright');?>;
 			color: <?php echo get_theme_mod('setting_textcolor-copyright');?>;
 			font-family: "<?php echo get_theme_mod( 'select_font-copyright');?>";
-			font-size: <?php echo get_option('setting_textsize-copyright');?>;
-			font-weight: <?php echo get_option('setting_font-weight-copyright')?>;
-			line-height: <?php echo get_option('setting_line-height-copyright')?>;
+			font-size: <?php echo get_theme_mod('setting_textsize-copyright');?>;
+			font-weight: <?php echo get_theme_mod('setting_font-weight-copyright')?>;
+			line-height: <?php echo get_theme_mod('setting_line-height-copyright')?>;
 		}		
 		.chaos-copyright a {
 			color: <?php echo get_theme_mod('setting_linkcolor-copyright');?>;
@@ -81,9 +81,9 @@
 			background-color: <?php echo get_theme_mod('setting_background-contact-header');?>;
 			color: <?php echo get_theme_mod('setting_textcolor-contact-header');?>;
 			font-family: "<?php echo get_theme_mod( 'select_font-contact-header');?>";
-			font-size: <?php echo get_option('setting_textsize-contact-header');?>;
-			font-weight: <?php echo get_option('setting_font-weight-contact-header')?>;
-			line-height: <?php echo get_option('setting_line-height-contact-header')?>;
+			font-size: <?php echo get_theme_mod('setting_textsize-contact-header');?>;
+			font-weight: <?php echo get_theme_mod('setting_font-weight-contact-header')?>;
+			line-height: <?php echo get_theme_mod('setting_line-height-contact-header')?>;
 		}		
 		.chaos-contact-header a {
 			color: <?php echo get_theme_mod('setting_linkkcolor-contact-header');?>;

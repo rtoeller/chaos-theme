@@ -14,6 +14,7 @@ function wpv_customize_copyright ( $wp_customize ) {
         'capability' => 'edit_theme_options',
         'default' => '',
         'sanitize_callback' => 'sanitize_text_field',
+        'type' => 'theme_mod',
     ) );
 
     $wp_customize->add_control( 'control_text-copyright', array(
@@ -27,6 +28,7 @@ function wpv_customize_copyright ( $wp_customize ) {
 	$wp_customize->add_setting( 'setting_menu-copyright', array(
             'default'   => '', // Set default value
             'sanitize_callback' => 'esc_attr', // Sanitize input
+            'type' => 'theme_mod',
         )
     );
     $wp_customize->add_control(
@@ -135,6 +137,7 @@ function wpv_customize_copyright ( $wp_customize ) {
     // SCHRIFTART
 		$wp_customize->add_setting( 'select_font-copyright', array(
             'capability' => 'edit_theme_options',
+            'type' => 'theme_mod',
         )
     );
     $wp_customize->add_control( 'select_font-copyright', array(
@@ -149,7 +152,7 @@ function wpv_customize_copyright ( $wp_customize ) {
     $wp_customize->add_setting( 'setting_font-weight-copyright', array(
             'default'		=>		'',
             'sanitize_callback'	=>	'sanitize_text_field',
-            'type'	=>	'option',
+            'type' => 'theme_mod',
         )
     );
     $wp_customize->add_control( 'control_font-weight-copyright', array(
@@ -164,7 +167,7 @@ function wpv_customize_copyright ( $wp_customize ) {
     $wp_customize->add_setting( 'setting_textsize-copyright', array(
             'default'		=>		'12px',
             'sanitize_callback'	=>	'sanitize_text_field',
-            'type'	=>	'option',
+            'type' => 'theme_mod',
         )
     );
     $wp_customize->add_control( 'control_textsize-copyright', array(
@@ -179,7 +182,7 @@ function wpv_customize_copyright ( $wp_customize ) {
     $wp_customize->add_setting( 'setting_line-height-copyright', array(
             'default'		=>		'',
             'sanitize_callback'	=>	'sanitize_text_field',
-            'type'	=>	'option',
+            'type' => 'theme_mod',
         )
     );
     $wp_customize->add_control( 'control_line-height-copyright', array(

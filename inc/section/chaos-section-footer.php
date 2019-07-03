@@ -11,7 +11,7 @@
 		$wp_customize->add_setting( 'setting_footer-columns', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_footer-columns', array(
@@ -44,6 +44,7 @@
 		$wp_customize->add_setting( 'setting_footer-bg-position', array(
 				'capability' => 'edit_theme_options',
 				'sanitize_callback' => 'themeslug_sanitize_select',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'select_footer-bg-position', array(
@@ -110,6 +111,7 @@
 		$wp_customize->add_setting( 'setting_color-text-footer' , array(
 			'default' => '#fff',
 			'sanitize_callback' => 'sanitize_hex_color',
+			'type' => 'theme_mod',
 		) );
 	
 		$wp_customize->add_control(
@@ -126,6 +128,7 @@
 		$wp_customize->add_setting( 'setting_color-link-footer' , array(
 			'default' => '#fff',
 			'sanitize_callback' => 'sanitize_hex_color',
+			'type' => 'theme_mod',
 		) );
 	
 		$wp_customize->add_control(
@@ -142,6 +145,7 @@
 		// SCHRIFTART
 		$wp_customize->add_setting( 'select_font-footer', array(
 				'capability' => 'edit_theme_options',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'select_font-footer', array(
@@ -156,7 +160,7 @@
 		$wp_customize->add_setting( 'setting_font-weight-footer', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_font-weight-footer', array(
@@ -171,7 +175,7 @@
 		$wp_customize->add_setting( 'setting_textsize-footer', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_textsize-footer', array(
@@ -186,7 +190,7 @@
 		$wp_customize->add_setting( 'setting_line-height-footer', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_line-height-footer', array(

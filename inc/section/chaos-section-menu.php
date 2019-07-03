@@ -200,7 +200,7 @@ function wpv_customize_menu ( $wp_customize ) {
 	$wp_customize->add_setting( 'setting_font-weight-menu', array(
 			'default'		=>		'',
 			'sanitize_callback'	=>	'sanitize_text_field',
-			'type'	=>	'option',
+			'type' => 'theme_mod',
 		)
 	);
 	$wp_customize->add_control( 'control_font-weight-menu', array(
@@ -215,7 +215,7 @@ function wpv_customize_menu ( $wp_customize ) {
 	$wp_customize->add_setting( 'setting_textsize-menu', array(
 			'default'		=>		'',
 			'sanitize_callback'	=>	'sanitize_text_field',
-			'type'	=>	'option',
+			'type' => 'theme_mod',
 		)
 	);
 	$wp_customize->add_control( 'control_textsize-menu', array(
@@ -230,7 +230,7 @@ function wpv_customize_menu ( $wp_customize ) {
 	$wp_customize->add_setting( 'setting_font-weight-submenu', array(
 			'default'		=>		'',
 			'sanitize_callback'	=>	'sanitize_text_field',
-			'type'	=>	'option',
+			'type' => 'theme_mod',
 		)
 	);
 	$wp_customize->add_control( 'control_font-weight-submenu', array(
@@ -245,7 +245,7 @@ function wpv_customize_menu ( $wp_customize ) {
 	$wp_customize->add_setting( 'setting_textsize-submenu', array(
 			'default'		=>		'',
 			'sanitize_callback'	=>	'sanitize_text_field',
-			'type'	=>	'option',
+			'type' => 'theme_mod',
 		)
 	);
 	$wp_customize->add_control( 'control_textsize_submenu', array(
@@ -259,7 +259,7 @@ function wpv_customize_menu ( $wp_customize ) {
 	$wp_customize->add_setting( 'setting_width-submenu', array(
 			'default'		=>		'',
 			'sanitize_callback'	=>	'sanitize_text_field',
-			'type'	=>	'option',
+			'type' => 'theme_mod',
 		)
 	);
 	$wp_customize->add_control( 'control_width_submenu', array(
@@ -274,7 +274,7 @@ function wpv_customize_menu ( $wp_customize ) {
 	$wp_customize->add_setting( 'setting_border-outer-submenu', array(
 			'default'		=>		'',
 			'sanitize_callback'	=>	'sanitize_text_field',
-			'type'	=>	'option',
+			'type' => 'theme_mod',
 		)
 	);
 	$wp_customize->add_control( 'control_border-outer-submenu', array(
@@ -289,7 +289,7 @@ function wpv_customize_menu ( $wp_customize ) {
 	$wp_customize->add_setting( 'setting_border-inner-submenu', array(
 			'default'		=>		'',
 			'sanitize_callback'	=>	'sanitize_text_field',
-			'type'	=>	'option',
+			'type' => 'theme_mod',
 		)
 	);
 	$wp_customize->add_control( 'control_border-inner-submenu', array(
@@ -304,7 +304,7 @@ function wpv_customize_menu ( $wp_customize ) {
 	$wp_customize->add_setting( 'setting_padding-submenu', array(
 			'default'		=>		'',
 			'sanitize_callback'	=>	'sanitize_text_field',
-			'type'	=>	'option',
+			'type' => 'theme_mod',
 		)
 	);
 	$wp_customize->add_control( 'control_padding-submenu', array(

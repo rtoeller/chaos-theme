@@ -12,7 +12,7 @@
 		$wp_customize->add_setting( 'setting_textfield', array(
 				'default'		=>		'',
 				'sanitize_callback'	=>	'sanitize_text_field',
-				'type'	=>	'option',
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control( 'control_textfield', array(
@@ -114,7 +114,7 @@
 
 		// HTML
 		$wp_customize->add_setting( 'setting_html', array(
-			'type' => 'option',
+			'type' => 'theme_mod',
 		) );
 
 		$wp_customize->add_control(

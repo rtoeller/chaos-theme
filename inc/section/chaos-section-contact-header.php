@@ -13,6 +13,7 @@ function wpv_customize_contact_header ( $wp_customize ) {
     $wp_customize->add_setting( 'setting_display-contact-header', array(
             'default'   => 0, // Set default value
             'sanitize_callback' => 'esc_attr', // Sanitize input
+            'type' => 'theme_mod',
         )
     );
     $wp_customize->add_control(
@@ -32,6 +33,7 @@ function wpv_customize_contact_header ( $wp_customize ) {
         'capability' => 'edit_theme_options',
         'default' => '',
         'sanitize_callback' => 'sanitize_text_field',
+        'type' => 'theme_mod',
     ) );
 
     $wp_customize->add_control( 'control_text-contact-header', array(
@@ -45,6 +47,7 @@ function wpv_customize_contact_header ( $wp_customize ) {
 	$wp_customize->add_setting( 'setting_align-contact-header', array(
             'default'   => 'right', // Set default value
             'sanitize_callback' => 'esc_attr', // Sanitize input
+            'type' => 'theme_mod',
         )
     );
     $wp_customize->add_control(
@@ -136,6 +139,7 @@ function wpv_customize_contact_header ( $wp_customize ) {
     // SCHRIFTART
 		$wp_customize->add_setting( 'select_font-contact-header', array(
             'capability' => 'edit_theme_options',
+            'type' => 'theme_mod',
         )
     );
     $wp_customize->add_control( 'select_font-contact-header', array(
@@ -150,7 +154,7 @@ function wpv_customize_contact_header ( $wp_customize ) {
     $wp_customize->add_setting( 'setting_font-weight-contact-header', array(
             'default'		=>		'',
             'sanitize_callback'	=>	'sanitize_text_field',
-            'type'	=>	'option',
+            'type' => 'theme_mod',
         )
     );
     $wp_customize->add_control( 'control_font-weight-contact-header', array(
@@ -165,7 +169,7 @@ function wpv_customize_contact_header ( $wp_customize ) {
     $wp_customize->add_setting( 'setting_textsize-contact-header', array(
             'default'		=>		'12px',
             'sanitize_callback'	=>	'sanitize_text_field',
-            'type'	=>	'option',
+            'type' => 'theme_mod',
         )
     );
     $wp_customize->add_control( 'control_textsize-contact-header', array(
@@ -180,7 +184,7 @@ function wpv_customize_contact_header ( $wp_customize ) {
     $wp_customize->add_setting( 'setting_line-height-contact-header', array(
             'default'		=>		'',
             'sanitize_callback'	=>	'sanitize_text_field',
-            'type'	=>	'option',
+            'type' => 'theme_mod',
         )
     );
     $wp_customize->add_control( 'control_line-height-contact-header', array(

@@ -1,6 +1,7 @@
 <?php
 	function wpv_customize_background ( $wp_customize ) {
 		$wp_customize->add_section( 'chaos_background', array(
+				'type' 			=>	 	'theme_mod',
 				'title'			=>		'Chaos Background',
 				'priority'		=>		1,
 				'description'	=>		'Beschreibung',
@@ -27,6 +28,7 @@
 
 		// BACKGROUND POSITION
 		$wp_customize->add_setting( 'select_background-position', array(
+				'type' => 'theme_mod',
 				'capability' => 'edit_theme_options',
 			)
 		);
@@ -41,6 +43,7 @@
 		// BACKGROUND REPEAT
 		$wp_customize->add_setting( 'select_background-repeat', array(
 				'capability' => 'edit_theme_options',
+				'type' => 'theme_mod',
 			)
 		);
 

@@ -142,7 +142,7 @@ function wpv_customize_header ( $wp_customize ) {
 	);
 
 	$wp_customize->add_setting( 'setting_header-borderbottom', array(
-			'default'		=>		'',
+			'default'		=>		'8px solid #43755c',
 			'sanitize_callback'	=>	'sanitize_text_field',
 			'type' => 'theme_mod',
 		)

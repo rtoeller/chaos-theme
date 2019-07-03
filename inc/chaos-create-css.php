@@ -1,5 +1,6 @@
 <?php 
-	$file =  $_SERVER['DOCUMENT_ROOT'].'/wp-content/themes/chaos/chaos-customizer.css';
+	$file =  $_SERVER['DOCUMENT_ROOT'].'/wordpress/wp-content/themes/chaos/chaos-customizer.css';
+//	echo 'datei '. $file;
 	$css = '';
 
 	// #content
@@ -39,54 +40,96 @@
 		if ( get_theme_mod( 'select_fontbody-fonts') ){
 			$css .= 'font-family: "'.get_theme_mod( 'select_fontbody-fonts').'";';
 		}
-		if ( get_option('setting_textsize-body-fonts') ){
-			$css .= 'font-size: '.get_option('setting_textsize-body-fonts').';';
+		else {
+			$css .= 'font-family: "Lato";';
 		}
-		if ( get_option('setting_font-weight-body-fonts') ){
-			$css .= 'font-weight: '.get_option('setting_font-weight-body-fonts').';';
+
+		if ( get_theme_mod('setting_textsize-body-fonts') ){
+			$css .= 'font-size: '.get_theme_mod('setting_textsize-body-fonts').';';
 		}
-		if ( get_option('setting_line-height-body-fonts') ){
-			$css .= 'line-height: '.get_option('setting_line-height-fonts').';';
+		else {
+			$css .= 'font-size: 16px;';	
 		}
+
+		if ( get_theme_mod('setting_font-weight-body-fonts') ){
+			$css .= 'font-weight: '.get_theme_mod('setting_font-weight-body-fonts').';';
+		}
+		
+		if ( get_theme_mod('setting_line-height-body-fonts') ){
+			$css .= 'line-height: '.get_theme_mod('setting_line-height-fonts').';';
+		}
+		
 		if ( get_theme_mod('setting_textcolor-body-fonts') ){
 			$css .= 'color: '.get_theme_mod('setting_textcolor-body-fonts').';';
 		}
+		else {
+			$css .= 'color: #3d3d3d;';
+		}
 	$css .= '}';
+
+	// main 
+	if ( get_theme_mod('setting_page-margin') ) {
+		$css .= '#main { ';
+			$css .= 'margin-top: '.get_theme_mod('setting_page-margin').';';
+			$css .= 'margin-bottom: '.get_theme_mod('setting_page-margin').';';
+		$css .= '}';
+	}
+	else {
+		$css .= '#main { ';
+			$css .= 'margin-top: 50px;';
+			$css .= 'margin-bottom: 50px;';
+		$css .= '}';
+	}
 	
 	// chaos-container
-	if ( get_option('setting_content-width') ){
+	if ( get_theme_mod('setting_content-width') ){
 		$css .= '.chaos-container, .chaos-content-text, #main .chaos-container.has-sidbar { ';
-			$css .= 'max-width: calc('.get_option('setting_content-width').' + ('.get_option('setting_content-padding').'*2));';
-			$css .= 'padding-left: '.get_option('setting_content-padding').';';
-			$css .= 'padding-right: '.get_option('setting_content-padding').';';
+			$css .= 'max-width: calc('.get_theme_mod('setting_content-width').' + ('.get_theme_mod('setting_content-padding').'*2));';
+			$css .= 'padding-left: '.get_theme_mod('setting_content-padding').';';
+			$css .= 'padding-right: '.get_theme_mod('setting_content-padding').';';
 			$css .= 'margin: auto;';
 		$css .= '}';
 		$css .= '#main .entry-content > *, article header, .entry .entry-header {';
-			$css .= 'max-width: calc('.get_option('setting_content-width').' + ('.get_option('setting_content-padding').'*2));';
+			$css .= 'max-width: calc('.get_theme_mod('setting_content-width').' + ('.get_theme_mod('setting_content-padding').'*2));';
 			$css .= 'margin-left: auto !important;';
 			$css .= 'margin-right: auto !important;';
-			$css .= 'padding-left: '.get_option('setting_content-padding').';';
-			$css .= 'padding-right: '.get_option('setting_content-padding').';';
+			$css .= 'padding-left: '.get_theme_mod('setting_content-padding').';';
+			$css .= 'padding-right: '.get_theme_mod('setting_content-padding').';';
 		$css .= '}';
 	
 		// chaos-container fullwidth
 		$css .= '#main .entry-content > div.alignfull {';
 			$css .= 'left: 0px;';
-			$css .= 'max-width: calc(100% + ('.get_option('setting_content-padding').'*2));';
-			$css .= 'width: calc(100% + ('.get_option('setting_content-padding').'*2));';
+			$css .= 'max-width: calc(100% + ('.get_theme_mod('setting_content-padding').'*2));';
+			$css .= 'width: calc(100% + ('.get_theme_mod('setting_content-padding').'*2));';
 		$css .= '}';
 	
 		// has sidebar
 		$css .= '.has-sidebar .chaos-content {';
 			$css .= 'display: inline-block;';
-			$css  .= 'width: calc(100% - '.get_option('setting_sidebar-width').');';
-			$css .= 'padding-right: calc('.get_option('setting_content-padding').' / 2);';
+			$css  .= 'width: calc(100% - '.get_theme_mod('setting_sidebar-width').');';
+			$css .= 'padding-right: calc('.get_theme_mod('setting_content-padding').' / 2);';
 		$css .= '}';
 		$css .= '.has-sidebar .chaos-sidebar {';
-			$css .= 'width: '.get_option('setting_sidebar-width').';';
+			$css .= 'width: '.get_theme_mod('setting_sidebar-width').';';
 			$css .= 'display: inline-block;';
 			$css .= 'float: right;';
-			$css .= 'padding-left: calc('.get_option('setting_content-padding').' / 2);';
+			$css .= 'padding-left: calc('.get_theme_mod('setting_content-padding').' / 2);';
+		$css .= '}';
+	}
+	else {
+		$css .= '.chaos-container, .chaos-content-text, #main .chaos-container.has-sidbar { ';
+			$css .= 'max-width: calc(1000px + (30px*2));';
+			$css .= 'padding-left: 30px;';
+			$css .= 'padding-right: 30px;';
+			$css .= 'margin: auto;';
+		$css .= '}';
+		$css .= '#main .entry-content > *, article header, .entry .entry-header {';
+			$css .= 'max-width: calc(1000px + (30px*2));';
+			$css .= 'margin-left: auto !important;';
+			$css .= 'margin-right: auto !important;';
+			$css .= 'padding-left: 30px;';
+			$css .= 'padding-right: 30px;';
 		$css .= '}';
 	}
 	$css .= '.chaos-content-text { ';
@@ -108,14 +151,17 @@
 		if ( get_theme_mod( 'select_font-h1-fonts') ){
 			$css .= 'font-family: "'.get_theme_mod( 'select_font-h1-fonts').'";';
 		}
-		if ( get_option('setting_textsize-h1-fonts') ){
-			$css .= 'font-size: '.get_option('setting_textsize-h1-fonts').';';
+		if ( get_theme_mod('setting_textsize-h1-fonts') ){
+			$css .= 'font-size: '.get_theme_mod('setting_textsize-h1-fonts').';';
 		}
-		if ( get_option('setting_font-weight-h1-fonts') ){
-			$css .= 'font-weight: '.get_option('setting_font-weight-h1-fonts').';';
+		else {
+			$css .= 'font-size: 40px;';
 		}
-		if ( get_option('setting_line-height-h1-fonts') ){
-			$css .= 'line-height: '.get_option('setting_line-height-h1-fonts').';';
+		if ( get_theme_mod('setting_font-weight-h1-fonts') ){
+			$css .= 'font-weight: '.get_theme_mod('setting_font-weight-h1-fonts').';';
+		}
+		if ( get_theme_mod('setting_line-height-h1-fonts') ){
+			$css .= 'line-height: '.get_theme_mod('setting_line-height-h1-fonts').';';
 		}
 		if ( get_theme_mod('setting_textcolor-h1-fonts') ){
 			$css .= 'color: '.get_theme_mod('setting_textcolor-h1-fonts').';';
@@ -127,14 +173,17 @@
 		if ( get_theme_mod( 'select_font-h2-fonts') ){
 			$css .= 'font-family: "'.get_theme_mod( 'select_font-h2-fonts').'";';
 		}
-		if ( get_option('setting_textsize-h2-fonts') ){
-			$css .= 'font-size: '.get_option('setting_textsize-h2-fonts').';';
+		if ( get_theme_mod('setting_textsize-h2-fonts') ){
+			$css .= 'font-size: '.get_theme_mod('setting_textsize-h2-fonts').';';
 		}
-		if ( get_option('setting_font-weight-h2-fonts') ){
-			$css .= 'font-weight: '.get_option('setting_font-weight-h2-fonts').';';
+		else {
+			$css .= 'font-size: 36px;';
 		}
-		if ( get_option('setting_line-height-h2-fonts') ){
-			$css .= 'line-height: '.get_option('setting_line-height-h2-fonts').';';
+		if ( get_theme_mod('setting_font-weight-h2-fonts') ){
+			$css .= 'font-weight: '.get_theme_mod('setting_font-weight-h2-fonts').';';
+		}
+		if ( get_theme_mod('setting_line-height-h2-fonts') ){
+			$css .= 'line-height: '.get_theme_mod('setting_line-height-h2-fonts').';';
 		}
 		if ( get_theme_mod('setting_textcolor-h2-fonts') ){
 			$css .= 'color: '.get_theme_mod('setting_textcolor-h2-fonts').';';
@@ -146,14 +195,17 @@
 		if ( get_theme_mod( 'select_font-h3-fonts') ){
 			$css .= 'font-family: "'.get_theme_mod( 'select_font-h3-fonts').'";';
 		}
-		if ( get_option('setting_textsize-h3-fonts') ){
-			$css .= 'font-size: '.get_option('setting_textsize-h3-fonts').';';
+		if ( get_theme_mod('setting_textsize-h3-fonts') ){
+			$css .= 'font-size: '.get_theme_mod('setting_textsize-h3-fonts').';';
 		}
-		if ( get_option('setting_font-weight-h3-fonts') ){
-			$css .= 'font-weight: '.get_option('setting_font-weight-h3-fonts').';';
+		else {
+			$css .= 'font-size: 28px;';
 		}
-		if ( get_option('setting_line-height-h3-fonts') ){
-			$css .= 'line-height: '.get_option('setting_line-height-h3-fonts').';';
+		if ( get_theme_mod('setting_font-weight-h3-fonts') ){
+			$css .= 'font-weight: '.get_theme_mod('setting_font-weight-h3-fonts').';';
+		}
+		if ( get_theme_mod('setting_line-height-h3-fonts') ){
+			$css .= 'line-height: '.get_theme_mod('setting_line-height-h3-fonts').';';
 		}
 		if ( get_theme_mod('setting_textcolor-h3-fonts') ){
 			$css .= 'color: '.get_theme_mod('setting_textcolor-h3-fonts').';';
@@ -165,14 +217,14 @@
 		if ( get_theme_mod( 'select_font-h4-fonts') ){
 			$css .= 'font-family: "'.get_theme_mod( 'select_font-h4-fonts').'";';
 		}
-		if ( get_option('setting_textsize-h4-fonts') ){
-			$css .= 'font-size: '.get_option('setting_textsize-h4-fonts').';';
+		if ( get_theme_mod('setting_textsize-h4-fonts') ){
+			$css .= 'font-size: '.get_theme_mod('setting_textsize-h4-fonts').';';
 		}
-		if ( get_option('setting_font-weight-h4-fonts') ){
-			$css .= 'font-weight: '.get_option('setting_font-weight-h4-fonts').';';
+		if ( get_theme_mod('setting_font-weight-h4-fonts') ){
+			$css .= 'font-weight: '.get_theme_mod('setting_font-weight-h4-fonts').';';
 		}
-		if ( get_option('setting_line-height-h4-fonts') ){
-			$css .= 'line-height: '.get_option('setting_line-height-h4-fonts').';';
+		if ( get_theme_mod('setting_line-height-h4-fonts') ){
+			$css .= 'line-height: '.get_theme_mod('setting_line-height-h4-fonts').';';
 		}
 		if ( get_theme_mod('setting_textcolor-h4-fonts') ){
 			$css .= 'color: '.get_theme_mod('setting_textcolor-h4-fonts').';';
@@ -184,14 +236,14 @@
 		if ( get_theme_mod( 'select_font-h5-fonts') ){
 			$css .= 'font-family: "'.get_theme_mod( 'select_font-h5-fonts').'";';
 		}
-		if ( get_option('setting_textsize-h5-fonts') ){
-			$css .= 'font-size: '.get_option('setting_textsize-h5-fonts').';';
+		if ( get_theme_mod('setting_textsize-h5-fonts') ){
+			$css .= 'font-size: '.get_theme_mod('setting_textsize-h5-fonts').';';
 		}
-		if ( get_option('setting_font-weight-h5-fonts') ){
-			$css .= 'font-weight: '.get_option('setting_font-weight-h5-fonts').';';
+		if ( get_theme_mod('setting_font-weight-h5-fonts') ){
+			$css .= 'font-weight: '.get_theme_mod('setting_font-weight-h5-fonts').';';
 		}
-		if ( get_option('setting_line-height-h5-fonts') ){
-			$css .= 'line-height: '.get_option('setting_line-height-h5-fonts').';';
+		if ( get_theme_mod('setting_line-height-h5-fonts') ){
+			$css .= 'line-height: '.get_theme_mod('setting_line-height-h5-fonts').';';
 		}
 		if ( get_theme_mod('setting_textcolor-h5-fonts') ){
 			$css .= 'color: '.get_theme_mod('setting_textcolor-h5-fonts').';';
@@ -203,14 +255,14 @@
 		if ( get_theme_mod( 'select_font-h6-fonts') ){
 			$css .= 'font-family: "'.get_theme_mod( 'select_font-h6-fonts').'";';
 		}
-		if ( get_option('setting_textsize-h6-fonts') ){
-			$css .= 'font-size: '.get_option('setting_textsize-h6-fonts').';';
+		if ( get_theme_mod('setting_textsize-h6-fonts') ){
+			$css .= 'font-size: '.get_theme_mod('setting_textsize-h6-fonts').';';
 		}
-		if ( get_option('setting_font-weight-h6-fonts') ){
-			$css .= 'font-weight: '.get_option('setting_font-weight-h6-fonts').';';
+		if ( get_theme_mod('setting_font-weight-h6-fonts') ){
+			$css .= 'font-weight: '.get_theme_mod('setting_font-weight-h6-fonts').';';
 		}
-		if ( get_option('setting_line-height-h6-fonts') ){
-			$css .= 'line-height: '.get_option('setting_line-height-h6-fonts').';';
+		if ( get_theme_mod('setting_line-height-h6-fonts') ){
+			$css .= 'line-height: '.get_theme_mod('setting_line-height-h6-fonts').';';
 		}
 		if ( get_theme_mod('setting_textcolor-h6-fonts') ){
 			$css .= 'color: '.get_theme_mod('setting_textcolor-h6-fonts').';';
@@ -245,6 +297,11 @@
 		if ( get_theme_mod('setting_header-borderbottom') ){
 			$css .= 'border-bottom: '.get_theme_mod('setting_header-borderbottom').';';
 		}
+		else {
+			$css .= 'border-bottom: 8px solid #43755c;';
+			$css .= 'padding-top: 30px;';
+			$css .= 'padding-bottom: 30px;';
+		}
 	$css .= '}';
 
 	//.chaos-main-menu
@@ -252,14 +309,14 @@
 		if ( get_theme_mod('setting_menu-color') ){
 			$css .= 'color: '.get_theme_mod('setting_menu-color').';';
 		}
-		if ( get_option('setting_font-weight-menu') ){
-			$css .= 'font-weight: '.get_option('setting_font-weight-menu').';';
+		if ( get_theme_mod('setting_font-weight-menu') ){
+			$css .= 'font-weight: '.get_theme_mod('setting_font-weight-menu').';';
 		}
-		if ( get_option('setting_font-menu') ){
-			$css .= 'font-family: '.get_option('setting_font-menu').';';
+		if ( get_theme_mod('setting_font-menu') ){
+			$css .= 'font-family: '.get_theme_mod('setting_font-menu').';';
 		}
-		if ( get_option('setting_textsize-menu') ){
-			$css .= 'font-size: '.get_option('setting_textsize-menu').';';
+		if ( get_theme_mod('setting_textsize-menu') ){
+			$css .= 'font-size: '.get_theme_mod('setting_textsize-menu').';';
 		}
 	$css .= '}';
 
@@ -295,16 +352,16 @@
 		$css .= 'ul.chaos-submenu li.sub-item a {';
 			if ( get_theme_mod('setting_menu-color') ){
 				$css .= 'color: '.get_theme_mod('setting_menu-color').';';
-				$css .= 'font-weight: '.get_option('setting_font-weight-submenu').';';
+				$css .= 'font-weight: '.get_theme_mod('setting_font-weight-submenu').';';
 			}
-			if ( get_option('setting_textsize-submenu') ){
-				$css .= 'font-size: '.get_option('setting_textsize-submenu').';';
+			if ( get_theme_mod('setting_textsize-submenu') ){
+				$css .= 'font-size: '.get_theme_mod('setting_textsize-submenu').';';
 			}
-			if ( get_option('setting_padding-submenu') ){
-				$css .= 'padding: '.get_option('setting_padding-submenu').';';
+			if ( get_theme_mod('setting_padding-submenu') ){
+				$css .= 'padding: '.get_theme_mod('setting_padding-submenu').';';
 			}
-			if ( get_option('setting_width-submenu') ){
-				$css .= 'width: '.get_option('setting_width-submenu').';';
+			if ( get_theme_mod('setting_width-submenu') ){
+				$css .= 'width: '.get_theme_mod('setting_width-submenu').';';
 			}
 		$css	 .= '}';
 		
@@ -312,29 +369,29 @@
 			if ( get_theme_mod('setting_bg-submenu-color') ){
 				$css .= 'background-color: '.get_theme_mod('setting_bg-submenu-color').';';
 			}
-			if ( get_option('setting_border-inner-submenu') ){
-				$css .= 'border-bottom: '.get_option('setting_border-inner-submenu').';';
+			if ( get_theme_mod('setting_border-inner-submenu') ){
+				$css .= 'border-bottom: '.get_theme_mod('setting_border-inner-submenu').';';
 			}
-			if ( get_option('setting_width-submenu') ){
-				$css .= 'width: '.get_option('setting_width-submenu').';';
+			if ( get_theme_mod('setting_width-submenu') ){
+				$css .= 'width: '.get_theme_mod('setting_width-submenu').';';
 			}
 		$css .= '}';
 		$css .= 'ul.chaos-submenu li.sub-item a:hover {';
 			if ( get_theme_mod('setting_bg-submenu-hover-color') ){
 				$css .= 'background-color: '.get_theme_mod('setting_bg-submenu-hover-color').';';
 			}
-			if ( get_option('setting_border-inner-submenu') ){
-				$css .= 'border-bottom: '.get_option('setting_border-inner-submenu').';';
+			if ( get_theme_mod('setting_border-inner-submenu') ){
+				$css .= 'border-bottom: '.get_theme_mod('setting_border-inner-submenu').';';
 			}
-			if ( get_option('setting_width-submenu') ){
-				$css .= 'width: '.get_option('setting_width-submenu').';';
+			if ( get_theme_mod('setting_width-submenu') ){
+				$css .= 'width: '.get_theme_mod('setting_width-submenu').';';
 			}
 		$css .= '}';
 
 		// chaos-main-menu megamenu
 		$css .= '.chaos-main-menu ul.chaos-main-menu > li > ul.chaos-submenu {';
-			if ( get_option('setting_border-outer-submenu') ){
-				$css .= 'border: '.get_option('setting_border-outer-submenu').';';
+			if ( get_theme_mod('setting_border-outer-submenu') ){
+				$css .= 'border: '.get_theme_mod('setting_border-outer-submenu').';';
 			}
 			$css .= 'border-top: 3px solid '.get_theme_mod('setting_menu-color').';';
 			
@@ -344,11 +401,11 @@
 		$css .= '}';
 		$css .= 'ul.chaos-submenu li ul.chaos-submenu {';
 			$css .= 'top: -3px;';
-			$css .= 'left: '.get_option('setting_width-submenu').';';
+			$css .= 'left: '.get_theme_mod('setting_width-submenu').';';
 		$css .= '}';
 		$css .= '.chaos-megamenu-wrapper { ';
-			$css .= 'width: '.get_option('setting_content-width').';';
-			$left = str_replace('px', '', get_option('setting_content-width'));
+			$css .= 'width: '.get_theme_mod('setting_content-width').';';
+			$left = str_replace('px', '', get_theme_mod('setting_content-width'));
 			$left = intval($left);
 			$left = $left / 2;
 			$css .= 'left: -'.$left.'px';
@@ -358,8 +415,8 @@
 		$css .= '}';
 		$css .= '.chaos-mobile-menu .chaos-main-menu { ';
 			$css .= 'background-color: '.get_theme_mod('setting_bg-submenu-color').';';
-			$css .= 'padding-left: '.get_option('setting_content-padding').';';
-			$css .= 'padding-right: '.get_option('setting_content-padding').';';
+			$css .= 'padding-left: '.get_theme_mod('setting_content-padding').';';
+			$css .= 'padding-right: '.get_theme_mod('setting_content-padding').';';
 		$css .= '}';
 		$css .= '.chaos-mobile-menu .chaos-main-menu { ';
 			$css .= 'background-color: '.get_theme_mod('setting_bg-submenu-color').';';
@@ -369,12 +426,12 @@
 		$css .= '}';
 
 		// responsive menu
-		if ( get_option('setting_menu-responsive') ){
-			$css .= '@media screen and (max-width: '.get_option('setting_menu-responsive').') {';
+		if ( get_theme_mod('setting_menu-responsive') ){
+			$css .= '@media screen and (max-width: '.get_theme_mod('setting_menu-responsive').') {';
 				$css .= '.mobile-menu { display: block !important;}';
 				$css .= '.chaos-main-menu { display: none;}';
 				$css .= '.chaos-header.chaos-container { margin: inherit; }';
-				$css .= '.mobile-menu .fas { position: absolute; right: '.get_option('setting_content-padding').';}';
+				$css .= '.mobile-menu .fas { position: absolute; right: '.get_theme_mod('setting_content-padding').';}';
 			$css .= '}';
 		}
 
@@ -394,42 +451,42 @@
 			if ( get_theme_mod('setting_bgcolor-pagetitle') ) {
 				$css .= 'background-color: '.get_theme_mod('setting_bgcolor-pagetitle').';';
 			}
-			if ( get_option('setting_margintop-pagetitle') ) {
-				$css .= 'margin-top: '.get_option('setting_margintop-pagetitle').';';
+			if ( get_theme_mod('setting_margintop-pagetitle') ) {
+				$css .= 'margin-top: '.get_theme_mod('setting_margintop-pagetitle').';';
 			}
-			if ( get_option('setting_padding-pagetitle') ) {
-				$css .= 'padding-top: '.get_option('setting_padding-pagetitle').';';
-				$css .= 'padding-bottom: '.get_option('setting_padding-pagetitle').';';
+			if ( get_theme_mod('setting_padding-pagetitle') ) {
+				$css .= 'padding-top: '.get_theme_mod('setting_padding-pagetitle').';';
+				$css .= 'padding-bottom: '.get_theme_mod('setting_padding-pagetitle').';';
 			}
 		$css .= '}';
 
 		// breadcrumb
 		$css .= '.chaos-breadcrumb { ';
-			if ( get_option('setting_font-breadcrumb') ) {
-				$css .= 'font-family: '.get_option('setting_font-breadcrumb').';';
+			if ( get_theme_mod('setting_font-breadcrumb') ) {
+				$css .= 'font-family: '.get_theme_mod('setting_font-breadcrumb').';';
 			}
-			if ( get_option('setting_textsize-breadcrumb') ) {
-				$css .= 'font-size: '.get_option('setting_textsize-breadcrumb').';';
+			if ( get_theme_mod('setting_textsize-breadcrumb') ) {
+				$css .= 'font-size: '.get_theme_mod('setting_textsize-breadcrumb').';';
 			}
-			if ( get_option('setting_textcolor-breadcrumb') ) {
+			if ( get_theme_mod('setting_textcolor-breadcrumb') ) {
 				$css .= 'color: '.get_theme_mod('setting_textcolor-breadcrumb').';';
 			}
-			if ( get_option('setting_font-weight-breadcrumb') ) {
-				$css .= 'font-weight: '.get_option('setting_font-weight-breadcrumb').';';
+			if ( get_theme_mod('setting_font-weight-breadcrumb') ) {
+				$css .= 'font-weight: '.get_theme_mod('setting_font-weight-breadcrumb').';';
 			}
 		$css .= '}';
 		$css .= '.chaos-breadcrumb a { ';
-			if ( get_option('setting_linkcolor-breadcrumb') ) {
+			if ( get_theme_mod('setting_linkcolor-breadcrumb') ) {
 				$css .= 'color: '.get_theme_mod('setting_linkcolor-breadcrumb').' !important;';
 			}
-			if ( get_option('setting_padding-breadcrumb') ) {
-				$css .= 'padding-left: '.get_option('setting_padding-breadcrumb').';';
-				$css .= 'padding-right: '.get_option('setting_padding-breadcrumb').';';
+			if ( get_theme_mod('setting_padding-breadcrumb') ) {
+				$css .= 'padding-left: '.get_theme_mod('setting_padding-breadcrumb').';';
+				$css .= 'padding-right: '.get_theme_mod('setting_padding-breadcrumb').';';
 			}
 		$css .= '}';
 		$css .= '.chaos-breadcrumb:before { ';
-			if ( get_option('setting_before-breadcrumb') ) {
-				$css .= 'content: "'.get_option('setting_before-breadcrumb').'";';
+			if ( get_theme_mod('setting_before-breadcrumb') ) {
+				$css .= 'content: "'.get_theme_mod('setting_before-breadcrumb').'";';
 			}
 		$css .= '}';
 		/*.chaos-main-menu ul.main-menu li a {
@@ -450,32 +507,32 @@
 		}
 	/*
 	.chaos-wrapper  {
-		margin-top: <?php echo get_option('setting_page-margin');?>;
-		margin-bottom: <?php echo get_option('setting_page-margin');?>;
+		margin-top: <?php echo get_theme_mod('setting_page-margin');?>;
+		margin-bottom: <?php echo get_theme_mod('setting_page-margin');?>;
 	}
 	.site-branding {
-		width: <?php echo get_option('setting_textfield');?>
+		width: <?php echo get_theme_mod('setting_textfield');?>
 	}
 	.chaos-container {
-		width: calc(<?php echo get_option('setting_content-width');?> + (<?php echo get_option('setting_content-padding');?>*2));
-		padding-left: <?php echo get_option('setting_content-padding');?>;
-		padding-right: <?php echo get_option('setting_content-padding');?>;
+		width: calc(<?php echo get_theme_mod('setting_content-width');?> + (<?php echo get_theme_mod('setting_content-padding');?>*2));
+		padding-left: <?php echo get_theme_mod('setting_content-padding');?>;
+		padding-right: <?php echo get_theme_mod('setting_content-padding');?>;
 	}
 	.chaos-container h1 {
-		font-size: <?php echo get_option('setting_h1');?>
+		font-size: <?php echo get_theme_mod('setting_h1');?>
 	}
 	.chaos-container h2 {
-		font-size: <?php echo get_option('setting_h2');?>
+		font-size: <?php echo get_theme_mod('setting_h2');?>
 	}
 	.chaos-container h3 {
-		font-size: <?php echo get_option('setting_h3');?>
+		font-size: <?php echo get_theme_mod('setting_h3');?>
 	}
 	.has-sidebar .chaos-content {
 		display: inline-block;
-		width: calc(100% - <?php echo get_option('setting_sidebar-width');?>);
+		width: calc(100% - <?php echo get_theme_mod('setting_sidebar-width');?>);
 	}
 	.has-sidebar .chaos-sidebar {
-		width: <?php echo get_option('setting_sidebar-width');?>;
+		width: <?php echo get_theme_mod('setting_sidebar-width');?>;
 		display: inline-block;
 		float: right;
 	}
@@ -504,23 +561,23 @@
 		padding-top: <?php echo get_theme_mod('setting_footer-padding')?>;
 		padding-bottom: <?php echo get_theme_mod('setting_footer-padding')?>;
 		font-family: "<?php echo get_theme_mod( 'select_font-footer');?>";
-		font-size: <?php echo get_option('setting_textsize-footer');?>;
-		font-weight: <?php echo get_option('setting_font-weight-footer')?>;
-		line-height: <?php echo get_option('setting_line-height-footer')?>;
+		font-size: <?php echo get_theme_mod('setting_textsize-footer');?>;
+		font-weight: <?php echo get_theme_mod('setting_font-weight-footer')?>;
+		line-height: <?php echo get_theme_mod('setting_line-height-footer')?>;
 	}
 	.chaos-footer-widget {
 		color: <?php echo get_theme_mod('setting_color-text-footer');?>; 
 	}
 	.chaos-footer-widget .widget-content a {
-		color: <?php echo get_option('setting_color-link-footer');?>
+		color: <?php echo get_theme_mod('setting_color-link-footer');?>
 	}
 	.chaos-copyright {
 		background-color: <?php echo get_theme_mod('setting_background-copyright');?>;
 		color: <?php echo get_theme_mod('setting_textcolor-copyright');?>;
 		font-family: "<?php echo get_theme_mod( 'select_font-copyright');?>";
-		font-size: <?php echo get_option('setting_textsize-copyright');?>;
-		font-weight: <?php echo get_option('setting_font-weight-copyright')?>;
-		line-height: <?php echo get_option('setting_line-height-copyright')?>;
+		font-size: <?php echo get_theme_mod('setting_textsize-copyright');?>;
+		font-weight: <?php echo get_theme_mod('setting_font-weight-copyright')?>;
+		line-height: <?php echo get_theme_mod('setting_line-height-copyright')?>;
 	}		
 	.chaos-copyright a {
 		color: <?php echo get_theme_mod('setting_linkkcolor-copyright');?>;
@@ -534,9 +591,9 @@
 		background-color: <?php echo get_theme_mod('setting_background-contact-header');?>;
 		color: <?php echo get_theme_mod('setting_textcolor-contact-header');?>;
 		font-family: "<?php echo get_theme_mod( 'select_font-contact-header');?>";
-		font-size: <?php echo get_option('setting_textsize-contact-header');?>;
-		font-weight: <?php echo get_option('setting_font-weight-contact-header')?>;
-		line-height: <?php echo get_option('setting_line-height-contact-header')?>;
+		font-size: <?php echo get_theme_mod('setting_textsize-contact-header');?>;
+		font-weight: <?php echo get_theme_mod('setting_font-weight-contact-header')?>;
+		line-height: <?php echo get_theme_mod('setting_line-height-contact-header')?>;
 	}		
 	.chaos-contact-header a {
 		color: <?php echo get_theme_mod('setting_linkkcolor-contact-header');?>;
@@ -546,6 +603,5 @@
 		font-size: <?php echo get_theme_mod('setting_iconsize-contact-header');?>;
 		padding-right: <?php echo get_theme_mod('setting_iconpadding-contact-header');?>;
 	}*/
-
 	file_put_contents($file, $css);
 ?>

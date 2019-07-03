@@ -352,8 +352,8 @@ add_action( 'widgets_init', 'my_custom_sidebar' );
 
 
 function footer_sidebars() {
-	if ( get_option('setting_footer-columns') != '' ){
-		$footerCols = intval(get_option('setting_footer-columns'));
+	if ( get_theme_mod('setting_footer-columns') != '' ){
+		$footerCols = intval(get_theme_mod('setting_footer-columns'));
 	
 		for( $i = 1; $i <= $footerCols; $i++ ) {
 			register_sidebar(
@@ -374,18 +374,18 @@ add_action( 'widgets_init', 'footer_sidebars' );
 
 wp_register_script( 'responsive_handle', get_template_directory_uri().'/js/responsive.js' );
 $responsive_array = array(
-	'tabletquer' => get_option('setting_tabletquer-responsive'),
-	'tablethoch' => get_option('setting_tablethoch-responsive'),
-	'mobilequer' => get_option('setting_mobilequer-responsive'),
-	'mobilehoch' => get_option('setting_mobilehoch-responsive'),
-	'col_tabletquer' => get_option('setting_contentcolumn-tabletquer-responsive'),
-	'col_tablethoch' => get_option('setting_contentcolumn-tablethoch-responsive'),
-	'col_mobilequer' => get_option('setting_contentcolumn-mobilequer-responsive'),
-	'col_mobilehoch' => get_option('setting_contentcolumn-mobilehoch-responsive'),
-	'footer_tabletquer' => get_option('setting_footercolumn-tabletquer-responsive'),
-	'footer_tablethoch' => get_option('setting_footercolumn-tablethoch-responsive'),
-	'footer_mobilequer' => get_option('setting_footercolumn-mobilequer-responsive'),
-	'footer_mobilehoch' => get_option('setting_footercolumn-mobilehoch-responsive'),
+	'tabletquer' => get_theme_mod('setting_tabletquer-responsive'),
+	'tablethoch' => get_theme_mod('setting_tablethoch-responsive'),
+	'mobilequer' => get_theme_mod('setting_mobilequer-responsive'),
+	'mobilehoch' => get_theme_mod('setting_mobilehoch-responsive'),
+	'col_tabletquer' => get_theme_mod('setting_contentcolumn-tabletquer-responsive'),
+	'col_tablethoch' => get_theme_mod('setting_contentcolumn-tablethoch-responsive'),
+	'col_mobilequer' => get_theme_mod('setting_contentcolumn-mobilequer-responsive'),
+	'col_mobilehoch' => get_theme_mod('setting_contentcolumn-mobilehoch-responsive'),
+	'footer_tabletquer' => get_theme_mod('setting_footercolumn-tabletquer-responsive'),
+	'footer_tablethoch' => get_theme_mod('setting_footercolumn-tablethoch-responsive'),
+	'footer_mobilequer' => get_theme_mod('setting_footercolumn-mobilequer-responsive'),
+	'footer_mobilehoch' => get_theme_mod('setting_footercolumn-mobilehoch-responsive'),
 	
 );
 wp_localize_script( 'responsive_handle', 'responsive', $responsive_array );
