@@ -45,16 +45,6 @@
 		.menu-background ul li a:hover  {
 			color: <?php echo get_theme_mod('setting_menu-color');?> !important;
 		}
-		.chaos-footer {
-			border-top: <?php echo get_theme_mod('setting_footer-bordertop');?>;
-			background-color: <?php echo get_theme_mod('setting_color-footer');?>;
-			padding-top: <?php echo get_theme_mod('setting_footer-padding')?>;
-			padding-bottom: <?php echo get_theme_mod('setting_footer-padding')?>;
-			font-family: "<?php echo get_theme_mod( 'select_font-footer');?>";
-			font-size: <?php echo get_theme_mod('setting_textsize-footer');?>;
-			font-weight: <?php echo get_theme_mod('setting_font-weight-footer')?>;
-			line-height: <?php echo get_theme_mod('setting_line-height-footer')?>;
-		}
 		.chaos-footer .wp-block-columns .wp-block-column {
 			color: <?php echo get_theme_mod('setting_color-text-footer');?>; 
 		}

@@ -489,6 +489,64 @@
 				$css .= 'content: "'.get_theme_mod('setting_before-breadcrumb').'";';
 			}
 		$css .= '}';
+
+		// Footer
+		$css .= '.chaos-footer { ';
+			if ( get_theme_mod('setting_footer-bordertop') ) {
+				$css .= 'border-top: '.get_theme_mod('setting_footer-bordertop').';';
+			}
+
+			if ( get_theme_mod('setting_color-footer') ) {
+				$css .= 'background-color: '.get_theme_mod('setting_color-footer').';';
+			}
+			else {
+				$css .= 'background-color: #43755c;';
+			}
+
+			if ( get_theme_mod('setting_footer-padding') ) {
+				$css .= 'padding-top: '.get_theme_mod('setting_footer-padding').';';
+				$css .= 'padding-bottom: '.get_theme_mod('setting_footer-padding').';';
+			}
+			else {
+				$css .= 'padding-top: 30px;';
+				$css .= 'padding-bottom: 30px;';
+			}
+
+			if ( get_theme_mod( 'select_font-footer') ) {
+				$css .= 'font-family: "'.get_theme_mod( 'select_font-footer').'";';
+			}
+			if ( get_theme_mod('setting_textsize-footer') ) {
+				$css  .= 'font-size: '.get_theme_mod('setting_textsize-footer').';';
+			}
+			if ( get_theme_mod('setting_font-weight-footer') ) {
+				$css .= 'font-weight: '.get_theme_mod('setting_font-weight-footer').';';
+			}
+			if ( get_theme_mod('setting_line-height-footer') ) {
+				$css .= 'line-height: '.get_theme_mod('setting_line-height-footer').';';
+			}
+		$css .= '}';
+		
+		if ( get_theme_mod('setting_color-text-footer') ) {
+			$css .= '.chaos-footer .wp-block-columns .wp-block-column { ';
+				$css .= 'color: '.get_theme_mod('setting_color-text-footer').';';
+			$css .= '}';
+		}
+		else {
+			$css .= '.chaos-footer .wp-block-columns .wp-block-column { ';
+				$css .= 'color: #fff;';
+			$css .= '}';
+		}
+
+		if ( get_theme_mod('setting_color-link-footer') ) {
+			$css .= '.chaos-footer .wp-block-columns .widget-content a { ';
+				$css .= 'color: '.get_theme_mod('setting_color-link-footer').';';
+			$css .= '}';
+		}
+		else {
+			$css .= '.chaos-footer .wp-block-columns .widget-content a { ';
+				$css .= 'color: #fff;';
+			$css .= '}';
+		}
 		/*.chaos-main-menu ul.main-menu li a {
 			color: <?php echo get_theme_mod('setting_menu-color');?>
 		}

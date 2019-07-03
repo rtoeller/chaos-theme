@@ -17,10 +17,12 @@
 
 	<footer id="colophon" class="site-footer chaos-footer">
 		<div class="chaos-container">
-		<?php $footerCols = intval(get_theme_mod('setting_footer-columns')); ?>
-		<div class="wp-block-columns has-<?php echo $footerCols;?>-columns"><!-- 
-			<?php
-				if ( get_theme_mod('setting_footer-columns') != '' ){
+		<?php 
+			if ( get_theme_mod('setting_footer-columns') != '' ){
+				$footerCols = intval(get_theme_mod('setting_footer-columns')); 
+			?>
+			<div class="wp-block-columns has-<?php echo $footerCols;?>-columns"><!-- 
+				<?php
 					for( $i = 1; $i <= $footerCols; $i++ ) { 
 						$footerWidget = 100 / $footerCols; ?>
 					#footer-widget --><div class="wp-block-column" ><!--
@@ -28,22 +30,25 @@
 					--></div><!--
 					<?php
 					}
-				}	
-			?>-->
-			<?php if ( has_nav_menu( 'footer' ) ) : ?>
-				<nav class="footer-navigation" aria-label="<?php esc_attr_e( 'Footer Menu', 'twentynineteen' ); ?>">
+				?>-->
+			</div>
+		<?php }
+		else { 
+			$footerCols = 4;
+			?>
+			<div class="wp-block-columns has-<?php echo $footerCols;?>-columns"><!-- 
+				<?php
+					for( $i = 1; $i <= $footerCols; $i++ ) { 
+						$footerWidget = 100 / $footerCols; ?>
+					#footer-widget --><div class="wp-block-column" ><!--
+					--><h3>Überschrift</h3><!--
+					--><p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptuvolua.</p><!--
+					--></div><!--
 					<?php
-					wp_nav_menu(
-						array(
-							'theme_location' => 'footer',
-							'menu_class'     => 'footer-menu',
-							'depth'          => 1,
-						)
-					);
-					?> <!--
-				--></nav><!-- .footer-navigation -->
-			<?php endif; ?>
-		</div>
+					}						 
+				?>-->
+			</div>
+		<?php } ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 	<div class="chaos-copyright">
