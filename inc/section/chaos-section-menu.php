@@ -43,7 +43,7 @@ function wpv_customize_menu ( $wp_customize ) {
 
 	// SCHRIFTFARBE MENÜ
 	$wp_customize->add_setting( 'setting_menu-color' , array(
-        'default' => '#fff',
+        'default' => '#43755c',
         'sanitize_callback' => 'sanitize_hex_color',
     ) );
 
@@ -60,7 +60,7 @@ function wpv_customize_menu ( $wp_customize ) {
 
 	// HOVERFARBE MENÜ
 	$wp_customize->add_setting( 'setting_menuhover-color' , array(
-        'default' => '#fff',
+        'default' => '#3d3d3d',
         'sanitize_callback' => 'sanitize_hex_color',
 	) );
 
@@ -84,7 +84,7 @@ function wpv_customize_menu ( $wp_customize ) {
 	
 	// SCHRIFTFARBE SUBMENÜ
 	$wp_customize->add_setting( 'setting_submenu-color' , array(
-        'default' => '#3d3d3d',
+        'default' => '#43755c',
         'sanitize_callback' => 'sanitize_hex_color',
     ) );
 
@@ -101,7 +101,7 @@ function wpv_customize_menu ( $wp_customize ) {
 
 	// HOVERFARBE SUBMENÜ
 	$wp_customize->add_setting( 'setting_submenuhover-color' , array(
-        'default' => '#fff',
+        'default' => '#3d3d3d',
         'sanitize_callback' => 'sanitize_hex_color',
 	) );
 
@@ -119,7 +119,7 @@ function wpv_customize_menu ( $wp_customize ) {
 	
 	// HINTERGRUNDFARBE SUBMENÜ
 	$wp_customize->add_setting( 'setting_bg-submenu-color' , array(
-        'default' => '#fff',
+        'default' => '#f1f1f1',
         'sanitize_callback' => 'sanitize_hex_color',
     ) );
 
@@ -136,7 +136,7 @@ function wpv_customize_menu ( $wp_customize ) {
 	
 	// HINTERGRUNDFARBE SUBMENÜ
 	$wp_customize->add_setting( 'setting_bg-submenu-hover-color' , array(
-        'default' => '#fff',
+        'default' => '#ddd',
         'sanitize_callback' => 'sanitize_hex_color',
     ) );
 
@@ -153,7 +153,7 @@ function wpv_customize_menu ( $wp_customize ) {
 
 	// PADDING
 	$wp_customize->add_setting( 'setting_menu-padding', array(
-			'default'		=>		'',
+			'default'		=>		'20px',
 			'sanitize_callback'	=>	'sanitize_text_field',
 			'type' => 'theme_mod',
 		)
@@ -287,7 +287,7 @@ function wpv_customize_menu ( $wp_customize ) {
 	
 	// BORDER INNEN
 	$wp_customize->add_setting( 'setting_border-inner-submenu', array(
-			'default'		=>		'',
+			'default'		=>		'1px dotted #3d3d3d',
 			'sanitize_callback'	=>	'sanitize_text_field',
 			'type' => 'theme_mod',
 		)
@@ -300,9 +300,9 @@ function wpv_customize_menu ( $wp_customize ) {
 		)
 	);
 
-	// BORDER INNEN
+	// PADDING SUBLINKS
 	$wp_customize->add_setting( 'setting_padding-submenu', array(
-			'default'		=>		'',
+			'default'		=>		'5px 8px',
 			'sanitize_callback'	=>	'sanitize_text_field',
 			'type' => 'theme_mod',
 		)

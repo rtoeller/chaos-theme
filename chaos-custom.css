@@ -76,9 +76,6 @@ ul.chaos-main-menu li.mega-menu ul {
   border-right: 1px solid #000;
   border-bottom: none !important;
 }
-.chaos-megamenu-wrapper > ul.chaos-submenu > li > ul > li {
-  /*margin-left: 15px;*/
-}
 ul.chaos-main-menu li:hover > ul {
   display: block;
 }
@@ -103,8 +100,6 @@ ul.chaos-main-menu li.sub-item a {
   position: absolute;
   display: none;
   z-index: 400;
-  padding-top: 30px;
-  padding-bottom: 30px;
 }
 ul.chaos-main-menu > li.mega-menu {
   position: static;
