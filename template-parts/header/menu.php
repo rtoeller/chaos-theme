@@ -5,7 +5,7 @@
 	
 </div>
 <div class="mobile-menu">
-		<i style="font-size: 50px; color: #43755c;" class="fas fa-hamburger"></i>		
+		<i class="fas fa-hamburger"></i>		
 		<div class="chaos-mobile-menu">
 			<?php doMainmenu(1); ?>
 		</div>

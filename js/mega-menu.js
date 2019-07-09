@@ -48,4 +48,11 @@ jQuery(document).ready(function (){
 	// Height mobile menu
 	var mome = jQuery('#content').position();
 	jQuery('.mobile-menu .chaos-main-menu').css('top', mome.top);
+
+	// position grandparent submenu
+	jQuery('div.chaos-main-menu ul.chaos-submenu li.has-submenu').mouseover(function() {
+		var widthLi = jQuery(this).width();
+		jQuery(this).children().css('left', '-'+widthLi+'px');
+		
+	});
 });

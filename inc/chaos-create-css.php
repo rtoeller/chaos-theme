@@ -3,6 +3,27 @@
 //	echo 'datei '. $file;
 	$css = '';
 
+	// contentwidth
+	if ( get_theme_mod('setting_content-width') ) {
+		$width = get_theme_mod('setting_content-width');
+		$width = str_replace('px', '', $width);
+		$width = str_replace('%', '', $width);
+		$width = intval($width);
+	}
+	if ( get_theme_mod('setting_content-padding') ) {
+		$padding = get_theme_mod('setting_content-padding');
+		$padding = str_replace('px', '', $padding);
+		$padding = str_replace('%', '', $padding);
+		$padding = intval($padding);
+	}
+	if ( get_theme_mod('setting_menu-responsive') ) {
+		$burgermenu = get_theme_mod('setting_menu-responsive');
+		$burgermenu = str_replace('px', '', $burgermenu);
+		$burgermenu = str_replace('%', '', $burgermenu);
+		$burgermenu = intval($burgermenu);
+	}
+	
+
 	// #content
 	//if ( get_theme_mod('setting_background-begin') == 'content' ) { 
 		$css .= '#content {';
@@ -423,7 +444,7 @@
 	$css .= '}';	
 
 	// chaos-main-menu submenu
-	$css .= 'ul.chaos-submenu li.sub-item a {';
+	$css .= 'ul.chaos-submenu li.sub-item a, .mobile-menu ul.chaos-main-menu > li > a {';
 		if ( get_theme_mod('setting_menu-color') ){
 			$css .= 'color: '.get_theme_mod('setting_menu-color').';';
 		}
@@ -463,6 +484,10 @@
 			$css .= 'border-bottom: 1px dotted #3d3d3d;';
 		}
 	$css .= '}';
+	
+	/*$css .= '.mobile-menu ul.chaos-main-menu > li:last-child > a {';
+		$css .= 'border-bottom: none;';
+	$css .= '}';*/
 
 	$css .= 'ul.chaos-submenu li.sub-item a:hover {';
 		if ( get_theme_mod('setting_bg-submenu-hover-color') ){
@@ -503,8 +528,8 @@
 			else {
 				$padding = 60;
 			}
-			$width = $width + $padding;
-			$left = $width / 2;
+			$widthPadding = $width + $padding;
+			$left = $widthPadding / 2;
 			$css .= 'left: -'.$left.'px;';
 		}
 		else {
@@ -519,13 +544,12 @@
 			else {
 				$padding = 60;
 			}
-			$width = $width + $padding;
-			$width = $width + $padding;
-			$css .= 'width: '.$width.'px;';
+			$widthPadding = $width + $padding;
+			$css .= 'width: '.$widthPadding.'px;';
 			$left = $width / 2;
 			$css .= 'left: -'.$left.'px;';
 		}
-		$css .= 'width: '.$width.'px;';
+		$css .= 'width: '.$widthPadding.'px;';
 		$css .= 'margin-left: 50%;';
 		$css .= 'padding-left: 0px;';
 		$css .= 'padding-right: 0px;';
@@ -545,16 +569,24 @@
 			$css .= 'border-top: 3px solid '.get_theme_mod('setting_menu-color').';';
 		$css .= '}';
 
-		$css .= 'ul.chaos-submenu li ul.chaos-submenu {';
-			$css .= 'top: -3x;';
-			$css .= 'border-top: 3px solid '.get_theme_mod('setting_menu-color').';';
-		$css .= '}';
 		
 		// mobile menü
 		$css .= '.chaos-mobile-menu .chaos-main-menu { ';
-			$css .= 'background-color: '.get_theme_mod('setting_bg-submenu-color').';';
-			$css .= 'padding-left: '.get_theme_mod('setting_content-padding').';';
-			$css .= 'padding-right: '.get_theme_mod('setting_content-padding').';';
+			if ( get_theme_mod('setting_bg-submenu-color') ) {
+				$css .= 'background-color: '.get_theme_mod('setting_bg-submenu-color').';';
+			}
+			else {
+				$css .= 'background-color: #f1f1f1;';
+			}
+			if ( get_theme_mod('setting_content-padding') ) {
+				$css .= 'padding-left: '.get_theme_mod('setting_content-padding').';';
+				$css .= 'padding-right: '.get_theme_mod('setting_content-padding').';';
+			}
+			else {
+				$css .= 'padding-left: 30px;';
+				$css .= 'padding-right: 30px;';
+			}
+			
 		$css .= '}';
 		$css .= '.chaos-mobile-menu .chaos-main-menu { ';
 			$css .= 'background-color: '.get_theme_mod('setting_bg-submenu-color').';';
@@ -564,23 +596,96 @@
 		$css .= '}';
 
 		// responsive menu
+		if ( $width <= $burgermenu )  {
+			$css .= '.mobile-menu { display: block !important;}';
+			$css .= '.chaos-main-menu { display: none;}';
+			$css .= '.chaos-header.chaos-container { margin: inherit; }';
+			$css .= '.mobile-menu .fa-hamburger { position: relative;';
+				$css .= 'font-size: 50px;';
+				if ( get_theme_mod('setting_content-padding') ) {
+					$css .= 'right: '.get_theme_mod('setting_content-padding').';';
+				}
+				else {
+					$css .= 'right: 30px;';
+				}	
+
+				if ( get_theme_mod('setting_menu-color') ) {
+					$css .= 'color: '.get_theme_mod('setting_menu-color').';';
+				}
+				else {
+					$css .= 'color: #43755c;';
+				}
+			
+			$css .= '}';
+			$css .= '.mobile-menu .chaos-main-menu { ';
+				$left = $width / 2;
+				$css .= 'width: '.$width.'px;';
+				$css .= 'left: -'.$left.'px;';
+				$css .= 'margin-left: 50% !important;';
+			$css .= '}';
+		}
 		if ( get_theme_mod('setting_menu-responsive') ){
 			$css .= '@media screen and (max-width: '.get_theme_mod('setting_menu-responsive').') {';
 				$css .= '.mobile-menu { display: block !important;}';
 				$css .= '.chaos-main-menu { display: none;}';
 				$css .= '.chaos-header.chaos-container { margin: inherit; }';
-				$css .= '.mobile-menu .fas { position: absolute; right: '.get_theme_mod('setting_content-padding').';}';
+				$css .= '.mobile-menu .fa-hamburger { position: relative;';
+					$css .= 'font-size: 50px;';
+					if ( get_theme_mod('setting_content-padding') ) {
+						$css .= 'right: '.get_theme_mod('setting_content-padding').';';
+					}
+					else {
+						$css .= 'right: 30px;';
+					}	
+
+					if ( get_theme_mod('setting_menu-color') ) {
+						$css .= 'color: '.get_theme_mod('setting_menu-color').';';
+					}
+					else {
+						$css .= 'color: #43755c;';
+					}
+				
+				$css .= '}';
+				$css .= '.mobile-menu .chaos-main-menu { ';
+					$css .= 'width: 100%;';
+					$css .= 'left: 0px;';
+					$css .= 'margin-left: 0px !important;';
+				$css .= '}';
+			$css .= '}';
+		}
+		else {
+			$css .= '@media screen and (max-width: 800px) {';
+				$css .= '.mobile-menu { display: block !important;}';
+				$css .= '.chaos-main-menu { display: none;}';
+				$css .= '.chaos-header.chaos-container { margin: inherit; }';
+				$css .= '.mobile-menu .fa-hamburger { position: relative;';
+					$css .= 'font-size: 50px;';
+					if ( get_theme_mod('setting_content-padding') ) {
+						$css .= 'right: '.get_theme_mod('setting_content-padding').';';
+					}
+					else {
+						$css .= 'right: 30px;';
+					}	
+
+					if ( get_theme_mod('setting_menu-color') ) {
+						$css .= 'color: '.get_theme_mod('setting_menu-color').';';
+					}
+					else {
+						$css .= 'color: #43755c;';
+					}
+				
+				$css .= '}';
 			$css .= '}';
 		}
 
 		// -------- Macht das Sinn ------------ //
-		$css .= '@media screen and (max-width: 640px) {';
+		/*$css .= '@media screen and (max-width: 640px) {';
 			$css .= '.wp-block-column { ';
 				$css .= 'flex-basis: 100%;';
 				$css .= 'margin-left: 0px !important;';
 				$css .= 'margin-right: 0px !important;';
 			$css .= '}';
-		$css .= '}';
+		$css .= '}';*/
 		// --------------------------------- //
 
 
