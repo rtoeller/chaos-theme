@@ -1,6 +1,7 @@
 <?php 
-	$file =  $_SERVER['DOCUMENT_ROOT'].'/wordpress/wp-content/themes/chaos/chaos-customizer.css';
-//	echo 'datei '. $file;
+	// path to wordpress
+	$file = ABSPATH . 'wp-content/themes/chaos/chaos-customizer.css';
+	chmod ($file, 0775);
 	$css = '';
 
 	// contentwidth
