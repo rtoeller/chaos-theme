@@ -165,7 +165,7 @@ function wpv_customize_copyright ( $wp_customize ) {
 
     // SCHRIFTGRÖßE
     $wp_customize->add_setting( 'setting_textsize-copyright', array(
-            'default'		=>		'12px',
+            'default'		=>		'14px',
             'sanitize_callback'	=>	'sanitize_text_field',
             'type' => 'theme_mod',
         )
@@ -209,9 +209,25 @@ function wpv_customize_copyright ( $wp_customize ) {
             ) )
     );
 
+    // ICONCOLOR HOVER  
+    $wp_customize->add_setting( 'setting_iconcolor-hover-copyright' , array(
+        'default' => '#43755c',
+        'sanitize_callback' => 'sanitize_hex_color',
+    ) );
+    $wp_customize->add_control(
+        new WP_Customize_Color_Control(
+            $wp_customize,
+            'color_picker_icon_color_hover',
+            array(
+                'label'      => 'Iconfarbe Hover',
+                'section'    => 'chaos_copyright',
+                'settings'   => 'setting_iconcolor-hover-copyright',
+            ) )
+    );
+
     // ICON SIZE
     $wp_customize->add_setting( 'setting_iconsize-copyright', array(
-            'default'		=>		'30px',
+            'default'		=>		'20px',
             'sanitize_callback'	=>	'sanitize_text_field',
             'type' => 'theme_mod',
         )

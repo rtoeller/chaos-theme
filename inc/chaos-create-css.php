@@ -1,7 +1,6 @@
 <?php 
 	// path to wordpress
 	$file = ABSPATH . 'wp-content/themes/chaos/chaos-customizer.css';
-	chmod ($file, 0775);
 	$css = '';
 
 	// contentwidth
@@ -791,119 +790,101 @@
 				$css .= 'color: #fff;';
 			$css .= '}';
 		}
-		/*.chaos-main-menu ul.main-menu li a {
-			color: <?php echo get_theme_mod('setting_menu-color');?>
+		
+		// copyright
+		$css .= '.chaos-copyright { ';
+			if ( get_theme_mod('setting_background-copyright') ) {
+				$css .= 'background-color: '.get_theme_mod('setting_background-copyright').';';
+			}
+			else {
+				$css .= 'background-color: #3d3d3d;';
+			}
+
+			if ( get_theme_mod('setting_textcolor-copyright') ) {
+				$css .= 'color: '.get_theme_mod('setting_textcolor-copyright').';';
+			}
+			else {
+				$css .= 'color: #fff;';
+			}
+			
+			if ( get_theme_mod( 'select_font-copyright') ) {
+				$css .= 'font-family: "'.get_theme_mod( 'select_font-copyright').'" !important;';
+			}
+			else {
+				$css .= 'font-family: "Lato" !important;';
+			}
+
+			if ( get_theme_mod('setting_textsize-copyright') ) {
+				$css .= 'font-size: '.get_theme_mod('setting_textsize-copyright').';';
+			}
+			else {
+				$css .= 'font-size: 14px;';
+			}
+
+			if ( get_theme_mod('setting_font-weight-copyright') ) {
+				$css .= 'font-weight: '.get_theme_mod('setting_font-weight-copyright').';';
+			}
+			if ( get_theme_mod('setting_line-height-copyright') ) {
+				$css .= 'line-height: '.get_theme_mod('setting_line-height-copyright').';';
+			}
+		$css .= '}';
+
+		$css .= '.chaos-copyright a { ';
+			if ( get_theme_mod('setting_linkkcolor-copyright') ) {
+				$css .= 'color: '.get_theme_mod('setting_linkkcolor-copyright').';';
+			}
+			else {
+				$css .= 'color: #fff;';
+			}
+		$css .= '}';
+		
+		$css .= '.chaos-social-media-copyright a { ';
+			if ( get_theme_mod('setting_iconcolor-copyright') ) {
+				$css .= 'color: '.get_theme_mod('setting_iconcolor-copyright').';';
+			}
+			else {
+				$css .= 'color: #fff;';
+			}
+			
+			if ( get_theme_mod('setting_iconsize-copyright') ) {
+				$css .= 'font-size: '.get_theme_mod('setting_iconsize-copyright').';';
+			}
+			else {
+				$css .= 'font-size: 20px;';
+			}
+			
+			if ( get_theme_mod('setting_iconpadding-copyright') ) {
+				$css .= 'padding-right: '.get_theme_mod('setting_iconpadding-copyright').';';
+			}
+			else {
+				$css .= 'padding-right: 10px;';
+			}
+		$css .= '}';
+		$css .= '.chaos-social-media-copyright a:hover { ';
+			if ( get_theme_mod('setting_iconcolor-hover-copyright') ) {
+				$css .= 'color: '.get_theme_mod('setting_iconcolor-hover-copyright').';';
+			}
+			else {
+				$css .= 'color: #43755c;';
+			}
+		$css .= '}';
+		
+		/*.chaos-contact-header {
+			background-color: <?php echo get_theme_mod('setting_background-contact-header');?>;
+			color: <?php echo get_theme_mod('setting_textcolor-contact-header');?>;
+			font-family: "<?php echo get_theme_mod( 'select_font-contact-header');?>";
+			font-size: <?php echo get_theme_mod('setting_textsize-contact-header');?>;
+			font-weight: <?php echo get_theme_mod('setting_font-weight-contact-header')?>;
+			line-height: <?php echo get_theme_mod('setting_line-height-contact-header')?>;
+		}		
+		.chaos-contact-header a {
+			color: <?php echo get_theme_mod('setting_linkkcolor-contact-header');?>;
 		}
-		.chaos-main-menu ul.main-menu li a:hover,
-		.chaos-main-menu ul.main-menu li.current_page_item a {
-			color: <?php echo get_theme_mod('setting_menuhover-color');?>;
-		}
-		.menu-background ul li.current_page_item,
-		.menu-background ul li:hover {
-			background-color: <?php echo get_theme_mod('setting_menuhover-color');?>;
-			color: <?php echo get_theme_mod('setting_menu-color');?>;
-		}
-		.menu-background ul li.current_page_item a,
-		.menu-background ul li a:hover  {
-			color: <?php echo get_theme_mod('setting_menu-color');?> !important;
-		}
-	/*
-	.chaos-wrapper  {
-		margin-top: <?php echo get_theme_mod('setting_page-margin');?>;
-		margin-bottom: <?php echo get_theme_mod('setting_page-margin');?>;
-	}
-	.site-branding {
-		width: <?php echo get_theme_mod('setting_textfield');?>
-	}
-	.chaos-container {
-		width: calc(<?php echo get_theme_mod('setting_content-width');?> + (<?php echo get_theme_mod('setting_content-padding');?>*2));
-		padding-left: <?php echo get_theme_mod('setting_content-padding');?>;
-		padding-right: <?php echo get_theme_mod('setting_content-padding');?>;
-	}
-	.chaos-container h1 {
-		font-size: <?php echo get_theme_mod('setting_h1');?>
-	}
-	.chaos-container h2 {
-		font-size: <?php echo get_theme_mod('setting_h2');?>
-	}
-	.chaos-container h3 {
-		font-size: <?php echo get_theme_mod('setting_h3');?>
-	}
-	.has-sidebar .chaos-content {
-		display: inline-block;
-		width: calc(100% - <?php echo get_theme_mod('setting_sidebar-width');?>);
-	}
-	.has-sidebar .chaos-sidebar {
-		width: <?php echo get_theme_mod('setting_sidebar-width');?>;
-		display: inline-block;
-		float: right;
-	}
-	.chaos-main-menu ul.main-menu li {
-		padding: <?php echo get_theme_mod('setting_menu-padding');?>;
-	}
-	.chaos-main-menu ul.main-menu li a {
-		color: <?php echo get_theme_mod('setting_menu-color');?>
-	}
-	.chaos-main-menu ul.main-menu li a:hover,
-	.chaos-main-menu ul.main-menu li.current_page_item a {
-		color: <?php echo get_theme_mod('setting_menuhover-color');?>;
-	}
-	.menu-background ul li.current_page_item,
-	.menu-background ul li:hover {
-		background-color: <?php echo get_theme_mod('setting_menuhover-color');?>;
-		color: <?php echo get_theme_mod('setting_menu-color');?>;
-	}
-	.menu-background ul li.current_page_item a,
-	.menu-background ul li a:hover  {
-		color: <?php echo get_theme_mod('setting_menu-color');?> !important;
-	}
-	.chaos-footer {
-		border-top: <?php echo get_theme_mod('setting_footer-bordertop');?>;
-		background-color: <?php echo get_theme_mod('setting_color-footer');?>;
-		padding-top: <?php echo get_theme_mod('setting_footer-padding')?>;
-		padding-bottom: <?php echo get_theme_mod('setting_footer-padding')?>;
-		font-family: "<?php echo get_theme_mod( 'select_font-footer');?>";
-		font-size: <?php echo get_theme_mod('setting_textsize-footer');?>;
-		font-weight: <?php echo get_theme_mod('setting_font-weight-footer')?>;
-		line-height: <?php echo get_theme_mod('setting_line-height-footer')?>;
-	}
-	.chaos-footer-widget {
-		color: <?php echo get_theme_mod('setting_color-text-footer');?>; 
-	}
-	.chaos-footer-widget .widget-content a {
-		color: <?php echo get_theme_mod('setting_color-link-footer');?>
-	}
-	.chaos-copyright {
-		background-color: <?php echo get_theme_mod('setting_background-copyright');?>;
-		color: <?php echo get_theme_mod('setting_textcolor-copyright');?>;
-		font-family: "<?php echo get_theme_mod( 'select_font-copyright');?>";
-		font-size: <?php echo get_theme_mod('setting_textsize-copyright');?>;
-		font-weight: <?php echo get_theme_mod('setting_font-weight-copyright')?>;
-		line-height: <?php echo get_theme_mod('setting_line-height-copyright')?>;
-	}		
-	.chaos-copyright a {
-		color: <?php echo get_theme_mod('setting_linkkcolor-copyright');?>;
-	}
-	.chaos-social-media-copyright a {
-		color: <?php echo get_theme_mod('setting_iconcolor-copyright');?> ;
-		font-size: <?php echo get_theme_mod('setting_iconsize-copyright');?>;
-		padding-right: <?php echo get_theme_mod('setting_iconpadding-copyright');?>;
-	}
-	.chaos-contact-header {
-		background-color: <?php echo get_theme_mod('setting_background-contact-header');?>;
-		color: <?php echo get_theme_mod('setting_textcolor-contact-header');?>;
-		font-family: "<?php echo get_theme_mod( 'select_font-contact-header');?>";
-		font-size: <?php echo get_theme_mod('setting_textsize-contact-header');?>;
-		font-weight: <?php echo get_theme_mod('setting_font-weight-contact-header')?>;
-		line-height: <?php echo get_theme_mod('setting_line-height-contact-header')?>;
-	}		
-	.chaos-contact-header a {
-		color: <?php echo get_theme_mod('setting_linkkcolor-contact-header');?>;
-	}
-	.chaos-social-media-contact-header a {
-		color: <?php echo get_theme_mod('setting_iconcolor-contact-header');?> ;
-		font-size: <?php echo get_theme_mod('setting_iconsize-contact-header');?>;
-		padding-right: <?php echo get_theme_mod('setting_iconpadding-contact-header');?>;
-	}*/
-	file_put_contents($file, $css);
+		.chaos-social-media-contact-header a {
+			color: <?php echo get_theme_mod('setting_iconcolor-contact-header');?> ;
+			font-size: <?php echo get_theme_mod('setting_iconsize-contact-header');?>;
+			padding-right: <?php echo get_theme_mod('setting_iconpadding-contact-header');?>;
+		}*/
+		
+		file_put_contents($file, $css);
 ?>
