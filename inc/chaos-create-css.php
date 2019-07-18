@@ -382,6 +382,19 @@
 		$css .= '}';
 	}
 
+	$css .= 'ul.chaos-main-menu.menu-background > li > a:hover, ul.chaos-main-menu.menu-background > li > a.active  { ';
+		$css .= 'background-color: #43755c;';
+		$css .= 'color: #3d3d3d;';
+	$css .= '}';
+
+	$css .= 'ul.chaos-main-menu.menu-background > li > a { ';
+		$css .= 'padding: 10px';
+	$css .= '}';
+
+	$css .= 'ul.chaos-main-menu.menu-background > li { '; 
+		$css .= 'padding: 0px;';
+	$css .= '}';
+
 	$css .= 'ul.chaos-main-menu > li > a {';
 		if ( get_theme_mod('setting_menu-color') ){
 			$css .= 'color: '.get_theme_mod('setting_menu-color').';';
