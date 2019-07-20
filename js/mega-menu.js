@@ -52,7 +52,35 @@ jQuery(document).ready(function (){
 	// position grandparent submenu
 	jQuery('div.chaos-main-menu ul.chaos-submenu li.has-submenu').mouseover(function() {
 		var widthLi = jQuery(this).width();
+		var position = jQuery(this).position();
+		jQuery(this).children().css('top', position.top+'px');
 		jQuery(this).children().css('left', '-'+widthLi+'px');
 		
 	});
+	
+	// find active menuitem
+
+	// SCHLEIFE FUNKTIONIERT NOCH NICHT RICHTIG
+	var pageId = findClass('body', 'page-id-', '');
+	jQuery('.page'+pageId).each(function() {
+		jQuery(this).parent().attr('id','searchMenu');
+		var parentId = findClass('#searchMenu', 'parent', '');
+		while( parentId ) {
+			jQuery('.menu-id'+parentId).addClass('active');
+			parentId = findClass('.menu-id'+parentId, 'parent', '');
+			jQuery('.menu-id'+parentId).addClass('active');
+		}
+	});
+	
 });
+
+function findClass(div, searchClass, replace) {
+	var classes = jQuery(div).attr('class');
+	classSplit = classes.split(' ');
+	for ( var i = 0; i < classSplit.length; i++ ) {
+		if ( classSplit[i].search(searchClass) >= 0 ) {
+			var replaceString = classSplit[i].replace(searchClass, replace);
+			return replaceString;
+		}
+	}
+}

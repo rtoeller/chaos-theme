@@ -382,7 +382,7 @@
 		$css .= '}';
 	}
 
-	$css .= 'ul.chaos-main-menu.menu-background > li > a:hover, ul.chaos-main-menu.menu-background > li > a.active  { ';
+	$css .= 'ul.chaos-main-menu.menu-background > li > a:hover, ul.chaos-main-menu.menu-background > li.active > a  { ';
 		$css .= 'background-color: #43755c;';
 		$css .= 'color: #3d3d3d;';
 	$css .= '}';
@@ -502,7 +502,7 @@
 		$css .= 'border-bottom: none;';
 	$css .= '}';*/
 
-	$css .= 'ul.chaos-submenu li.sub-item a:hover {';
+	$css .= 'ul.chaos-submenu li.sub-item a:hover, ul.chaos-submenu li.sub-item.active > a {';
 		if ( get_theme_mod('setting_bg-submenu-hover-color') ){
 			$css .= 'background-color: '.get_theme_mod('setting_bg-submenu-hover-color').';';
 		}
