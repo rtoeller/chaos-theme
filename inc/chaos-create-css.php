@@ -122,7 +122,7 @@
 			}
 			$css .= 'margin: auto;';
 		$css .= '}';
-		$css .= '#main .entry-content > *, article header, .entry .entry-header {';
+		$css .= '#main .entry-content > *, article header, .entry .entry-header, #main .entry .entry-footer {';
 			if ( get_theme_mod('setting_content-padding') ) {
 				$css .= 'max-width: calc('.get_theme_mod('setting_content-width').' + ('.get_theme_mod('setting_content-padding').'*2));';
 			}
@@ -179,7 +179,7 @@
 			$css .= 'padding-right: 30px;';
 			$css .= 'margin: auto;';
 		$css .= '}';
-		$css .= '#main .entry-content > *, article header, .entry .entry-header {';
+		$css .= '#main .entry-content > *, article header, .entry .entry-header, #main .entry .entry-footer {';
 			$css .= 'max-width: calc(1000px + (30px*2));';
 			$css .= 'margin-left: auto !important;';
 			$css .= 'margin-right: auto !important;';
@@ -882,22 +882,58 @@
 			}
 		$css .= '}';
 		
-		/*.chaos-contact-header {
-			background-color: <?php echo get_theme_mod('setting_background-contact-header');?>;
-			color: <?php echo get_theme_mod('setting_textcolor-contact-header');?>;
-			font-family: "<?php echo get_theme_mod( 'select_font-contact-header');?>";
-			font-size: <?php echo get_theme_mod('setting_textsize-contact-header');?>;
-			font-weight: <?php echo get_theme_mod('setting_font-weight-contact-header')?>;
-			line-height: <?php echo get_theme_mod('setting_line-height-contact-header')?>;
-		}		
-		.chaos-contact-header a {
-			color: <?php echo get_theme_mod('setting_linkkcolor-contact-header');?>;
-		}
-		.chaos-social-media-contact-header a {
-			color: <?php echo get_theme_mod('setting_iconcolor-contact-header');?> ;
-			font-size: <?php echo get_theme_mod('setting_iconsize-contact-header');?>;
-			padding-right: <?php echo get_theme_mod('setting_iconpadding-contact-header');?>;
-		}*/
+		$css .= '.chaos-contact-header { ';
+			if ( get_theme_mod('setting_background-contact-header') ) {
+				$css .= 'background-color: '.get_theme_mod('setting_background-contact-header').';';
+			}
+			else {
+				$css .= 'background-color: #3d3d3d;';
+			}
+			
+			if ( get_theme_mod('setting_textcolor-contact-header') ) {
+				$css .= 'color: '.get_theme_mod('setting_textcolor-contact-header').';';
+			}
+			else {
+				$css .= 'color: #fff;';
+			}
+			
+			$css .= 'font-family: "'.get_theme_mod( 'select_font-contact-header').'";';
+			$css .= 'font-size: '.get_theme_mod('setting_textsize-contact-header').';';
+			$css .= 'font-weight: '.get_theme_mod('setting_font-weight-contact-header').';';
+			$css .= 'line-height: '.get_theme_mod('setting_line-height-contact-header').';';
+		$css .= '}';
+		
+		$css .= '.chaos-contact-header a { ';
+			if ( get_theme_mod('setting_linkkcolor-contact-header') ) {
+				$css .= 'color: '.get_theme_mod('setting_linkkcolor-contact-header').';';
+			}
+			else {
+				$css .= 'color: #fff;';
+			}			
+		$css .= '}';
+		
+		$css .= '.chaos-social-media-contact-header a { ';
+			if ( get_theme_mod('setting_iconcolor-contact-header') ) {
+				$css .= 'color: '.get_theme_mod('setting_iconcolor-contact-header').';';
+			}
+			else {
+				$css .= 'color: #fff;';
+			}
+			
+			if ( get_theme_mod('setting_iconsize-contact-header') ) {
+				$css .= 'font-size: '.get_theme_mod('setting_iconsize-contact-header').';';
+			}
+			else {
+				$css .= 'font-size: 20px;';
+			}
+			
+			if ( get_theme_mod('setting_iconpadding-contact-header') ) {
+				$css .= 'padding-right: '.get_theme_mod('setting_iconpadding-contact-header').';';
+			}
+			else {
+				$css .= 'padding-right: 10px;';
+			}
+		$css .= '}';
 		
 		file_put_contents($file, $css);
 ?>
