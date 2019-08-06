@@ -22,7 +22,14 @@
 			<?php } ?>
 		</div>
 		<div class="chaos-copyright-text">
-			<?php echo get_theme_mod('setting_text-copyright');?>
+			<?php 
+				if ( get_theme_mod('setting_text-copyright') ) { 
+					echo get_theme_mod('setting_text-copyright'); 
+				}
+				else { 
+					echo "Copyright &copy; 2019";
+				} 
+			?>
 			<div class="chaos-copyright-menu">
 				<?php
 					wp_nav_menu( array(
@@ -34,8 +41,14 @@
 		<div style="clear: both;"></div>
 	<?php } else { ?>
 		<div class="chaos-copyright-text">
-			<?php echo get_theme_mod('setting_text-copyright');?>
-			
+			<?php 
+				if ( get_theme_mod('setting_text-copyright') ) { 
+					echo get_theme_mod('setting_text-copyright'); 
+				}
+				else { 
+					echo "Copyright &copy; 2019";
+				} 
+			?>
 			<?php if( get_theme_mod('setting_menu-copyright') ) { ?>
 				<div class="chaos-copyright-menu">
 					<?php
