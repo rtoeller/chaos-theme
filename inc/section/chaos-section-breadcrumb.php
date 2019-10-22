@@ -1,5 +1,12 @@
 <?php
 	function wpv_customize_breadcrumb ( $wp_customize ) {
+		if ( get_theme_mod( 'setting_primarycolor-generell' ) ) {
+			$primary = get_theme_mod( 'setting_primarycolor-generell' );
+		}
+		else {
+			$primary = '#43755c';
+		}
+		
 		$wp_customize->add_section( 'chaos_breadcrumb', array(
 				'title'			=>		'Chaos Breadcrumb',
 				'priority'		=>		4,
@@ -121,7 +128,7 @@
 
 		// BREADCRUMB LINKFARBE
 		$wp_customize->add_setting( 'setting_linkcolor-breadcrumb' , array(
-			'default' => '#43755c',
+			'default' => $primary,
 			'sanitize_callback' => 'sanitize_hex_color',
 			'type' => 'theme_mod',
 		) );

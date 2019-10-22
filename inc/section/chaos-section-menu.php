@@ -1,5 +1,12 @@
 <?php
 function wpv_customize_menu ( $wp_customize ) {
+	if ( get_theme_mod( 'setting_primarycolor-generell' ) ) {
+		$primary = get_theme_mod( 'setting_primarycolor-generell' );
+	}
+	else {
+		$primary = '#43755c';
+	}
+	
 	$wp_customize->add_section( 'chaos_menu', array(
 			'title'			=>		'Chaos Menü',
 			'priority'		=>		4,
@@ -43,7 +50,7 @@ function wpv_customize_menu ( $wp_customize ) {
 
 	// SCHRIFTFARBE MENÜ
 	$wp_customize->add_setting( 'setting_menu-color' , array(
-        'default' => '#43755c',
+        'default' => $primary,
         'sanitize_callback' => 'sanitize_hex_color',
     ) );
 
@@ -84,7 +91,7 @@ function wpv_customize_menu ( $wp_customize ) {
 	
 	// SCHRIFTFARBE SUBMENÜ
 	$wp_customize->add_setting( 'setting_submenu-color' , array(
-        'default' => '#43755c',
+        'default' => $primary,
         'sanitize_callback' => 'sanitize_hex_color',
     ) );
 

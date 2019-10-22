@@ -1,5 +1,12 @@
 <?php
 	function wpv_customize_footer ( $wp_customize ) {
+		if ( get_theme_mod( 'setting_primarycolor-generell' ) ) {
+			$primary = get_theme_mod( 'setting_primarycolor-generell' );
+		}
+		else {
+			$primary = '#43755c';
+		}
+
 		$wp_customize->add_section( 'chaos_footer', array(
 				'title'			=>		'Chaos Footer',
 				'priority'		=>		5,
@@ -66,7 +73,7 @@
 
 		// BACKGROUND COLOR
 		$wp_customize->add_setting( 'setting_color-footer' , array(
-			'default' => '#fff',
+			'default' => $primary,
 			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 		$wp_customize->add_control(

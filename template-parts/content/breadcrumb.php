@@ -4,14 +4,14 @@
 		<h1><?php echo get_the_title();?> </h1>
 	</div>
 	<?php } ?>
-	<?php if ( get_theme_mod('setting_display-breadcrumb') == 1 ) { ?>
+	<?php //if ( get_theme_mod('setting_display-breadcrumb') == 1 ) { ?>
 		<div class="chaos-breadcrumb">
 			<?php 
 				$id = get_the_ID();
 				echo doBreadcrumb($id); 
 			?>
 		</div>
-	<?php } ?>
+	<?php //} ?>
 </div>
 
 <?php
@@ -39,8 +39,11 @@ function doBreadcrumb( $pid ){
 		$link = get_category_link( $cat_ID );
 		$parent_id  = $categories[0]->parent;
 		$catLinks .= '<a href="'.$link.'">'.$cat_name. '</a>';
-		$parentCat = get_category_parents( $parent_id, true, $space); 
-		$catLinks = $parentCat.$catLinks;
+		if ( $parent_id > 0 ) {
+			$parentCat = get_category_parents( $parent_id, true, $space); 
+			$catLinks = $parentCat.$catLinks;
+		}
+		
 		if( !is_archive() ) {
 			$catLinks .= $space; 
 		}

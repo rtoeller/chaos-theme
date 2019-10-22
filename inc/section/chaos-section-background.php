@@ -8,6 +8,23 @@
 			)
 		);
 
+		// BACKGROUND COLOR
+		$wp_customize->add_setting( 'setting_backgroundcolor-background' , array(
+			'default' => '',
+			'sanitize_callback' => 'sanitize_hex_color',
+		) );
+	
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'color_picker-primarycolor-generell',
+				array(
+					'label'      => 'Hintergundfarbe',
+					'section'    => 'chaos_background',
+					'settings'   => 'setting_backgroundcolor-background',
+				) )
+		);
+
 		// BACKGROUND IMAGE
 		$wp_customize->add_setting('setting_background', array(
 			'default' => '',

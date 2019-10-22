@@ -101,9 +101,9 @@ function wpv_customize_header ( $wp_customize ) {
 			'settings' => 'setting_header-align',
 			'type'     => 'radio',
 			'choices'  => array(
-				'left'  => 'left',
-				'center' => 'center',
-				'right' => 'right',
+				'left'  => 'Logo links, Menü rechts',
+				'center' => 'Logo mitte, Menü mitte',
+				'right' => 'Logo rechts, Menü links',
 			),
 		)
 	);

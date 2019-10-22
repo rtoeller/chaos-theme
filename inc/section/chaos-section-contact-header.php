@@ -43,6 +43,7 @@ function wpv_customize_contact_header ( $wp_customize ) {
         'label' => __( 'contact-header Text' ),
     ) );
 
+    
     // SOCIALMEDIA ALIGN
 	$wp_customize->add_setting( 'setting_align-contact-header', array(
             'default'   => 'right', // Set default value
@@ -50,6 +51,7 @@ function wpv_customize_contact_header ( $wp_customize ) {
             'type' => 'theme_mod',
         )
     );
+  
     $wp_customize->add_control(
         'control_radio_align_contact-header',
         array(
@@ -58,12 +60,34 @@ function wpv_customize_contact_header ( $wp_customize ) {
             'settings' => 'setting_align-contact-header',
             'type'     => 'select',
             'choices'  => array(
-                'header1'  => 'Text left',
-                'header2' => 'Text right',
-                'header3' => 'Text center',
-                'header4' => 'Text center Icon left',
-                'header5' => 'Text center Icon right',
+                'header1'  => 'Text links, Icons rechts',
+                'header2' => 'Text rechts, Icons links',
+                'header3' => 'Text mitte, Icons mitte',
+                'header4' => 'Text mitte Icon links',
+                'header5' => 'Text mitte Icon rechts',
             ),
+        )
+    );
+
+  
+    // DISPLAY SOCIALMEDIA ICONS
+    $wp_customize->add_setting( 'setting_display_socialicons-contact-header', array(
+            'default'   => 0, // Set default value
+            'sanitize_callback' => 'esc_attr', // Sanitize input
+            'type' => 'theme_mod',
+        )
+    );
+  
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'checkbox_display-contact-header', // Setting ID
+            array(
+                'label'     => 'Socialmedia Icons anzeigen',
+                'section'   => 'chaos_contact-header', // No hyphen
+                'settings'  => 'setting_display_socialicons-contact-header', // Setting ID
+                'type'      => 'checkbox',
+            )
         )
     );
 

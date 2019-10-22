@@ -1,5 +1,13 @@
 <?php
 	function wpv_customize_fonts ( $wp_customize ) {
+		if ( get_theme_mod( 'setting_primarycolor-generell' ) ) {
+			$primary = get_theme_mod( 'setting_primarycolor-generell' );
+		}
+		else {
+			$primary = '#43755c';
+		}
+		
+
 		$wp_customize->add_section( 'chaos_fonts', array(
 				'title'			=>		'Chaos Fonts',
 				'priority'		=>		3,
@@ -53,6 +61,25 @@
 					'settings'   => 'setting_textcolor-body-fonts',
 				) )
 		);
+
+		// LINKFARBE
+		$wp_customize->add_setting( 'setting_linkcolor-fonts' , array(
+			'default' => $primary,
+			'sanitize_callback' => 'sanitize_hex_color',
+			'type' => 'theme_mod',
+		) );
+	
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'color_picker-linkcolor-fonts',
+				array(
+					'label'      => 'Linkfarbe',
+					'section'    => 'chaos_fonts',
+					'settings'   => 'setting_linkcolor-fonts',
+				) )
+		);
+		
 
 		// BODY SCHRIFTGRÖßE
 		$wp_customize->add_setting( 'setting_textsize-body-fonts', array(
@@ -116,7 +143,7 @@
 
 		// H1 TEXTFARBE
 		$wp_customize->add_setting( 'setting_textcolor-h1-fonts' , array(
-			'default' => '#43755c',
+			'default' => $primary,
 			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 
@@ -193,7 +220,7 @@
 
 		// H2 TEXTFARBE
 		$wp_customize->add_setting( 'setting_textcolor-h2-fonts' , array(
-			'default' => '#43755c',
+			'default' => $primary,
 			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 
@@ -269,7 +296,7 @@
 
 		// H3 TEXTFARBE
 		$wp_customize->add_setting( 'setting_textcolor-h3-fonts' , array(
-			'default' => '#43755c',
+			'default' => $primary,
 			'sanitize_callback' => 'sanitize_hex_color',
 			'type' => 'theme_mod',
 		) );
@@ -347,7 +374,7 @@
 
 		// H4 TEXTFARBE
 		$wp_customize->add_setting( 'setting_textcolor-h4-fonts' , array(
-			'default' => '#43755c',
+			'default' => $primary,
 			'sanitize_callback' => 'sanitize_hex_color',
 			'type' => 'theme_mod',
 		) );
@@ -425,7 +452,7 @@
 
 		// H5 TEXTFARBE
 		$wp_customize->add_setting( 'setting_textcolor-h5-fonts' , array(
-			'default' => '#43755c',
+			'default' => $primary,
 			'sanitize_callback' => 'sanitize_hex_color',
 			'type' => 'theme_mod',
 		) );
@@ -503,7 +530,7 @@
 
 		// H6 TEXTFARBE
 		$wp_customize->add_setting( 'setting_textcolor-h6-fonts' , array(
-			'default' => '#43755c',
+			'default' => $primary,
 			'sanitize_callback' => 'sanitize_hex_color',
 			'type' => 'theme_mod',
 		) );
