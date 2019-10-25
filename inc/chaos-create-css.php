@@ -624,7 +624,7 @@
 			$css .= '.mobile-menu { display: block !important;}';
 			$css .= '.chaos-main-menu { display: none;}';
 			$css .= '.chaos-header.chaos-container { margin: inherit; }';
-			$css .= '.mobile-menu .fa-hamburger { position: relative;';
+			$css .= '.mobile-menu .fas { position: relative;';
 				$css .= 'font-size: 50px;';
 				if ( get_theme_mod('setting_content-padding') ) {
 					$css .= 'right: '.get_theme_mod('setting_content-padding').';';
@@ -653,7 +653,7 @@
 				$css .= '.mobile-menu { display: block !important;}';
 				$css .= '.chaos-main-menu { display: none;}';
 				$css .= '.chaos-header.chaos-container { margin: inherit; }';
-				$css .= '.mobile-menu .fa-hamburger { position: relative;';
+				$css .= '.mobile-menu .fas { position: relative;';
 					$css .= 'font-size: 50px;';
 					if ( get_theme_mod('setting_content-padding') ) {
 						$css .= 'right: '.get_theme_mod('setting_content-padding').';';
@@ -682,7 +682,7 @@
 				$css .= '.mobile-menu { display: block !important;}';
 				$css .= '.chaos-main-menu { display: none;}';
 				$css .= '.chaos-header.chaos-container { margin: inherit; }';
-				$css .= '.mobile-menu .fa-hamburger { position: relative;';
+				$css .= '.mobile-menu .fas { position: relative;';
 					$css .= 'font-size: 50px;';
 					if ( get_theme_mod('setting_content-padding') ) {
 						$css .= 'right: '.get_theme_mod('setting_content-padding').';';
