@@ -9,7 +9,7 @@
 
 		// MOBILE MENU
 		$wp_customize->add_setting( 'setting_menu-responsive', array(
-				'default'		=>		'',
+				'default'		=>		'800px',
 				'sanitize_callback'	=>	'sanitize_text_field',
 				'type' => 'theme_mod',
 			)
@@ -22,22 +22,8 @@
 			)
 		);
 
-		// MOBILE MENU
-		$wp_customize->add_setting( 'setting_content-responsive', array(
-				'default'		=>		'',
-				'sanitize_callback'	=>	'sanitize_text_field',
-				'type' => 'theme_mod',
-			)
-		);
-		$wp_customize->add_control( 'control_content-responsive', array(
-				'label'		=>		'Mobile Contentbreite ab',
-				'section'	=>		'chaos_responsive',
-				'settings'	=>		'setting_content-responsive',
-				'type'		=>		'text',
-			)
-		);
 
-		// SOCIALMEDIA ALIGN
+		// MOBILE MENU ICONS
 		$wp_customize->add_setting( 'setting_mobile-menuicon', array(
 				'default'   => 'burger', // Set default value
 				'sanitize_callback' => 'esc_attr', // Sanitize input
@@ -51,10 +37,25 @@
 				'settings' => 'setting_mobile-menuicon',
 				'type'     => 'radio',
 				'choices'  => array(
-					'fa-hamburger'  => '<i class="fas fa-hamburger"></i>',
-					'fa-bars' => '<i class="fas fa-bars"></i>',
-					'fa-hotdog' => '<i class="fas fa-hotdog"></i>',
+					'fa-hamburger'  => 'Burger',
+					'fa-bars' => 'Striche',
+					'fa-hotdog' => 'Hotdog',
 				),
+			)
+		);
+
+		// MOBILE MENU ICON SIZE
+		$wp_customize->add_setting( 'setting_menuicon-size-responsive', array(
+				'default'		=>		'50px',
+				'sanitize_callback'	=>	'sanitize_text_field',
+				'type' => 'theme_mod',
+			)
+		);
+		$wp_customize->add_control( 'control_menuicon-size-responsive', array(
+				'label'		=>		'Mobile Contentbreite ab',
+				'section'	=>		'chaos_responsive',
+				'settings'	=>		'setting_menuicon-size-responsive',
+				'type'		=>		'text',
 			)
 		);
 
