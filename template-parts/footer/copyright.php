@@ -1,4 +1,5 @@
 <?php if ( get_theme_mod('setting_align-copyright') == 'copyright2' ) { ?>
+	<?php if ( get_theme_mod('setting_display_socialicons-copyright') ) { ?>
 		<div class="chaos-social-media-icons chaos-social-media-copyright">
 			<?php if( get_theme_mod('setting_facebook-socialmedia')) { ?>
 				<a href="<?php echo get_theme_mod('setting_facebook-socialmedia');?>" target="_blank">
@@ -21,44 +22,50 @@
 				</a>
 			<?php } ?>
 		</div>
-		<div class="chaos-copyright-text">
-			<?php 
-				if ( get_theme_mod('setting_text-copyright') ) { 
-					echo get_theme_mod('setting_text-copyright'); 
-				}
-				else { 
-					echo "Copyright &copy; 2019";
-				} 
-			?>
-			<div class="chaos-copyright-menu">
-				<?php
+	<?php } ?>
+	<div class="chaos-copyright-text">
+		<?php 
+			if ( get_theme_mod('setting_text-copyright') ) { 
+				echo get_theme_mod('setting_text-copyright'); 
+			}
+			else { 
+				echo "Copyright &copy; 2019";
+			} 
+		?>
+		<div class="chaos-copyright-menu">
+			<?php
+				if ( get_theme_mod('setting_menu-copyright') ) {
 					wp_nav_menu( array(
 						'menu'   => get_theme_mod('setting_menu-copyright'),
 					) );
-				?>	
-			</div>	
-		</div>
-		<div style="clear: both;"></div>
-	<?php } else { ?>
-		<div class="chaos-copyright-text">
-			<?php 
-				if ( get_theme_mod('setting_text-copyright') ) { 
-					echo get_theme_mod('setting_text-copyright'); 
-				}
-				else { 
-					echo "Copyright &copy; 2019";
-				} 
-			?>
-			<?php if( get_theme_mod('setting_menu-copyright') ) { ?>
-				<div class="chaos-copyright-menu">
-					<?php
+				}				
+			?>	
+		</div>	
+	</div>
+	<div style="clear: both;"></div>
+<?php } else { ?>
+	<div class="chaos-copyright-text">
+		<?php 
+			if ( get_theme_mod('setting_text-copyright') ) { 
+				echo get_theme_mod('setting_text-copyright'); 
+			}
+			else { 
+				echo "Copyright &copy; 2019";
+			} 
+		?>
+		<?php if( get_theme_mod('setting_menu-copyright') ) { ?>
+			<div class="chaos-copyright-menu">
+				<?php
+					if ( get_theme_mod('setting_menu-copyright') ) {
 						wp_nav_menu( array(
 							'menu'   => get_theme_mod('setting_menu-copyright'),
 						) );
-					?>	
-				</div>		
-			<?php } ?>
-		</div>
+					}
+				?>	
+			</div>		
+		<?php } ?>
+	</div>
+	<?php if ( get_theme_mod('setting_display_socialicons-copyright') ) { ?>
 		<div class="chaos-social-media-icons chaos-social-media-copyright">
 			<?php if( get_theme_mod('setting_facebook-socialmedia')) { ?>
 				<a href="<?php echo get_theme_mod('setting_facebook-socialmedia');?>" target="_blank">
@@ -81,5 +88,6 @@
 				</a>
 			<?php } ?>
 		</div>
-		<div style="clear: both;"></div>
+	<?php } ?>
+	<div style="clear: both;"></div>
 <?php }?>			

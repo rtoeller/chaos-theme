@@ -37,9 +37,30 @@
 			)
 		);
 
+		// SOCIALMEDIA ALIGN
+		$wp_customize->add_setting( 'setting_mobile-menuicon', array(
+				'default'   => 'burger', // Set default value
+				'sanitize_callback' => 'esc_attr', // Sanitize input
+			)
+		);
+		$wp_customize->add_control(
+			'control_radio_mobile-menuicon',
+			array(
+				'label'    => 'Mobil Menüicon',
+				'section'  => 'chaos_responsive',
+				'settings' => 'setting_mobile-menuicon',
+				'type'     => 'radio',
+				'choices'  => array(
+					'fa-hamburger'  => '<i class="fas fa-hamburger"></i>',
+					'fa-bars' => '<i class="fas fa-bars"></i>',
+					'fa-hotdog' => '<i class="fas fa-hotdog"></i>',
+				),
+			)
+		);
+
 		// TABLET QUER
 		$wp_customize->add_setting( 'setting_tabletquer-responsive', array(
-				'default'		=>		'',
+				'default'		=>		'1024px',
 				'sanitize_callback'	=>	'sanitize_text_field',
 				'type' => 'theme_mod',
 			)
@@ -54,7 +75,7 @@
 
 		// TABLET HOCHKANT
 		$wp_customize->add_setting( 'setting_tablethoch-responsive', array(
-				'default'		=>		'',
+				'default'		=>		'768px',
 				'sanitize_callback'	=>	'sanitize_text_field',
 				'type' => 'theme_mod',
 			)
@@ -69,7 +90,7 @@
 
 		// MOBILE QUER
 		$wp_customize->add_setting( 'setting_mobilequer-responsive', array(
-				'default'		=>		'',
+				'default'		=>		'640px',
 				'sanitize_callback'	=>	'sanitize_text_field',
 				'type' => 'theme_mod',
 			)
@@ -84,7 +105,7 @@
 
 		// MOBILE HOCHKANT
 		$wp_customize->add_setting( 'setting_mobilehoch-responsive', array(
-				'default'		=>		'',
+				'default'		=>		'320px',
 				'sanitize_callback'	=>	'sanitize_text_field',
 				'type' => 'theme_mod',
 			)

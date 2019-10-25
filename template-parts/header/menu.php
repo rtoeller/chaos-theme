@@ -5,11 +5,15 @@
 	
 </div>
 <div class="mobile-menu">
-		<i class="fas fa-hamburger"></i>		
-		<div class="chaos-mobile-menu">
-			<?php doMainmenu(1); ?>
-		</div>
+	<?php if ( get_theme_mod( 'setting_mobile-menuicon') ) { ?>
+		<i class="fas <?php echo get_theme_mod( 'setting_mobile-menuicon');?>"></i>		
+	<?php }  else { ?>
+		<i class="fas fa-hamburger"></i>
+	<?php }  ?>
+	<div class="chaos-mobile-menu">
+		<?php doMainmenu(1); ?>
 	</div>
+</div>
 <?php
 
 function doMainmenu($mobile) { 

@@ -35,7 +35,7 @@
 				'type'		=>		'text',
 			)
 		);
-
+		
 		// PRIMARY COLOR
 		$wp_customize->add_setting( 'setting_primarycolor-generell' , array(
 			'default' => '#43755c',
@@ -45,13 +45,14 @@
 		$wp_customize->add_control(
 			new WP_Customize_Color_Control(
 				$wp_customize,
-				'color_picker-primarycolor-generell',
+				'color_picker-textcolor-test',
 				array(
 					'label'      => 'Primary Farbe',
 					'section'    => 'chaos_generell',
 					'settings'   => 'setting_primarycolor-generell',
 				) )
 		);
+		
 
 		// CHECKBOX SIDEBAR
 		$wp_customize->add_setting( 'setting_sidebar-check', array(

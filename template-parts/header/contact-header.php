@@ -1,4 +1,5 @@
 <?php if ( get_theme_mod('setting_align-contact-header') == 'header2' ) { ?>
+	<?php if ( get_theme_mod('setting_display_socialicons-contact-header') ) { ?>
 		<div class="chaos-social-media-icons chaos-social-media-contact-header">
 			<?php if( get_theme_mod('setting_facebook-socialmedia')) { ?>
 				<a href="<?php echo get_theme_mod('setting_facebook-socialmedia');?>" target="_blank">
@@ -21,14 +22,17 @@
 				</a>
 			<?php } ?>
 		</div>
-		<div class="chaos-contact-header-text">
-			<?php echo get_theme_mod('setting_text-contact-header');?>
-		</div>
-		<div style="clear: both;"></div>
-	<?php } else { ?>
-		<div class="chaos-contact-header-text">
-			<?php echo get_theme_mod('setting_text-contact-header');?>
-		</div>
+	<?php } ?>
+	<div class="chaos-contact-header-text">
+		<?php echo get_theme_mod('setting_text-contact-header');?>
+	</div>
+	<div style="clear: both;"></div>
+
+<?php } else { ?>
+	<div class="chaos-contact-header-text">
+		<?php echo get_theme_mod('setting_text-contact-header');?>
+	</div>
+	<?php if ( get_theme_mod('setting_display_socialicons-contact-header') ) { ?>
 		<div class="chaos-social-media-icons chaos-social-media-contact-header">
 			<?php if( get_theme_mod('setting_facebook-socialmedia')) { ?>
 				<a href="<?php echo get_theme_mod('setting_facebook-socialmedia');?>" target="_blank">
@@ -51,5 +55,6 @@
 				</a>
 			<?php } ?>
 		</div>
+	<?php }?>
 		<div style="clear: both;"></div>
 <?php }?>			

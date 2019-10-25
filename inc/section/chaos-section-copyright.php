@@ -44,24 +44,45 @@ function wpv_customize_copyright ( $wp_customize ) {
 
     // SOCIALMEDIA ALIGN
 	$wp_customize->add_setting( 'setting_align-copyright', array(
-            'default'   => 'right', // Set default value
+            'default'   => 'copyright1', // Set default value
             'sanitize_callback' => 'esc_attr', // Sanitize input
         )
     );
     $wp_customize->add_control(
         'control_radio_align_copyright',
         array(
-            'label'    => 'Social Media Ausrichtung',
+            'label'    => 'Copyright Ausrichtung',
             'section'  => 'chaos_copyright',
             'settings' => 'setting_align-copyright',
             'type'     => 'select',
             'choices'  => array(
-                'copyright1'  => 'Text left',
-                'copyright2' => 'Text right',
-                'copyright3' => 'Text center',
-                'copyright4' => 'Text center Icon left',
-                'copyright5' => 'Text center Icon right',
+                'copyright1'  => 'Text links, Icons rechts',
+                'copyright2' => 'Text rechts, Icons links',
+                'copyright3' => 'Text mitte, Icons mitte',
+                'copyright4' => 'Text mitte Icon links',
+                'copyright5' => 'Text mitte Icon rechts',
             ),
+        )
+    );
+
+    // DISPLAY SOCIALMEDIA ICONS
+    $wp_customize->add_setting( 'setting_display_socialicons-copyright', array(
+            'default'   => 0, // Set default value
+            'sanitize_callback' => 'esc_attr', // Sanitize input
+            'type' => 'theme_mod',
+        )
+    );
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'checkbox_display-copyright', // Setting ID
+            array(
+                'label'     => 'Socialmedia Icons anzeigen',
+                'section'   => 'chaos_copyright', // No hyphen
+                'settings'  => 'setting_display_socialicons-copyright', // Setting ID
+                'type'      => 'checkbox',
+            )
         )
     );
 

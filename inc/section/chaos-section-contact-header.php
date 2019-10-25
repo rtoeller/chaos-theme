@@ -40,7 +40,7 @@ function wpv_customize_contact_header ( $wp_customize ) {
         'type' => 'textarea',
         'section' => 'chaos_contact-header',
         'settings' =>  'setting_text-contact-header',
-        'label' => __( 'contact-header Text' ),
+        'label' => 'Contact Header Text',
     ) );
 
     
@@ -55,7 +55,7 @@ function wpv_customize_contact_header ( $wp_customize ) {
     $wp_customize->add_control(
         'control_radio_align_contact-header',
         array(
-            'label'    => 'Social Media Ausrichtung',
+            'label'    => 'Contact Header Ausrichtung',
             'section'  => 'chaos_contact-header',
             'settings' => 'setting_align-contact-header',
             'type'     => 'select',
