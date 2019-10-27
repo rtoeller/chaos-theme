@@ -6,9 +6,14 @@
 		else {
 			$primary = '#43755c';
 		}
+
+		if ( get_theme_mod( 'select_fontbody-fonts') ) {
+			$font_family = strtolower( get_theme_mod( 'select_fontbody-fonts') );
+		}
+		else {
+			$font_family = 'lato';
+		}	
 		
-
-
 		// PANEL
 		$wp_customize->add_panel( 'chaos_fonts', array(
 			'priority'       => 3,
@@ -75,6 +80,7 @@
 		
 		// BODY SCHRIFTART
 		$wp_customize->add_setting( 'select_fontbody-fonts', array(
+				'default'	 => $font_family,
 				'capability' => 'edit_theme_options',
 				'type' => 'theme_mod',
 				'panel' => 'chaos_fonts',
@@ -183,6 +189,7 @@
 		
 		// H1 SCHRIFTART
 		$wp_customize->add_setting( 'select_font-h1-fonts', array(
+				'default'	 => $font_family,
 				'capability' => 'edit_theme_options',
 				'type' => 'theme_mod',
 				'panel' => 'chaos_fonts',
@@ -270,6 +277,7 @@
 
 		// H2 SCHRIFTART
 		$wp_customize->add_setting( 'select_font-h2-fonts', array(
+				'default'	 => $font_family,
 				'capability' => 'edit_theme_options',
 				'type' => 'theme_mod',
 				'panel' => 'chaos_fonts',
@@ -357,6 +365,7 @@
 
 		// H3 SCHRIFTART
 		$wp_customize->add_setting( 'select_font-h3-fonts', array(
+				'default'	 => $font_family,
 				'capability' => 'edit_theme_options',
 				'type' => 'theme_mod',
 				'panel' => 'chaos_fonts',
@@ -444,6 +453,7 @@
 
 		// H4 SCHRIFTART
 		$wp_customize->add_setting( 'select_font-h4-fonts', array(
+				'default'	 => $font_family,
 				'capability' => 'edit_theme_options',
 				'type' => 'theme_mod',
 				'panel' => 'chaos_fonts',
@@ -531,6 +541,7 @@
 
 		// H5 SCHRIFTART
 		$wp_customize->add_setting( 'select_font-h5-fonts', array(
+				'default'	 => $font_family,
 				'capability' => 'edit_theme_options',
 				'type' => 'theme_mod',
 				'panel' => 'chaos_fonts',
@@ -618,6 +629,7 @@
 
 		// H6 SCHRIFTART
 		$wp_customize->add_setting( 'select_font-h6-fonts', array(
+				'default'	 => $font_family,
 				'capability' => 'edit_theme_options',
 				'type' => 'theme_mod',
 				'panel' => 'chaos_fonts',

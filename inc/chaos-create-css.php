@@ -130,7 +130,7 @@
 			}
 			$css .= 'margin: auto;';
 		$css .= '}';
-		$css .= '#main .entry-content > *, article header, .entry .entry-header, #main .entry .entry-footer {';
+		$css .= '#main .entry-content > *, article header, .entry .entry-header, #main .entry .entry-footer, .entry .entry-meta, #comments, h1.page-title{';
 			if ( get_theme_mod('setting_content-padding') ) {
 				$css .= 'max-width: calc('.get_theme_mod('setting_content-width').' + ('.get_theme_mod('setting_content-padding').'*2));';
 			}
@@ -187,7 +187,7 @@
 			$css .= 'padding-right: 30px;';
 			$css .= 'margin: auto;';
 		$css .= '}';
-		$css .= '#main .entry-content > *, article header, .entry .entry-header, #main .entry .entry-footer {';
+		$css .= '#main .entry-content > *, article header, .entry .entry-header, #main .entry .entry-footer, .entry .entry-meta, #comments, h1.page-title {';
 			$css .= 'max-width: calc(1000px + (30px*2));';
 			$css .= 'margin-left: auto !important;';
 			$css .= 'margin-right: auto !important;';
@@ -418,8 +418,8 @@
 			$css .= 'font-weight: '.get_theme_mod('setting_font-weight-menu').';';
 		}
 
-		if ( get_theme_mod('setting_font-menu') ){
-			$css .= 'font-family: '.get_theme_mod('setting_font-menu').';';
+		if ( get_theme_mod('select_font-menu') ){
+			$css .= 'font-family: '.get_theme_mod('select_font-menu').';';
 		}
 		
 		if ( get_theme_mod('setting_textsize-menu') ){
@@ -478,6 +478,10 @@
 
 		if ( get_theme_mod('setting_font-weight-submenu') ){
 			$css .= 'font-weight: '.get_theme_mod('setting_font-weight-submenu').';';
+		}
+
+		if ( get_theme_mod('select_font-submenu') ){
+			$css .= 'font-family: "'.get_theme_mod('select_font-submenu').'";';
 		}
 
 		if ( get_theme_mod('setting_textsize-submenu') ){

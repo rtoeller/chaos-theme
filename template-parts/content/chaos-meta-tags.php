@@ -13,7 +13,7 @@ $discussion = ! is_page() && twentynineteen_can_show_post_thumbnail() ? twentyni
 <?php if ( get_theme_mod('setting_display-metatags') == 1 ) { ?>
 	<div class="entry-meta">
 		<?php if ( get_theme_mod('setting_display-author-metatags') == 1 ) { ?>
-			<?php twentynineteen_posted_by(); ?>
+			<?php twentynineteen_posted_by(); echo get_theme_mod('setting_display-date-metatags');?>
 			<?php } ?>
 		<?php if ( get_theme_mod('setting_display-date-metatags') == 1 ) { ?>
 			<?php twentynineteen_posted_on(); ?>

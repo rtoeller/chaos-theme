@@ -30,6 +30,7 @@
 		$wp_customize->add_setting( 'setting_display-author-metatags', array(
 				'default'   => 0, // Set default value
 				'sanitize_callback' => 'esc_attr', // Sanitize input
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control(
@@ -49,6 +50,7 @@
 		$wp_customize->add_setting( 'setting_display-date-metatags', array(
 				'default'   => 1, // Set default value
 				'sanitize_callback' => 'esc_attr', // Sanitize input
+				'type' => 'theme_mod',
 			)
 		);
 		$wp_customize->add_control(
@@ -144,6 +146,7 @@
 		$wp_customize->add_setting( 'setting_position-metatags', array(
 				'default'   => 0, // Set default value
 				'sanitize_callback' => 'esc_attr', // Sanitize input
+				'type' => 'theme_mod',
 			)
 		);
 

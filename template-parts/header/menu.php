@@ -1,26 +1,35 @@
-<div class="chaos-main-menu">
-	<?php
-		doMainmenu(0);
-	?>
-	
-</div>
-<div class="mobile-menu">
-	<?php if ( get_theme_mod( 'setting_mobile-menuicon') ) { ?>
-		<i class="fas <?php echo get_theme_mod( 'setting_mobile-menuicon');?>"></i>		
-	<?php }  else { ?>
-		<i class="fas fa-hamburger"></i>
-	<?php }  ?>
-	<div class="chaos-mobile-menu">
-		<?php doMainmenu(1); ?>
-	</div>
-</div>
-<?php
-
-function doMainmenu($mobile) { 
+<?php 
 	$active_id = get_the_ID();
 	$menu_name = 'menu-1';
 	$locations = get_nav_menu_locations();
 	$menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
+?>
+
+<div class="chaos-main-menu">
+	<?php
+		if ( $menu ) {
+			doMainmenu( 0, $menu );
+		}
+		else {
+			echo '<a href="'.get_home_url().'/wp-admin/nav-menus.php">Bitte Menü auswählen</a>';
+		}
+	?>
+	
+</div>
+<div class="mobile-menu">
+	<?php if ( $menu ) { ?>
+		<?php if ( get_theme_mod( 'setting_mobile-menuicon') ) { ?>
+			<i class="fas <?php echo get_theme_mod( 'setting_mobile-menuicon');?>"></i>		
+		<?php }  else { ?>
+			<i class="fas fa-hamburger"></i>
+		<?php }  ?>
+		<div class="chaos-mobile-menu">
+			<?php doMainmenu( 1, $menu ); ?>
+		</div>
+	</div>
+<?php }
+
+function doMainmenu($mobile, $menu) { 
 	if ($menu) {
 		$menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
 		if ( get_theme_mod('setting_menu-background') == 1 ) { 
@@ -95,9 +104,6 @@ function doMainmenu($mobile) {
 		<?php } ?>
 		</ul>
 		<?php }
-		else {
-			echo '<a href="'.get_home_url().'/wp-admin/nav-menus.php">Bitte Menü auswählen</a>';
-		}
 }
 
 function hasSubmenu ($menuitems, $parent_id, $active_id) {
