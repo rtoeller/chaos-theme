@@ -76,6 +76,9 @@ ul.chaos-main-menu li.mega-menu ul {
   border-right: 1px solid #000;
   border-bottom: none !important;
 }
+.chaos-megamenu-wrapper > ul.chaos-submenu > li:last-of-type {
+  border-right: none;
+}
 ul.active {
   display: block !important;
 }
@@ -394,4 +397,13 @@ i.arrow, i.arrow:before {
 }
 .chaos-clear {
   clear: both;
+}
+
+@media screen and (max-width: 800px) {
+  .entry .entry-content, .entry .entry-summary {
+      width: 100%;
+      padding: 0px;
+      max-width: 100%;
+      margin: 0px;
+  }
 }

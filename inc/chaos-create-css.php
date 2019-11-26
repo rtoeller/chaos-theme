@@ -214,6 +214,9 @@
 		if ( get_theme_mod( 'select_font-h1-fonts') ){
 			$css .= 'font-family: "'.get_theme_mod( 'select_font-h1-fonts').'";';
 		}
+		else {
+			$css .= 'font-family: "Lato";';
+		}
 		if ( get_theme_mod('setting_textsize-h1-fonts') ){
 			$css .= 'font-size: '.get_theme_mod('setting_textsize-h1-fonts').';';
 		}
@@ -235,6 +238,9 @@
 	$css .= '.chaos-container h2 { ';
 		if ( get_theme_mod( 'select_font-h2-fonts') ){
 			$css .= 'font-family: "'.get_theme_mod( 'select_font-h2-fonts').'";';
+		}
+		else {
+			$css .= 'font-family: "Lato";';
 		}
 		if ( get_theme_mod('setting_textsize-h2-fonts') ){
 			$css .= 'font-size: '.get_theme_mod('setting_textsize-h2-fonts').';';
@@ -258,6 +264,9 @@
 		if ( get_theme_mod( 'select_font-h3-fonts') ){
 			$css .= 'font-family: "'.get_theme_mod( 'select_font-h3-fonts').'";';
 		}
+		else {
+			$css .= 'font-family: "Lato";';
+		}
 		if ( get_theme_mod('setting_textsize-h3-fonts') ){
 			$css .= 'font-size: '.get_theme_mod('setting_textsize-h3-fonts').';';
 		}
@@ -280,6 +289,9 @@
 		if ( get_theme_mod( 'select_font-h4-fonts') ){
 			$css .= 'font-family: "'.get_theme_mod( 'select_font-h4-fonts').'";';
 		}
+		else {
+			$css .= 'font-family: "Lato";';
+		}
 		if ( get_theme_mod('setting_textsize-h4-fonts') ){
 			$css .= 'font-size: '.get_theme_mod('setting_textsize-h4-fonts').';';
 		}
@@ -299,6 +311,9 @@
 		if ( get_theme_mod( 'select_font-h5-fonts') ){
 			$css .= 'font-family: "'.get_theme_mod( 'select_font-h5-fonts').'";';
 		}
+		else {
+			$css .= 'font-family: "Lato";';
+		}
 		if ( get_theme_mod('setting_textsize-h5-fonts') ){
 			$css .= 'font-size: '.get_theme_mod('setting_textsize-h5-fonts').';';
 		}
@@ -317,6 +332,9 @@
 	$css .= '.chaos-container h6 { ';
 		if ( get_theme_mod( 'select_font-h6-fonts') ){
 			$css .= 'font-family: "'.get_theme_mod( 'select_font-h6-fonts').'";';
+		}
+		else {
+			$css .= 'font-family: "Lato";';
 		}
 		if ( get_theme_mod('setting_textsize-h6-fonts') ){
 			$css .= 'font-size: '.get_theme_mod('setting_textsize-h6-fonts').';';
@@ -578,7 +596,7 @@
 			$css .= 'left: -'.$left.'px;';
 		}
 		$css .= 'width: '.$widthPadding.'px;';
-		$css .= 'margin-left: 50%;';
+		$css .= 'margin-left: 50% !important;';
 		$css .= 'padding-left: 0px;';
 		$css .= 'padding-right: 0px;';
 	$css .= '}';
