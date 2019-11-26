@@ -7,12 +7,18 @@
 			$primary = '#43755c';
 		}
 
+		/*
+		FUNKTIONIERT LEIDER NICHT - aufgeschoben
 		if ( get_theme_mod( 'select_fontbody-fonts') ) {
+			$font_family = 'roboto'; // strtolower( get_theme_mod( 'select_fontbody-fonts') );
 			$font_family = strtolower( get_theme_mod( 'select_fontbody-fonts') );
+			settype($font_family, 'string');
+			echo gettype($font_family). ' '.$font_family;
 		}
 		else {
 			$font_family = 'lato';
-		}	
+		}*/
+		$font_family = 'lato';
 		
 		// PANEL
 		$wp_customize->add_panel( 'chaos_fonts', array(
