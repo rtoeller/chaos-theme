@@ -7,13 +7,15 @@ function wpv_customize_menu ( $wp_customize ) {
 		$primary = '#43755c';
 	}
 
-	if ( get_theme_mod( 'select_fontbody-fonts') ) {
+	/*if ( get_theme_mod( 'select_fontbody-fonts') ) {
+		echo "if ";
 		$font_family = strtolower( get_theme_mod( 'select_fontbody-fonts') );
 	}
 	else {
+		echo "else ";
 		$font_family = 'lato';
 	}	
-	echo $font_family;
+	echo $font_family;*/
 
 	// PANEL
 	$wp_customize->add_panel( 'chaos_menu', array(

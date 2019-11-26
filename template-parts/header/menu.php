@@ -140,7 +140,7 @@ function doSubmenu ($menuitems, $parent_id, $submenu, $mobile, $active_id) {
 				$submenu = true;
 				$sub .= '<li class="sub-item has-submenu menu-id'.$child->ID.' parent'.$parent_id.' '.$active_class.'">';
 				$sub .= '<a href="'.$link.'" class="title page'.$id.'">'.$title;
-				$sub .= $mobileAfter.'</a><ul class="chaos-submenu">';
+				$sub .= '</a>'.$mobileAfter.'<ul class="chaos-submenu">';
 				$sub .= doSubmenu($menuitems, $child->ID ,$submenu, $mobile,  $active_id);
 				$sub .= '</ul>';
 			} 

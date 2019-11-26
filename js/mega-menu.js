@@ -20,7 +20,7 @@ jQuery(document).ready(function (){
 	});
 	
 	// open burgermenu
-	jQuery('.mobile-menu i.fa-hamburger').click(function() {
+	jQuery('.mobile-menu i.fas').click(function() {
 		if( jQuery(this).parent().hasClass('open') ) {
 			jQuery(this).parent().removeClass('open');
 			jQuery('li.has-submenu').removeClass('open');
@@ -50,13 +50,13 @@ jQuery(document).ready(function (){
 	jQuery('.mobile-menu .chaos-main-menu').css('top', mome.top);
 
 	// position grandparent submenu
-	jQuery('div.chaos-main-menu ul.chaos-submenu li.has-submenu').mouseover(function() {
+	/*jQuery('div.chaos-main-menu ul.chaos-submenu li.has-submenu').mouseover(function() {
 		var widthLi = jQuery(this).width();
 		var position = jQuery(this).position();
 		jQuery(this).children().css('top', position.top+'px');
 		jQuery(this).children().css('left', '-'+widthLi+'px');
 		
-	});
+	});*/
 	
 	// find active menuitem
 
