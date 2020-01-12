@@ -37,6 +37,12 @@ function wpv_customize_menu ( $wp_customize ) {
 			'panel'			=>		'chaos_menu',
 		)
 	);
+	$wp_customize->add_section( 'mobilemenu', array(
+			'title'			=>		'Mobiles Menü',
+			'priority'		=>		3,
+			'panel'			=>		'chaos_menu',
+		)
+	);
 
 
 	// FONTCOLOR MENU
@@ -361,5 +367,61 @@ function wpv_customize_menu ( $wp_customize ) {
 			'panel'		=>		'chaos_menu',
 		)
 	);
+
+	// MOBILE MENÜ
+	$wp_customize->add_setting( 'setting_menu-responsive', array(
+			'default'		=>		'800px',
+			'sanitize_callback'	=>	'sanitize_text_field',
+			'type' => 'theme_mod',
+			'panel'				=>		'chaos_menu',
+		)
+	);
+	$wp_customize->add_control( 'control_menu-responsive', array(
+			'label'		=>		'Mobiles Menü ab',
+			'section'	=>		'mobilemenu',
+			'settings'	=>		'setting_menu-responsive',
+			'type'		=>		'text',
+		)
+	);
+
+	
+	// MOBILE MENU ICONS
+	$wp_customize->add_setting( 'setting_mobile-menuicon', array(
+			'default'   => 'burger', // Set default value
+			'sanitize_callback' => 'esc_attr', // Sanitize input
+			'panel'				=>		'chaos_menu',
+		)
+	);
+	$wp_customize->add_control(
+		'control_radio_mobile-menuicon',
+		array(
+			'label'    => 'Mobil Menüicon',
+			'section'	=>		'mobilemenu',
+			'settings' => 'setting_mobile-menuicon',
+			'type'     => 'radio',
+			'choices'  => array(
+				'fa-hamburger'  => 'Burger',
+				'fa-bars' => 'Striche',
+				'fa-hotdog' => 'Hotdog',
+			),
+		)
+	);
+
+	// MOBILE MENU ICON SIZE
+	$wp_customize->add_setting( 'setting_menuicon-size-responsive', array(
+			'default'		=>		'50px',
+			'sanitize_callback'	=>	'sanitize_text_field',
+			'type' => 'theme_mod',
+			'panel'				=>		'chaos_menu',
+		)
+	);
+	$wp_customize->add_control( 'control_menuicon-size-responsive', array(
+			'label'		=>		'Mobile Contentbreite ab',
+			'section'	=>		'mobilemenu',
+			'settings'	=>		'setting_menuicon-size-responsive',
+			'type'		=>		'text',
+		)
+	);
+
 }
 add_action( 'customize_register', 'wpv_customize_menu' ); 

@@ -974,5 +974,11 @@
 			}
 		$css .= '}';
 		
+		// LOGO MOBILE
+		echo "breite ".get_theme_mod('setting_display-logo-mobile');
+		$css .= '@media screen and (max-width: '.get_theme_mod('setting_display-logo-mobile').') {';
+			$css .= '.logo-img { display: none; }';
+			$css .= '.logo-img-mobile { display: block; }';
+		$css .= '}';
 		file_put_contents($file, $css);
 ?>

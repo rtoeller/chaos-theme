@@ -29,6 +29,9 @@
 .main-menu-more {
   display: none;
 }
+.chaos-logo .logo-img-mobile { 
+  display: none; 
+};
 .chaos-main-menu ul {
   list-style-type: none;
   padding: 0px;
