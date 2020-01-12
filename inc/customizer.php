@@ -172,6 +172,7 @@ require get_template_directory() . '/inc/section/chaos-section-breadcrumb.php';
 require get_template_directory() . '/inc/section/chaos-section-pagetitle.php';
 require get_template_directory() . '/inc/section/chaos-section-metatags.php';
 require get_template_directory() . '/inc/section/chaos-section-fonts.php';
+require get_template_directory() . '/inc/section/chaos-section-import-export.php';
 //require get_template_directory() . '/inc/section/chaos-section-example.php';
 
 function chaos_get_fonts() {
@@ -184,6 +185,28 @@ function chaos_get_fonts() {
 
 	return  $fonts;
 }
+
+/*function chaos_export_custom_option() {
+	global $wpdb;
+	$prefix = $wpdb->prefix;
+	echo get_theme_mod('setting_text-import-export');
+	if( get_theme_mod('setting_text-import-export') ) {
+		$chaos_options = get_theme_mod('setting_text-import-export');
+		$wpdb->query( 'update '.$prefix.'options set option_value = "'.$chaos_options.'" where option_name like "theme_mods_chaos"' );
+		
+
+	}
+
+	$theme_options =  $wpdb->get_results( 'SELECT * FROM '.$prefix.'options WHERE option_name like "theme_mods_chaos"' , ARRAY_A);
+	
+	foreach($theme_options as $option_value){  
+		$chaos_options = $option_value['option_value'];
+	}
+
+	//get_theme_mod('setting_text-import-export') = $theme_options;
+	
+	return $chaos_options;
+}*/
 
 function chaos_get_background_position() {
 	$position = array(
